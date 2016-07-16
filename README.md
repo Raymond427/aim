@@ -54,14 +54,16 @@ To build the app, be sure you have these installed:
 
 * Look for the content indented under the default database scheme and enter the username and password you created under the pool or port value, it will look something like this:
 
-  > default: &default
-  > adapter: postgresql
-  > encoding: unicode
-  > # For details on connection pooling, see rails configuration guide
-  > # http://guides.rubyonrails.org/configuring.html#database-pooling
-  > pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  > username: appname
-  > password: the_password_you_entered
+  ```
+  default: &default
+  adapter: postgresql
+  encoding: unicode
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: appname
+  password: the_password_you_entered
+  ```
 
 * Check the status of the postgres server, it should be online
 
