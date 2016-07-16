@@ -73,7 +73,7 @@ To build the app, be sure you have these installed:
 
 ## Running the Test Suite
 
-TBA
+TODO
 
 # Server Environments
 
