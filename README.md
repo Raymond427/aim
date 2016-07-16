@@ -1,48 +1,48 @@
 # Advancing Innovative Minds
 
-# Development
+## Development
 
-## Getting Started
+### Getting Started
 
-### Requirements
+#### Requirements
 
 To build the app, be sure you have these installed:
 
-- Ruby 2.3.1
+* Ruby 2.3.1
 
-### Database Configuration
-- Make sure that you have postgreSQL installed
+#### Database Configuration
+* Make sure that you have postgreSQL installed
   Run these commands:
 
-    $ sudo apt-get install
-    $ postgresql-client-common
-    $ sudo apt-get install
-    $ postgresql-client-9.3
-    $ sudo apt-get install postgresql-9.3
-    $ sudo apt-get install postgresql
-    $ postgresql-contrib libpq-dev
+    `$ sudo apt-get install`
+    `$ postgresql-client-common`
+    `$ sudo apt-get install`
+    `$ postgresql-client-9.3`
+    `$ sudo apt-get install postgresql-9.3`
+    `$ sudo apt-get install postgresql`
+    `$ postgresql-contrib libpq-dev`
 
-- Create a user that will control the database
-    $ sudo -u postgres createuser -s pguser
+* Create a user that will control the database
+    `$ sudo -u postgres createuser -s pguser`
 
-- Set a password for that user
+* Set a password for that user
 
-    $ sudo -u postgres psql
-    $ \\password pguser
+    `$ sudo -u postgres psql`
+    `$ \\password pguser`
 
-- Leave psql
+* Leave psql
 
-    $ \q
+    `$ \q`
 
-- Move into the app directory if you haven't
+* Move into the app directory if you haven't
 
-    $ cd aim
+    `$ cd aim`
 
-- Configure the database connection
+* Configure the database connection
 
     Open the file config/database.yml in your app
 
-- Look for the content indented under the default database scheme and enter the username and password you created under the pool or port value, it will look something like this:
+* Look for the content indented under the default database scheme and enter the username and password you created under the pool or port value, it will look something like this:
 
   default: &default
   adapter: postgresql
@@ -53,37 +53,37 @@ To build the app, be sure you have these installed:
   username: appname
   password: the_password_you_entered
 
-- Check the status of the postgres server, it should be online
-  	$ service postgresql status
-- If it isn't online, start the postgres server
-  	$ sudo service postgresql start
-- Create connection to postgres server
-  	$ sudo ln -s /tmp/.s.PGSQL.5432 /var/run/postgresql/.s.PGSQL.5432
-- Create rails database
-  	$ rake db:create
-- Migrate default values of app to database
-  	$ rake db:migrate
-- Setup rails database
-  	$ rake db:setup
+* Check the status of the postgres server, it should be online
+  	`$ service postgresql status`
+* If it isn't online, start the postgres server
+  	`$ sudo service postgresql start`
+* Create connection to postgres server
+  	`$ sudo ln -s /tmp/.s.PGSQL.5432 /var/run/postgresql/.s.PGSQL.5432`
+* Create rails database
+  	`$ rake db:create`
+* Migrate default values of app to database
+  	`$ rake db:migrate`
+* Setup rails database
+  	`$ rake db:setup`
 
-### Running the Application Locally
+#### Running the Application Locally
 
-    $ rails server
+    `$ rails server`
     Open your favorite browser and put in the address: http://localhost:3000    
 
-## Running the Test Suite
+### Running the Test Suite
 
 TODO
 
-# Server Environments
+## Server Environments
 
-## Hosting
+### Hosting
 
 The app is hosted on Heroku under the account rferrel427@gmail.com
 
 The database is hosted on AWS S3 under the account rferrel9@uncc.edu
 
-## Deployment Instructions
+### Deployment Instructions
 
-- Stage and commit all of your changes and run:
-    $ git push heroku master
+* Stage and commit all of your changes and run:
+    `$ git push heroku master`
