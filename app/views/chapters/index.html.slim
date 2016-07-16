@@ -1,0 +1,27 @@
+h1 Listing chapters
+
+table
+  thead
+    tr
+      th School
+      th Logo img
+      th Email
+      th Donation url
+      th
+      th
+      th
+
+  tbody
+    - @chapters.each do |chapter|
+      tr
+        td = chapter.school
+        td = chapter.logo_img
+        td = chapter.email
+        td = chapter.donation_url
+        td = link_to 'Show', chapter
+        td = link_to 'Edit', edit_chapter_path(chapter)
+        td = link_to 'Destroy', chapter, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Chapter', new_chapter_path

@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong School:
+  = @chapter.school
+p
+  strong Logo img:
+  = @chapter.logo_img
+p
+  strong Email:
+  = @chapter.email
+p
+  strong Donation url:
+  = @chapter.donation_url
+
+= link_to 'Edit', edit_chapter_path(@chapter)
+'|
+= link_to 'Back', chapters_path
