@@ -15,19 +15,29 @@ To build the app, be sure you have these installed:
   Run these commands:
 
     `$ sudo apt-get install`
+
     `$ postgresql-client-common`
+
     `$ sudo apt-get install`
+
     `$ postgresql-client-9.3`
+
     `$ sudo apt-get install postgresql-9.3`
+
     `$ sudo apt-get install postgresql`
+
     `$ postgresql-contrib libpq-dev`
 
+
 * Create a user that will control the database
+
     `$ sudo -u postgres createuser -s pguser`
+
 
 * Set a password for that user
 
     `$ sudo -u postgres psql`
+
     `$ \\password pguser`
 
 * Leave psql
@@ -54,22 +64,36 @@ To build the app, be sure you have these installed:
   password: the_password_you_entered
 
 * Check the status of the postgres server, it should be online
+
   	`$ service postgresql status`
+
 * If it isn't online, start the postgres server
+
   	`$ sudo service postgresql start`
+
 * Create connection to postgres server
+
   	`$ sudo ln -s /tmp/.s.PGSQL.5432 /var/run/postgresql/.s.PGSQL.5432`
+
 * Create rails database
+
   	`$ rake db:create`
+
 * Migrate default values of app to database
+
   	`$ rake db:migrate`
+
 * Setup rails database
+
   	`$ rake db:setup`
+
 
 #### Running the Application Locally
 
     `$ rails server`
-    Open your favorite browser and put in the address: http://localhost:3000    
+    
+    Open your favorite browser and put in the address: http://localhost:3000
+        
 
 ### Running the Test Suite
 
