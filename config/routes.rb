@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
-  resources :chapters
+
+  #root 'chpaters'
+  #get '/chapters' => 'index#chapters', as: '/'
+
+  resources :chapters#, except: :index
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

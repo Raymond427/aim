@@ -1,3 +1,6 @@
+# This is the controller for the chapters.
+# When a user makes a request that requires the chapters to complete, the request goes to this controller, then the controller orchestrates the action using the model, and views
+
 class ChaptersController < ApplicationController
   before_action :set_chapter, only: [:show, :edit, :update, :destroy]
 
@@ -5,6 +8,7 @@ class ChaptersController < ApplicationController
   # GET /chapters.json
   def index
     @chapters = Chapter.all
+    @schools = @chapters.select(:school).map(&:school)
   end
 
   # GET /chapters/1

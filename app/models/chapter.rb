@@ -2,6 +2,9 @@
 # This class inherits from the ActiveRecord class, which allows for ActiveRecord methods to be used here
 
 class Chapter < ApplicationRecord
+  # has_many :members, dependent: :destroy
+  # has_many :news, dependent: :destroy
+
   # First, we validate that all of the required attributes are present
   validates_presence_of :school
   validates_presence_of :logo_img
