@@ -2,18 +2,20 @@
 # When a user makes a request that requires the chapters to complete, the request goes to this controller, then the controller orchestrates the action using the model, and views
 
 class ChaptersController < ApplicationController
-  before_action :set_chapter, only: [:show, :edit, :update, :destroy]
+  before_action :find_chapter, only: [:show, :edit, :update, :destroy]
 
   # GET /chapters
   # GET /chapters.json
   def index
     @chapters = Chapter.all
-    @schools = @chapters.select(:school).map(&:school)
+    # @schools = @chapters.select(:school).map(&:school) TODO
   end
 
   # GET /chapters/1
   # GET /chapters/1.json
   def show
+    # @selected_chapter_id = TODO
+    # session[:chapter] = @selected_chapter.id
   end
 
   # GET /chapters/new
@@ -67,7 +69,7 @@ class ChaptersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_chapter
+    def find_chapter
       @chapter = Chapter.find(params[:id])
     end
 

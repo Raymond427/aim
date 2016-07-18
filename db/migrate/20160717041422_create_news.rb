@@ -1,6 +1,7 @@
 class CreateNews < ActiveRecord::Migration[5.0]
   def change
     create_table :news do |t|
+      t.belongs_to :chapter, index: true
       t.string :title
       t.string :date
       t.string :mediatype

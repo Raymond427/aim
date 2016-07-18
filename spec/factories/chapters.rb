@@ -8,4 +8,9 @@ FactoryGirl.define do
     email 'aim@uncc.edu'
     donation_url 'https://www.paypal.com/uncc'
   end
+  factory :chapter_with_news, class: 'Chapter' do
+    after(:build) do |gallery|
+      chapter.news << FactoryGirl.create(:news_one, news_id: news)
+    end
+  end
 end

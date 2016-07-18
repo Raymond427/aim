@@ -17,12 +17,4 @@ RSpec.describe "chapters/index", type: :view do
       )
     ])
   end
-
-  it "renders a list of chapters" do
-    render
-    assert_select "tr>td", :text => "School".to_s, :count => 2
-    assert_select "tr>td", :text => "Logo Img".to_s, :count => 2
-    assert_select "tr>td", :text => "Email".to_s, :count => 2
-    assert_select "tr>td", :text => "Donation Url".to_s, :count => 2
-  end
 end

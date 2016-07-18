@@ -1,6 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe NewsController, type: :controller do
+
+  let(:chapter) { FactoryGirl.create(:chapter) }
+
   # This should return the minimal set of attributes required to create a valid
   # News. As you add validations to news, be sure to
   # adjust the attributes here as well.
@@ -9,11 +12,11 @@ RSpec.describe NewsController, type: :controller do
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # NewsController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:valid_session) { { chapter: chapter.id } }
 
   describe "GET #index" do
     it "assigns all news as @news" do
-      news = News.create! valid_attributes
+      news = chapter.news.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(assigns(:news)).to eq([news])
     end
@@ -21,7 +24,7 @@ RSpec.describe NewsController, type: :controller do
 
   describe "GET #show" do
     it "assigns the requested news as @news" do
-      news = News.create! valid_attributes
+      news = chapter.news.create! valid_attributes
       get :show, params: {id: news.to_param}, session: valid_session
       expect(assigns(:news)).to eq(news)
     end
@@ -36,7 +39,7 @@ RSpec.describe NewsController, type: :controller do
 
   describe "GET #edit" do
     it "assigns the requested news as @news" do
-      news = News.create! valid_attributes
+      news = chapter.news.create! valid_attributes
       get :edit, params: {id: news.to_param}, session: valid_session
       expect(assigns(:news)).to eq(news)
     end
@@ -82,20 +85,20 @@ RSpec.describe NewsController, type: :controller do
       }
 
       it "updates the requested news" do
-        news = News.create! valid_attributes
+        news = chapter.news.create! valid_attributes
         put :update, params: {id: news.to_param, news: new_attributes}, session: valid_session
         news.reload
         expect(news.valid?).to be_truthy
       end
 
       it "assigns the requested news as @news" do
-        news = News.create! valid_attributes
+        news = chapter.news.create! valid_attributes
         put :update, params: {id: news.to_param, news: valid_attributes}, session: valid_session
         expect(assigns(:news)).to eq(news)
       end
 
       it "redirects to the news" do
-        news = News.create! valid_attributes
+        news = chapter.news.create! valid_attributes
         put :update, params: {id: news.to_param, news: valid_attributes}, session: valid_session
         expect(response).to redirect_to(news)
       end
@@ -103,13 +106,13 @@ RSpec.describe NewsController, type: :controller do
 
     context "with invalid params" do
       it "assigns the news as @news" do
-        news = News.create! valid_attributes
+        news = chapter.news.create! valid_attributes
         put :update, params: {id: news.to_param, news: invalid_attributes}, session: valid_session
         expect(assigns(:news)).to eq(news)
       end
 
       it "re-renders the 'edit' template" do
-        news = News.create! valid_attributes
+        news = chapter.news.create! valid_attributes
         put :update, params: {id: news.to_param, news: invalid_attributes}, session: valid_session
         expect(response).to render_template("edit")
       end
@@ -118,14 +121,14 @@ RSpec.describe NewsController, type: :controller do
 
   describe "DELETE #destroy" do
     it "destroys the requested news" do
-      news = News.create! valid_attributes
+      news = chapter.news.create! valid_attributes
       expect {
         delete :destroy, params: {id: news.to_param}, session: valid_session
       }.to change(News, :count).by(-1)
     end
 
     it "redirects to the news list" do
-      news = News.create! valid_attributes
+      news = chapter.news.create! valid_attributes
       delete :destroy, params: {id: news.to_param}, session: valid_session
       expect(response).to redirect_to(news_url)
     end

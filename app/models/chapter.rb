@@ -3,7 +3,7 @@
 
 class Chapter < ApplicationRecord
   # has_many :members, dependent: :destroy
-  # has_many :news, dependent: :destroy
+  has_many :news
 
   # First, we validate that all of the required attributes are present
   validates_presence_of :school

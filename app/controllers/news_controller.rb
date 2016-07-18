@@ -1,5 +1,6 @@
 class NewsController < ApplicationController
   before_action :find_news, only: [:show, :edit, :update, :destroy]
+  # before_action :chapter_in_sessions? TODO
 
   # GET /news
   # GET /news.json
@@ -24,7 +25,7 @@ class NewsController < ApplicationController
   # POST /news
   # POST /news.json
   def create
-    @news = News.new(news_params)
+    @news = session_chapter.news.new(news_params)
 
     respond_to do |format|
       if @news.save
@@ -70,5 +71,13 @@ class NewsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_params
       params.require(:news).permit(:title, :date, :mediatype, :youtube_url, :thumbnail, :description)
+    end
+
+    # def chapter_in_sessions? TODO
+    #   session[:chapter].present?
+    # end
+
+    def session_chapter
+      Chapter.find(session[:chapter])
     end
 end

@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20160717041422) do
   end
 
   create_table "news", force: :cascade do |t|
+    t.integer  "chapter_id"
     t.string   "title"
     t.string   "date"
     t.string   "mediatype"
@@ -33,6 +34,7 @@ ActiveRecord::Schema.define(version: 20160717041422) do
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.index ["chapter_id"], name: "index_news_on_chapter_id", using: :btree
   end
 
 end
