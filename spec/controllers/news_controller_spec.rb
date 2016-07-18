@@ -2,43 +2,43 @@ require 'rails_helper'
 
 RSpec.describe NewsController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
-  # News. As you add validations to News, be sure to
+  # News. As you add validations to news, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { title: 'Hey', date: '2016-08-06', mediatype: 'Image', thumbnail: 'www.hey.com', description: 'Hey' } }
+  let(:valid_attributes) { { title: 'Hey', date: '2016-08-06', mediatype: 'Image', thumbnail: 'www.hey.com', youtube_url: 'www.hey.com', description: 'Hey' } }
   let(:invalid_attributes) { { title: nil, date: nil, mediatype: nil, description: nil } }
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
-  # newsController. Be sure to keep this updated too.
+  # NewsController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
   describe "GET #index" do
     it "assigns all news as @news" do
-      News = News.create! valid_attributes
+      news = News.create! valid_attributes
       get :index, params: {}, session: valid_session
-      expect(assigns(:news)).to eq([News])
+      expect(assigns(:news)).to eq([news])
     end
   end
 
   describe "GET #show" do
-    it "assigns the requested News as @News" do
-      News = News.create! valid_attributes
-      get :show, params: {id: News.to_param}, session: valid_session
-      expect(assigns(:News)).to eq(News)
+    it "assigns the requested news as @news" do
+      news = News.create! valid_attributes
+      get :show, params: {id: news.to_param}, session: valid_session
+      expect(assigns(:news)).to eq(news)
     end
   end
 
   describe "GET #new" do
-    it "assigns a new News as @News" do
+    it "assigns a new news as @news" do
       get :new, params: {}, session: valid_session
-      expect(assigns(:News)).to be_a_new(News)
+      expect(assigns(:news)).to be_a_new(News)
     end
   end
 
   describe "GET #edit" do
-    it "assigns the requested News as @News" do
-      News = News.create! valid_attributes
-      get :edit, params: {id: News.to_param}, session: valid_session
-      expect(assigns(:News)).to eq(News)
+    it "assigns the requested news as @news" do
+      news = News.create! valid_attributes
+      get :edit, params: {id: news.to_param}, session: valid_session
+      expect(assigns(:news)).to eq(news)
     end
   end
 
@@ -46,30 +46,30 @@ RSpec.describe NewsController, type: :controller do
     context "with valid params" do
       it "creates a new News" do
         expect {
-          post :create, params: {News: valid_attributes}, session: valid_session
+          post :create, params: {news: valid_attributes}, session: valid_session
         }.to change(News, :count).by(1)
       end
 
-      it "assigns a newly created News as @News" do
-        post :create, params: {News: valid_attributes}, session: valid_session
-        expect(assigns(:News)).to be_a(News)
-        expect(assigns(:News)).to be_persisted
+      it "assigns a newly created news as @news" do
+        post :create, params: {news: valid_attributes}, session: valid_session
+        expect(assigns(:news)).to be_a(News)
+        expect(assigns(:news)).to be_persisted
       end
 
-      it "redirects to the created News" do
-        post :create, params: {News: valid_attributes}, session: valid_session
+      it "redirects to the created news" do
+        post :create, params: {news: valid_attributes}, session: valid_session
         expect(response).to redirect_to(News.last)
       end
     end
 
     context "with invalid params" do
-      it "assigns a newly created but unsaved News as @News" do
-        post :create, params: {News: invalid_attributes}, session: valid_session
-        expect(assigns(:News)).to be_a_new(News)
+      it "assigns a newly created but unsaved news as @news" do
+        post :create, params: {news: invalid_attributes}, session: valid_session
+        expect(assigns(:news)).to be_a_new(News)
       end
 
       it "re-renders the 'new' template" do
-        post :create, params: {News: invalid_attributes}, session: valid_session
+        post :create, params: {news: invalid_attributes}, session: valid_session
         expect(response).to render_template("new")
       end
     end
@@ -78,55 +78,55 @@ RSpec.describe NewsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        { title: 'Hey!', date: '2016-08-03', mediatype: 'Video', thumbnail: 'www.hey!.com', description: 'Hey!' }
+        { title: 'Hey!', date: '2016-08-03', mediatype: 'Video', thumbnail: 'www.hey!.com', youtube_url: 'www.hey.com', description: 'Hey!' }
       }
 
-      it "updates the requested News" do
-        News = News.create! valid_attributes
-        put :update, params: {id: News.to_param, News: new_attributes}, session: valid_session
-        News.reload
-        expect(:News.valid?).to be_truthy
+      it "updates the requested news" do
+        news = News.create! valid_attributes
+        put :update, params: {id: news.to_param, news: new_attributes}, session: valid_session
+        news.reload
+        expect(news.valid?).to be_truthy
       end
 
-      it "assigns the requested News as @News" do
-        News = News.create! valid_attributes
-        put :update, params: {id: News.to_param, News: valid_attributes}, session: valid_session
-        expect(assigns(:News)).to eq(News)
+      it "assigns the requested news as @news" do
+        news = News.create! valid_attributes
+        put :update, params: {id: news.to_param, news: valid_attributes}, session: valid_session
+        expect(assigns(:news)).to eq(news)
       end
 
-      it "redirects to the News" do
-        News = News.create! valid_attributes
-        put :update, params: {id: News.to_param, News: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(News)
+      it "redirects to the news" do
+        news = News.create! valid_attributes
+        put :update, params: {id: news.to_param, news: valid_attributes}, session: valid_session
+        expect(response).to redirect_to(news)
       end
     end
 
     context "with invalid params" do
-      it "assigns the News as @News" do
-        News = News.create! valid_attributes
-        put :update, params: {id: News.to_param, News: invalid_attributes}, session: valid_session
-        expect(assigns(:News)).to eq(News)
+      it "assigns the news as @news" do
+        news = News.create! valid_attributes
+        put :update, params: {id: news.to_param, news: invalid_attributes}, session: valid_session
+        expect(assigns(:news)).to eq(news)
       end
 
       it "re-renders the 'edit' template" do
-        News = News.create! valid_attributes
-        put :update, params: {id: News.to_param, News: invalid_attributes}, session: valid_session
+        news = News.create! valid_attributes
+        put :update, params: {id: news.to_param, news: invalid_attributes}, session: valid_session
         expect(response).to render_template("edit")
       end
     end
   end
 
   describe "DELETE #destroy" do
-    it "destroys the requested News" do
-      News = News.create! valid_attributes
+    it "destroys the requested news" do
+      news = News.create! valid_attributes
       expect {
-        delete :destroy, params: {id: News.to_param}, session: valid_session
+        delete :destroy, params: {id: news.to_param}, session: valid_session
       }.to change(News, :count).by(-1)
     end
 
     it "redirects to the news list" do
-      News = News.create! valid_attributes
-      delete :destroy, params: {id: News.to_param}, session: valid_session
+      news = News.create! valid_attributes
+      delete :destroy, params: {id: news.to_param}, session: valid_session
       expect(response).to redirect_to(news_url)
     end
   end
