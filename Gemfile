@@ -50,6 +50,8 @@ gem 'autoprefixer-rails'
 
 gem 'awesome_print'
 
+gem 'chromedriver-helper'
+
 group :test do
   gem 'capybara'
   gem 'capybara-email'
