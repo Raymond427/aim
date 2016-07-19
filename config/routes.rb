@@ -1,8 +1,13 @@
 Rails.application.routes.draw do
 
+
   root 'chapters#index'
 
-  #root 'chpaters'
+  #When there is only one AIM chapter
+  #get '/chapters' => 'index#chapters', as: '/'
+  #root '/'
+  
+  #When there are more than one AIM chapters
   #get '/chapters' => 'index#chapters', as: '/'
 
   resources :chapters#, except: :index

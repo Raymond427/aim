@@ -7,8 +7,7 @@ class ChaptersController < ApplicationController
   # GET /chapters
   # GET /chapters.json
   def index
-    @chapters = Chapter.all
-    # @schools = @chapters.select(:school).map(&:school) TODO
+    @chapter_schools = Chapter.pluck(:school, :id)
   end
 
   # GET /chapters/1

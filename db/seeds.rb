@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+chapters = Chapter.create([
+  {
+  school: 'The University of North Carolina at Charlotte',
+  logo_img: 'www.uncc.edu',
+  email: 'aimcharlotte@uncc.edu',
+  donation_url: 'paypal.com'
+  }
+])

@@ -31,13 +31,7 @@ RSpec.describe ChaptersController, type: :controller do
   # ChaptersController. Be sure to keep this updated too.
   let(:valid_session) { {} }
 
-  describe "GET #index" do
-    it "assigns all chapters as @chapters" do
-      chapter = Chapter.create! valid_attributes
-      get :index, params: {}, session: valid_session
-      expect(assigns(:chapters)).to eq([chapter])
-    end
-  end
+  #TODO Write test for index 
 
   describe "GET #show" do
     it "assigns the requested chapter as @chapter" do
