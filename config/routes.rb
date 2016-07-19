@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  root 'chapters#index'
+
   #root 'chpaters'
   #get '/chapters' => 'index#chapters', as: '/'
 
