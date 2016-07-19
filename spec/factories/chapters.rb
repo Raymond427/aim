@@ -9,7 +9,7 @@ FactoryGirl.define do
     donation_url 'https://www.paypal.com/uncc'
   end
   factory :chapter_with_news, class: 'Chapter' do
-    after(:build) do |gallery|
+    after(:build) do |chapter|
       chapter.news << FactoryGirl.create(:news_one, news_id: news)
     end
   end

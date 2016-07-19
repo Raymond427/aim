@@ -25,4 +25,9 @@ RSpec.describe News, type: :model do
     news.description = nil
     expect(news.valid?).to be_falsey
   end
+
+  it "can't create a news post without a chapter" do
+    news = News.new
+    expect(news.save).to be_falsey
+  end
 end

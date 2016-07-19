@@ -38,7 +38,7 @@ To build the app, be sure you have these installed:
 
     `$ sudo -u postgres psql`
 
-    `$ \\password pguser`
+    `$ \password pguser`
 
 * Leave psql
 
