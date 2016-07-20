@@ -13,8 +13,6 @@ class ChaptersController < ApplicationController
   # GET /chapters/1
   # GET /chapters/1.json
   def show
-    # @selected_chapter_id = TODO
-    # session[:chapter] = @selected_chapter.id
   end
 
   # GET /chapters/new

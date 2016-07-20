@@ -1,3 +1,4 @@
+- session[:chapter_id] = params[:id]
 p#notice = notice
 
 p
@@ -14,5 +15,3 @@ p
   = @chapter.donation_url
 
 = link_to 'Edit', edit_chapter_path(@chapter)
-'|
-= link_to 'Back', chapters_path
