@@ -1,6 +1,7 @@
 class NewsController < ApplicationController
+  before_action :find_chapter, only: [:new, :create]
   before_action :find_news, only: [:show, :edit, :update, :destroy]
-  # before_action :chapter_in_sessions? TODO
+  before_action :chapter_in_sessions?, only: [:create, :index]
 
   # GET /news
   # GET /news.json
@@ -32,7 +33,7 @@ class NewsController < ApplicationController
         format.html { redirect_to @news, notice: 'News was successfully created.' }
         format.json { render :show, status: :created, location: @news }
       else
-        format.html { render :new }
+        format.html { redirect_to '/chapters', alert: 'Please Select a Chapter First!' }
         format.json { render json: @news.errors, status: :unprocessable_entity }
       end
     end
@@ -73,11 +74,11 @@ class NewsController < ApplicationController
       params.require(:news).permit(:title, :date, :mediatype, :youtube_url, :thumbnail, :description)
     end
 
-    # def chapter_in_sessions? TODO
-    #   session[:chapter].present?
-    # end
-
     def session_chapter
-      Chapter.find(session[:chapter])
+      Chapter.find(session[:chapter_id])
+    end
+
+    def chapter_in_sessions?
+      session[:chapter_id].present?
     end
 end
