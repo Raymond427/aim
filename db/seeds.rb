@@ -9,7 +9,6 @@
 chapters = Chapter.create([
   {
   school: 'The University of North Carolina at Charlotte',
-  logo_img: 'www.uncc.edu',
   email: 'aimcharlotte@uncc.edu',
   donation_url: 'paypal.com'
   }

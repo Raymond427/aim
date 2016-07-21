@@ -17,7 +17,6 @@ ActiveRecord::Schema.define(version: 20160721052052) do
 
   create_table "chapters", force: :cascade do |t|
     t.string   "school"
-    t.string   "logo_img"
     t.string   "email"
     t.string   "donation_url"
     t.datetime "created_at",            null: false
@@ -34,7 +33,6 @@ ActiveRecord::Schema.define(version: 20160721052052) do
     t.string   "date"
     t.string   "mediatype"
     t.string   "youtube_url"
-    t.string   "thumbnail"
     t.string   "description"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
