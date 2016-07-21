@@ -6,7 +6,6 @@ class CreateNews < ActiveRecord::Migration[5.0]
       t.string :date
       t.string :mediatype
       t.string :youtube_url
-      t.string :thumbnail
       t.string :description
 
       t.timestamps
