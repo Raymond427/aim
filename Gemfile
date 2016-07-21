@@ -54,6 +54,7 @@ gem 'chromedriver-helper'
 
 group :test do
   gem 'capybara'
+  gem 'capybara-screenshot'
   gem 'capybara-email'
   gem 'poltergeist'
   gem 'rubocop'

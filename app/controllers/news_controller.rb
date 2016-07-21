@@ -1,5 +1,5 @@
 class NewsController < ApplicationController
-  before_action :find_chapter, only: [:new, :create]
+  before_action :session_chapter, only: [:new, :create]
   before_action :find_news, only: [:show, :edit, :update, :destroy]
   before_action :chapter_in_sessions?, only: [:create, :index]
 
@@ -33,7 +33,7 @@ class NewsController < ApplicationController
         format.html { redirect_to @news, notice: 'News was successfully created.' }
         format.json { render :show, status: :created, location: @news }
       else
-        format.html { redirect_to '/chapters', alert: 'Please Select a Chapter First!' }
+        format.html { render :new }
         format.json { render json: @news.errors, status: :unprocessable_entity }
       end
     end

@@ -12,7 +12,7 @@ RSpec.describe NewsController, type: :controller do
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # NewsController. Be sure to keep this updated too.
-  let(:valid_session) { { chapter: chapter.id } }
+  let(:valid_session) { { chapter_id: chapter.id } }
 
   describe "GET #index" do
     it "assigns all news as @news" do
