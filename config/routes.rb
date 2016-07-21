@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :members
   root 'chapters#index'
 
   #When there is only one AIM chapter
