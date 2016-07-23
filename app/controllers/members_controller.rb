@@ -1,5 +1,6 @@
 class MembersController < ApplicationController
-  before_action :set_member, only: [:show, :edit, :update, :destroy]
+  before_action :find_member, only: [:show, :edit, :update, :destroy]
+  before_action :chapter_in_sessions?, only: [:create, :index]
 
   # GET /members
   # GET /members.json
@@ -24,7 +25,7 @@ class MembersController < ApplicationController
   # POST /members
   # POST /members.json
   def create
-    @member = Member.new(member_params)
+    @member = session_chapter.members.new(member_params)
 
     respond_to do |format|
       if @member.save
@@ -63,7 +64,7 @@ class MembersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_member
+    def find_member
       @member = Member.find(params[:id])
     end
 

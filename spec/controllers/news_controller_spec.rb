@@ -7,7 +7,7 @@ RSpec.describe NewsController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # News. As you add validations to news, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { title: 'Hey', date: '2016-08-06', mediatype: 'Image', youtube_url: 'www.hey.com', description: 'Hey' } }
+  let(:valid_attributes) { FactoryGirl.attributes_for(:news) }
   let(:invalid_attributes) { { title: nil, date: nil, mediatype: nil, description: nil } }
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
@@ -81,7 +81,7 @@ RSpec.describe NewsController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        { title: 'Hey!', date: '2016-08-03', mediatype: 'Video', youtube_url: 'www.hey.com', description: 'Hey!' }
+        FactoryGirl.attributes_for(:news, title: "What's Up")
       }
 
       it "updates the requested news" do

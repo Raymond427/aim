@@ -1,5 +1,4 @@
 class NewsController < ApplicationController
-  before_action :session_chapter, only: [:new, :create]
   before_action :find_news, only: [:show, :edit, :update, :destroy]
   before_action :chapter_in_sessions?, only: [:create, :index]
 
@@ -72,13 +71,5 @@ class NewsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def news_params
       params.require(:news).permit(:title, :date, :mediatype, :youtube_url, :thumbnail, :description)
-    end
-
-    def session_chapter
-      Chapter.find(session[:chapter_id])
-    end
-
-    def chapter_in_sessions?
-      session[:chapter_id].present?
     end
 end

@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 20160723043848) do
   end
 
   create_table "members", force: :cascade do |t|
+    t.integer  "chapter_id"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(version: 20160723043848) do
     t.string   "thumbnail_content_type"
     t.integer  "thumbnail_file_size"
     t.datetime "thumbnail_updated_at"
+    t.index ["chapter_id"], name: "index_members_on_chapter_id", using: :btree
   end
 
   create_table "news", force: :cascade do |t|

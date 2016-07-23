@@ -1,4 +1,5 @@
 class Member < ApplicationRecord
+  belongs_to :chapter
 
   has_attached_file :thumbnail, styles: {
       thumb: ['100x100#',  :jpg, :quality => 70],

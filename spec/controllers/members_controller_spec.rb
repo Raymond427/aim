@@ -20,25 +20,27 @@ require 'rails_helper'
 
 RSpec.describe MembersController, type: :controller do
 
+  let(:chapter) { FactoryGirl.create(:chapter) }
+
   # This should return the minimal set of attributes required to create a valid
   # Member. As you add validations to Member, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    FactoryGirl.attributes_for(:member)
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { first_name: nil, last_name: nil, email: nil, password_digest: nil, major: nil, graduation_date: nil, is_executive: nil, role: nil }
   }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # MembersController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:valid_session) { { chapter_id: chapter.id } }
 
   describe "GET #index" do
     it "assigns all members as @members" do
-      member = Member.create! valid_attributes
+      member = chapter.members.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(assigns(:members)).to eq([member])
     end
@@ -46,7 +48,7 @@ RSpec.describe MembersController, type: :controller do
 
   describe "GET #show" do
     it "assigns the requested member as @member" do
-      member = Member.create! valid_attributes
+      member = chapter.members.create! valid_attributes
       get :show, params: {id: member.to_param}, session: valid_session
       expect(assigns(:member)).to eq(member)
     end
@@ -61,7 +63,7 @@ RSpec.describe MembersController, type: :controller do
 
   describe "GET #edit" do
     it "assigns the requested member as @member" do
-      member = Member.create! valid_attributes
+      member = chapter.members.create! valid_attributes
       get :edit, params: {id: member.to_param}, session: valid_session
       expect(assigns(:member)).to eq(member)
     end
@@ -103,24 +105,24 @@ RSpec.describe MembersController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
+        FactoryGirl.attributes_for(:member, first_name: 'Raymond')
       }
 
       it "updates the requested member" do
-        member = Member.create! valid_attributes
+        member = chapter.members.create! valid_attributes
         put :update, params: {id: member.to_param, member: new_attributes}, session: valid_session
         member.reload
-        skip("Add assertions for updated state")
+        expect(member.valid?).to be_truthy
       end
 
       it "assigns the requested member as @member" do
-        member = Member.create! valid_attributes
+        member = chapter.members.create! valid_attributes
         put :update, params: {id: member.to_param, member: valid_attributes}, session: valid_session
         expect(assigns(:member)).to eq(member)
       end
 
       it "redirects to the member" do
-        member = Member.create! valid_attributes
+        member = chapter.members.create! valid_attributes
         put :update, params: {id: member.to_param, member: valid_attributes}, session: valid_session
         expect(response).to redirect_to(member)
       end
@@ -128,13 +130,13 @@ RSpec.describe MembersController, type: :controller do
 
     context "with invalid params" do
       it "assigns the member as @member" do
-        member = Member.create! valid_attributes
+        member = chapter.members.create! valid_attributes
         put :update, params: {id: member.to_param, member: invalid_attributes}, session: valid_session
         expect(assigns(:member)).to eq(member)
       end
 
       it "re-renders the 'edit' template" do
-        member = Member.create! valid_attributes
+        member = chapter.members.create! valid_attributes
         put :update, params: {id: member.to_param, member: invalid_attributes}, session: valid_session
         expect(response).to render_template("edit")
       end
@@ -143,14 +145,14 @@ RSpec.describe MembersController, type: :controller do
 
   describe "DELETE #destroy" do
     it "destroys the requested member" do
-      member = Member.create! valid_attributes
+      member = chapter.members.create! valid_attributes
       expect {
         delete :destroy, params: {id: member.to_param}, session: valid_session
       }.to change(Member, :count).by(-1)
     end
 
     it "redirects to the members list" do
-      member = Member.create! valid_attributes
+      member = chapter.members.create! valid_attributes
       delete :destroy, params: {id: member.to_param}, session: valid_session
       expect(response).to redirect_to(members_url)
     end
