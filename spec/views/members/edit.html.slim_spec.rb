@@ -2,18 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "members/edit", type: :view do
   before(:each) do
-    @member = assign(:member, Member.create!(
-      :first_name => "MyString",
-      :last_name => "MyString",
-      :email => "MyString",
-      :password_digest => "MyString",
-      :role => "MyString",
-      :linkedinurl => "MyString",
-      :major => "MyString",
-      :graduation_date => "MyString",
-      :is_executive => false,
-      :executive_position => "MyString"
-    ))
+    @member = assign(:member, FactoryGirl.create(:member))
   end
 
   it "renders the edit member form" do

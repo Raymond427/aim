@@ -2,18 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "members/show", type: :view do
   before(:each) do
-    @member = assign(:member, Member.create!(
-      :first_name => "First Name",
-      :last_name => "Last Name",
-      :email => "Email",
-      :password_digest => "Password Digest",
-      :role => "Role",
-      :linkedinurl => "Linkedinurl",
-      :major => "Major",
-      :graduation_date => "Graduation Date",
-      :is_executive => false,
-      :executive_position => "Executive Position"
-    ))
+    @member = assign(:member, FactoryGirl.create(:member))
   end
 
   it "renders attributes in <p>" do
