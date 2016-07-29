@@ -6,6 +6,7 @@ class MembersController < ApplicationController
   # GET /members.json
   def index
     @members = Member.all
+    @chapter_schools = Chapter.pluck(:school, :id)
   end
 
   # GET /members/1

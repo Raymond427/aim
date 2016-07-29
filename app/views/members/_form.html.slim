@@ -19,24 +19,45 @@
     = f.label :thumbnail
     = f.file_field :thumbnail
   .field
-    = f.label :password_digest
-    = f.text_field :password_digest
+    small The password must contain 6 or more characters, have a captial letter and a number
+    = f.label :password
+    = f.password_field :password
   .field
-    = f.label :role
-    = f.text_field :role
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation
+    
+    .field 
+      label Webmaster
+      = f.radio_button :role, 'webmaster'
+    .field
+      label Admin
+      = f.radio_button :role, 'admin'
+    .field
+      label Editor
+      = f.radio_button :role, 'editor'
+    .field
+      label General
+      = f.radio_button :role, 'general'
+    
   .field
     = f.label :linkedinurl
     = f.text_field :linkedinurl
   .field
     = f.label :major
-    = f.text_field :major
+    = f.select :major, Member::MAJORS, selected: @member.major, prompt: 'Please select a Major'
   .field
     = f.label :graduation_date
-    = f.text_field :graduation_date
-  .field
-    = f.label :is_executive
-    = f.check_box :is_executive
-  .field
-    = f.label :executive_position
-    = f.text_field :executive_position
+    = f.select :graduation_date, Member::GRAD_MONTHS, selected: @member.graduation_date, prompt: 'Month'
+    
+    .field
+      = f.label :chapter
+      = f.select :chapter_id, options_for_select(@chapter_schools), prompt: 'Please select a Chapter'
+      
+    .field
+      = f.label :is_executive
+      = f.check_box :is_executive
+    .field
+      = f.label :executive_position
+      = f.select :executive_position, Member::POSITIONS, selected: @member.executive_position, prompt: 'Please select a Position'
+      
   .actions = f.submit
