@@ -52,6 +52,12 @@ gem 'awesome_print'
 
 gem 'chromedriver-helper'
 
+gem 'omniauth'
+
+gem 'omniauth-identity'
+
+gem 'omniauth-linkedin'
+
 group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
