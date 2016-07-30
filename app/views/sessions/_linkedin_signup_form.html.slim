@@ -15,10 +15,14 @@
     = f.text_field :last_name, value: @linkedin_info['last_name']
   .field
     = f.label :email
-    = f.text_field :email, value: @linkedin_info['email']
+    = f.email_field :email, value: @linkedin_info['email']
   .field
-    = f.label :thumbnail
-    = f.file_field :thumbnail
+    = f.label :phone_number
+    = f.telephone_field :phone_number, value: @linkedin_info['phone']
+  = image_tag(@linkedin_info['image'])
+  .field
+    = f.label :thumbnail_url
+    = f.text_field :thumbnail_url, value: @linkedin_info['image']
   .field
     small The password must contain 6 or more characters, have a captial letter and a number
     = f.label :password

@@ -24,10 +24,18 @@ class Member < ApplicationRecord
   validates_presence_of :last_name
   validates_presence_of :email
   validates_presence_of :password_digest
+  has_secure_password
   validates_presence_of :role
   validates :major, inclusion: { in: MAJORS }
   validates_presence_of :graduation_date
   validates :is_executive, inclusion: { in: [true, false] }
   validates :is_executive, exclusion: { in: [nil] }
   validates :role, inclusion: { in: ['webmaster', 'admin', 'editor', 'general'] }
+
+  # Returns the hash digest of the given string, use this for creating members in factories.
+  def Member.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
 end
