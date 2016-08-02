@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20160723043848) do
     t.string   "email"
     t.string   "phone_number"
     t.string   "password_digest"
+    t.string   "thumbnail_url"
     t.string   "role"
     t.string   "linkedinurl"
     t.string   "major"

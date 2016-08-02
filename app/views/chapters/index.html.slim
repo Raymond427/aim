@@ -1,6 +1,6 @@
 h1 Turning Creative Thinkers,
 h1 Into Business Leaders
-= select_tag :chapter_select, options_for_select(@chapter_schools), { onchange: 'redirect_to_chapter()', prompt: 'Please Select a Chapter' }
+= select_tag :chapter_select, options_for_select(chapter_schools), { onchange: 'redirect_to_chapter()', prompt: 'Please Select a Chapter' }
 
 javascript:
   function redirect_to_chapter() {

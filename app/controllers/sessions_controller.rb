@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+  before_action :chapter_schools, only: [:linkedin_signup]
   def new
   end
 
@@ -6,7 +7,7 @@ class SessionsController < ApplicationController
     member = Member.find_by(email: params[:session][:email].downcase)
     if member && member.authenticate(params[:session][:password])
       log_in user
-      session_chapter.nil? ? redirect_to Chapter.find_by(id: member.chapter_id) : redirect_to session_chapter
+      # session_chapter.nil? ? redirect_to Chapter.find_by(id: member.chapter_id) : redirect_to session_chapter
     else
       flash[:danger] = 'Invalid email/password combination' # Not quite right!
       render 'new'
@@ -19,8 +20,9 @@ class SessionsController < ApplicationController
   end
 
   def linkedin_signup
-    @linkedin_info = ActiveSupport::JSON.decode(env['omniauth.auth'].to_json)['info']
+    linkedin_json = ActiveSupport::JSON.decode(env['omniauth.auth'].to_json)
+    @linkedin_info = linkedin_json['info']
+    @linkedin_info['image'] = linkedin_json['extra']['raw_info']['pictureUrls']['values'].first
     @member = Member.new
-    @chapter_schools = Chapter.pluck(:school, :id)
   end
 end

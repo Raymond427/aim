@@ -3,11 +3,12 @@
 
 class ChaptersController < ApplicationController
   before_action :find_chapter, only: [:show, :edit, :update, :destroy]
+  before_action :chapter_schools, only: [:index]
 
   # GET /chapters
   # GET /chapters.json
   def index
-    @chapter_schools = Chapter.pluck(:school, :id)
+
   end
 
   # GET /chapters/1

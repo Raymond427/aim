@@ -23,7 +23,6 @@ class Member < ApplicationRecord
   validates_presence_of :first_name
   validates_presence_of :last_name
   validates_presence_of :email
-  validates_presence_of :password_digest
   has_secure_password
   validates_presence_of :role
   validates :major, inclusion: { in: MAJORS }
@@ -31,6 +30,7 @@ class Member < ApplicationRecord
   validates :is_executive, inclusion: { in: [true, false] }
   validates :is_executive, exclusion: { in: [nil] }
   validates :role, inclusion: { in: ['webmaster', 'admin', 'editor', 'general'] }
+  validates :chapter_id, inclusion: { in: Chapter.pluck(:id) }
 
   # Returns the hash digest of the given string, use this for creating members in factories.
   def Member.digest(string)

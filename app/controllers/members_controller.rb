@@ -1,12 +1,12 @@
 class MembersController < ApplicationController
   before_action :find_member, only: [:show, :edit, :update, :destroy]
   before_action :chapter_in_sessions?, only: [:create, :index]
+  before_action :chapter_schools?, only: [:index]
 
   # GET /members
   # GET /members.json
   def index
     @members = Member.all
-    @chapter_schools = Chapter.pluck(:school, :id)
   end
 
   # GET /members/1
@@ -72,6 +72,6 @@ class MembersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
-      params.require(:member).permit(:first_name, :last_name, :email, :password_digest, :role, :linkedinurl, :major, :graduation_date, :is_executive, :executive_position)
+      params.require(:member).permit(:first_name, :last_name, :email, :password, :password_confirmation, :role, :linkedinurl, :major, :graduation_date, :is_executive, :executive_position, :chapter_id, :phone_number, :thumbnail_url )
     end
 end

@@ -7,6 +7,7 @@ class CreateMembers < ActiveRecord::Migration[5.0]
       t.string :email
       t.string :phone_number
       t.string :password_digest
+      t.string :thumbnail_url
       t.string :role
       t.string :linkedinurl
       t.string :major

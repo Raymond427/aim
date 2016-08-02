@@ -1,8 +1,9 @@
+= puts params
 - provide(:title, "Log in")
 h1 Log in
 .row
   .col-md-6.col-md-offset-3
-    = form_for(:session, url: login_path) do |f|
+    = form_fors(:session, url: login_path) do |f|
       = f.label :email
       = f.email_field :email, class: 'form-control'
       = f.label :password
@@ -10,4 +11,4 @@ h1 Log in
       = f.submit "Log in", class: "btn btn-primary"
     p
       | New user? #{link_to "Sign up now!", new_member_path}
-      = link_to 'Sign Up with LinkedIn', '/auth/linkedin'
+      = link_to 'Sign Up with LinkedIn!', '/auth/linkedin'
