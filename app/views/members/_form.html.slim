@@ -55,6 +55,7 @@
     .field
       = f.label :chapter
       = f.select :chapter_id, options_for_select(chapter_schools), prompt: 'Please select a Chapter'
+      / TODO make javascript validation that makes the chapter id required!
       
     .field
       = f.label :is_executive

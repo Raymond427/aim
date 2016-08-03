@@ -5,9 +5,11 @@ class SessionsController < ApplicationController
 
   def create
     member = Member.find_by(email: params[:session][:email].downcase)
+    redirect_to root_url if member.nil?
+    byebug
     if member && member.authenticate(params[:session][:password])
-      log_in user
-      # session_chapter.nil? ? redirect_to Chapter.find_by(id: member.chapter_id) : redirect_to session_chapter
+      log_in member
+      # TODO session_chapter.nil? ? redirect_to Chapter.find_by(id: member.chapter_id) : redirect_to session_chapter
     else
       flash[:danger] = 'Invalid email/password combination' # Not quite right!
       render 'new'

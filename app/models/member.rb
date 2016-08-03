@@ -30,7 +30,7 @@ class Member < ApplicationRecord
   validates :is_executive, inclusion: { in: [true, false] }
   validates :is_executive, exclusion: { in: [nil] }
   validates :role, inclusion: { in: ['webmaster', 'admin', 'editor', 'general'] }
-  validates :chapter_id, inclusion: { in: Chapter.pluck(:id) }
+  validates_presence_of :chapter_id
 
   # Returns the hash digest of the given string, use this for creating members in factories.
   def Member.digest(string)
