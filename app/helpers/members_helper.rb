@@ -1,4 +1,7 @@
 module MembersHelper
+  def member_chapter(id)
+    Chapter.find(id)
+  end
   def member_in_chapter?
     if logged_in?
       current_member.chapter_id == session_chapter.id

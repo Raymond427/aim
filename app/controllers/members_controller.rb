@@ -26,16 +26,16 @@ class MembersController < ApplicationController
   # POST /members
   # POST /members.json
   def create
-    @member = session_chapter.members.new(member_params)
+    member = member_chapter(params[:member][:chapter_id]).members.new(member_params)
 
     respond_to do |format|
-      if @member.save
-        format.html { redirect_to @member, notice: 'Member was successfully created.' }
-        format.json { render :show, status: :created, location: @member }
-        log_in @member
+      if member.save
+        format.html { redirect_to member_chapter(member_params[:chapter_id]), notice: 'Member was successfully created.' }
+        format.json { render :show, status: :created, location: member }
+        log_in member
       else
         format.html { render :new }
-        format.json { render json: @member.errors, status: :unprocessable_entity }
+        format.json { render json: member.errors, status: :unprocessable_entity }
       end
     end
   end

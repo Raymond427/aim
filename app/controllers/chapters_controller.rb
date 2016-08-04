@@ -8,12 +8,12 @@ class ChaptersController < ApplicationController
   # GET /chapters
   # GET /chapters.json
   def index
-
   end
 
   # GET /chapters/1
   # GET /chapters/1.json
   def show
+    set_session_chapter params[:id]
   end
 
   # GET /chapters/new
