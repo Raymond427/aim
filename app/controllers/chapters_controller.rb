@@ -3,11 +3,11 @@
 
 class ChaptersController < ApplicationController
   before_action :find_chapter, only: [:show, :edit, :update, :destroy]
-  before_action :chapter_schools, only: [:index]
 
   # GET /chapters
   # GET /chapters.json
   def index
+    @chapters = Chapter.all
   end
 
   # GET /chapters/1
@@ -73,6 +73,6 @@ class ChaptersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def chapter_params
-      params.require(:chapter).permit(:school, :logo_img, :email, :donation_url)
+      params.require(:chapter).permit(:school, :logo, :email, :donation_url)
     end
 end

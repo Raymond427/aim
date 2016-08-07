@@ -5,13 +5,13 @@ RSpec.describe "chapters/index", type: :view do
     assign(:chapters, [
       Chapter.create!(
         :school => "School",
-        :logo_img => "Logo Img",
+        :logo => "Logo Img",
         :email => "Email",
         :donation_url => "Donation Url"
       ),
       Chapter.create!(
         :school => "School",
-        :logo_img => "Logo Img",
+        :logo => "Logo Img",
         :email => "Email",
         :donation_url => "Donation Url"
       )

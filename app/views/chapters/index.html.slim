@@ -1,9 +1,6 @@
 h1 Turning Creative Thinkers,
 h1 Into Business Leaders
-= select_tag :chapter_select, options_for_select(chapter_schools), { onchange: 'redirect_to_chapter()', prompt: 'Please Select a Chapter' }
-
-javascript:
-  function redirect_to_chapter() {
-     var id = document.getElementById('chapter_select').value;
-     window.location = '/chapters/' + id;
-  }
+h2 Please Select a Chapter
+- @chapters.each do |chapter|
+  = link_to chapter do
+    = image_tag chapter.logo, alt: chapter.acronym

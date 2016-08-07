@@ -9,7 +9,25 @@
 chapters = Chapter.create([
   {
   school: 'The University of North Carolina at Charlotte',
-  email: 'aimcharlotte@uncc.edu',
+  acronym: 'UNCC',
+  logo: 'uncc.gif',
+  email: 'aimunccsecretary@gmail.com',
   donation_url: 'paypal.com'
+  }
+])
+
+members = Member.create([
+  {
+    first_name: 'Raymond',
+    last_name: 'Ferrell',
+    email: 'rferrel427@gmail.com',
+    password: ENV['admin_password'],
+    role: 'admin',
+    linkedinurl: 'https://www.linkedin.com/in/raymondferrell',
+    major: 'Computer Science',
+    graduation_date: 'December 2016',
+    is_executive: true,
+    executive_position: 'President',
+    chapter: chapters.first
   }
 ])

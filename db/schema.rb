@@ -17,14 +17,16 @@ ActiveRecord::Schema.define(version: 20160723043848) do
 
   create_table "chapters", force: :cascade do |t|
     t.string   "school"
+    t.string   "acronym"
+    t.string   "logo"
     t.string   "email"
     t.string   "donation_url"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
-    t.string   "logo_img_file_name"
-    t.string   "logo_img_content_type"
-    t.integer  "logo_img_file_size"
-    t.datetime "logo_img_updated_at"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
 
   create_table "members", force: :cascade do |t|

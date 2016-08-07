@@ -3,10 +3,8 @@
   <head>
     <title>Aim</title>
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= link_to 'Sign In', '/auth/linkedin' %>
     <nav>
         CHAPTER IN SESSIONS =
       <%= chapter_in_sessions? %>
@@ -32,7 +30,7 @@
         <% if @member.role == 'editor' %>
           EDITOR
         <% end %>
-        <% if @member.role == 'editor' %>
+        <% if @member.role == 'general' %>
           GENERAL
         <% end %>
       <% end %>

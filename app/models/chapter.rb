@@ -9,13 +9,13 @@ class Chapter < ApplicationRecord
   # First, we validate that all of the required attributes are present
   validates_presence_of :school
   validates_presence_of :email
-  validates_presence_of :donation_url
-  has_attached_file :logo_img, styles: {
-  thumb: '100x100>',
-  square: '200x200#',
-  medium: '300x300>'
-  }
-
-  # Validate the attached image is image/jpg, image/png, etc
-  validates_attachment_content_type :logo_img, :content_type => /\Aimage\/.*\Z/
+  # validates_presence_of :donation_url
+  # has_attached_file :logo, styles: {
+  # thumb: '100x100>',
+  # square: '200x200#',
+  # medium: '300x300>'
+  # }
+  #
+  # # Validate the attached image is image/jpg, image/png, etc
+  # validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
 end

@@ -23,6 +23,14 @@ class MembersController < ApplicationController
   def edit
   end
 
+  def executives
+    if session_chapter.nil?
+      redirect_to root_url, alert: 'You must select a chapter first'
+    else
+      @executives = session_chapter.members.where(is_executive: true).sort_by {|member| Member::POSITIONS.index(member.executive_position)}
+    end
+  end
+
   # POST /members
   # POST /members.json
   def create

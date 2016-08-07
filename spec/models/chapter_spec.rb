@@ -17,7 +17,7 @@ RSpec.describe Chapter, type: :model do
   end
 
   # it "validates the presence of a logo image" do
-  #   chapter.logo_img = nil
+  #   chapter.logo = nil
   #   expect(chapter.valid?).to be_falsey
   # end
 

@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
 
   resources :members
+  get '/executives', to: 'members#executives'
   root 'chapters#index'
 
   #When there is only one AIM chapter

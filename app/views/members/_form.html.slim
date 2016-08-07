@@ -1,3 +1,6 @@
+small
+      |
+        * = requried
 = form_for @member do |f|
   - if @member.errors.any?
     #error_explanation
@@ -18,9 +21,13 @@
   .field
     = f.label :phone_number
     = f.telephone_field :phone_number, value: @linkedin_info.nil? ? '' : @linkedin_info['phone']
+  - if !@linkedin_info.nil?
+    .field
+      label LinkedIn Picture
+      = image_tag @linkedin_info['image']
   .field
-    = f.label :thumbnail_url
-    = f.text_field :thumbnail_url, value: @linkedin_info.nil? ? '' : @linkedin_info['image']
+    label Profile Picture
+    = f.file_field :thumbnail_url, value: @linkedin_info.nil? ? '' : @linkedin_info['image']
   .field
     small The password must contain 6 or more characters, have a captial letter and a number
     = f.label :password
