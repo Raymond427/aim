@@ -27,7 +27,8 @@ class MembersController < ApplicationController
   # POST /members.json
   def create
     #TODO: Test the line below
-    @member = member_chapter(session_chapter).members.new(member_params)
+    @chapter = session_chapter || member_params[:chapter_id]
+    @member = member_chapter(@chapter).members.new(member_params)
 
     respond_to do |format|
       if @member.save
