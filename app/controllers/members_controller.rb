@@ -1,7 +1,7 @@
 class MembersController < ApplicationController
   before_action :find_member, only: [:show, :edit, :update, :destroy]
   before_action :chapter_in_sessions?, only: [:create, :index]
-  before_action :chapter_schools?, only: [:index]
+  before_action :chapter_schools, only: [:index]
 
   # GET /members
   # GET /members.json
@@ -26,16 +26,17 @@ class MembersController < ApplicationController
   # POST /members
   # POST /members.json
   def create
-    member = member_chapter(params[:member][:chapter_id]).members.new(member_params)
+    #TODO: Test the line below
+    @member = member_chapter(session_chapter).members.new(member_params)
 
     respond_to do |format|
-      if member.save
-        format.html { redirect_to member_chapter(member_params[:chapter_id]), notice: 'Member was successfully created.' }
-        format.json { render :show, status: :created, location: member }
-        log_in member
+      if @member.save
+        format.html { redirect_to member_chapter(@member.chapter_id), notice: 'Member was successfully created.' }
+        format.json { render :show, status: :created, location: @member }
+        log_in @member
       else
         format.html { render :new }
-        format.json { render json: member.errors, status: :unprocessable_entity }
+        format.json { render json: @member.errors, status: :unprocessable_entity }
       end
     end
   end

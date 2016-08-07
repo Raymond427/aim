@@ -10,7 +10,7 @@ RSpec.describe "members/show", type: :view do
     expect(rendered).to match(/First Name/)
     expect(rendered).to match(/Last Name/)
     expect(rendered).to match(/Email/)
-    expect(rendered).to match(/Password Digest/)
+    expect(rendered).to match(/Password/)
     expect(rendered).to match(/Role/)
     expect(rendered).to match(/Linkedinurl/)
     expect(rendered).to match(/Major/)

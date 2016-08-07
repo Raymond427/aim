@@ -10,7 +10,7 @@ RSpec.describe "members/index", type: :view do
     assert_select "tr>td", :text => "First Name".to_s, :count => 2
     assert_select "tr>td", :text => "Last Name".to_s, :count => 2
     assert_select "tr>td", :text => "Email".to_s, :count => 2
-    assert_select "tr>td", :text => "Password Digest".to_s, :count => 2
+    assert_select "tr>td", :text => "Password".to_s, :count => 2
     assert_select "tr>td", :text => "general".to_s, :count => 2
     assert_select "tr>td", :text => "Linkedinurl".to_s, :count => 2
     assert_select "tr>td", :text => "Art".to_s, :count => 2

@@ -16,19 +16,19 @@ RSpec.describe "members/edit", type: :view do
 
       assert_select "input#member_email[name=?]", "member[email]"
 
-      assert_select "input#member_password_digest[name=?]", "member[password_digest]"
+      assert_select "input#member_password[name=?]", "member[password]"
 
-      assert_select "input#member_role[name=?]", "member[role]"
+      assert_select "input#member_role_#{@member.role}[name=?]", "member[role]"
 
       assert_select "input#member_linkedinurl[name=?]", "member[linkedinurl]"
 
-      assert_select "input#member_major[name=?]", "member[major]"
+      assert_select "select#member_major[name=?]", "member[major]"
 
-      assert_select "input#member_graduation_date[name=?]", "member[graduation_date]"
+      assert_select "select#member_graduation_date[name=?]", "member[graduation_date]"
 
       assert_select "input#member_is_executive[name=?]", "member[is_executive]"
 
-      assert_select "input#member_executive_position[name=?]", "member[executive_position]"
+      assert_select "select#member_executive_position[name=?]", "member[executive_position]"
     end
   end
 end

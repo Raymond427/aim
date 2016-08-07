@@ -3,7 +3,7 @@ FactoryGirl.define do
     first_name 'First Name'
     last_name 'Last Name'
     email 'Email'
-    password_digest 'Password Digest'
+    password 'Password'
     role 'general'
     linkedinurl 'Linkedinurl'
     major 'Art'

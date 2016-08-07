@@ -83,9 +83,9 @@ RSpec.describe MembersController, type: :controller do
         expect(assigns(:member)).to be_persisted
       end
 
-      it "redirects to the created member" do
+      it "redirects to the member's chapter" do
         post :create, params: {member: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(Member.last)
+        expect(response).to redirect_to(Chapter.find(session[:chapter_id]))
       end
     end
 
