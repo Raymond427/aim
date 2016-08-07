@@ -1,0 +1,23 @@
+body
+  main
+    header
+      h1 News
+      h2 See what AIM&#39;s been up to!
+    - if member_can_create?
+      = button_to "Post an Update", new_news_path, :class => "button", :method => :get
+    .news_feed
+      - @news.each do |news|
+        section.news
+          figure
+            - if news.mediatype == 'Image'
+              = image_tag news.thumbnail.url(:preview), alt: news.title
+            - elsif news.mediatype == 'Video'
+              iframe frameborder="0" src=news.youtube_url
+            figcaption
+              = news.title
+              = news.date.to_date.to_formatted_s(:long_ordinal)
+              = news.description
+              - if member_can_edit?
+                = link_to 'Edit', edit_news_path(news)
+              - if member_can_delete?
+                = link_to 'Delete', news, method: :delete, data: { confirm: 'Are you sure you want to delete ' + news.title + '?'}

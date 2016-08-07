@@ -51,7 +51,7 @@ small
     
   .field
     = f.label :linkedinurl
-    = f.text_field :linkedinurl, value: @linkedin_info.nil? ? '' : @linkedin_info['urls']['public_profile']
+    = f.url_field :linkedinurl, value: @linkedin_info.nil? ? '' : @linkedin_info['urls']['public_profile']
   .field
     = f.label :major
     = f.select :major, Member::MAJORS, selected: @member.major, prompt: 'Please select a Major'

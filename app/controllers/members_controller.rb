@@ -2,6 +2,7 @@ class MembersController < ApplicationController
   before_action :find_member, only: [:show, :edit, :update, :destroy]
   before_action :chapter_in_sessions?, only: [:create, :index]
   before_action :chapter_schools, only: [:index]
+  before_action :redirect_if_no_chapter_in_session, only: [:executives]
 
   # GET /members
   # GET /members.json
@@ -24,11 +25,7 @@ class MembersController < ApplicationController
   end
 
   def executives
-    if session_chapter.nil?
-      redirect_to root_url, alert: 'You must select a chapter first'
-    else
-      @executives = session_chapter.members.where(is_executive: true).sort_by {|member| Member::POSITIONS.index(member.executive_position)}
-    end
+    @executives = session_chapter.members.where(is_executive: true).sort_by {|member| Member::POSITIONS.index(member.executive_position)}
   end
 
   # POST /members

@@ -31,3 +31,12 @@ members = Member.create([
     chapter: chapters.first
   }
 ])
+
+news = News.create([
+  {
+    title: 'Niner Nights',
+    date: '2014-07-12',
+    mediatype: 'Image',
+    description: 'Come out to visit the AIM booth during Niner Nights on the UNC Charlotte campus! future freshman signed AIM&#39;s door to "open your door from dreams to reality!"'
+  }
+])

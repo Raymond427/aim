@@ -1,27 +1,24 @@
-= form_for @news do |f|
+= form_for @news do |news|
   - if @news.errors.any?
     #error_explanation
       h2 = "#{pluralize(@news.errors.count, "error")} prohibited this news from being saved:"
       ul
         - @news.errors.full_messages.each do |message|
           li = message
-
-  .field
-    = f.label :title
-    = f.text_field :title
-  .field
-    = f.label :date
-    = f.text_field :date
-  .field
-    = f.label :mediatype
-    = f.text_field :mediatype
-  .field
-    = f.label :thumbnail
-    = f.file_field :thumbnail
-  .field
-    = f.label :youtube_url
-    = f.text_field :youtube_url
-  .field
-    = f.label :description
-    = f.text_field :description
-  .actions = f.submit
+          
+  = news.label :title
+  = news.text_field :title
+  = news.label :date
+  = news.date_field :date, value: @news.date
+  = news.radio_button :mediatype, 'Image', id: 'image_input'
+  = news.label :mediatype, 'Image'
+  = news.radio_button :mediatype, 'Video', id: 'video_input'
+  = news.label :mediatype, 'Video'
+  = news.label 'Photo', id: 'image_input', class: 'news_media'
+  = news.file_field :thumbnail, id: 'image_input', class: 'news_media'
+  label#video_input.news_media Paste the YouTube video URL here:
+  = news.url_field :youtube_url, id: 'video_input', class: 'news_media'
+  = news.label :description
+  = news.text_area :description
+  = news.submit
+  = link_to 'Cancel', '/news'

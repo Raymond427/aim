@@ -11,4 +11,7 @@ module ChaptersHelper
   def session_chapter
     Chapter.find(session[:chapter_id]) if chapter_in_sessions?
   end
+  def redirect_if_no_chapter_in_session
+    redirect_to root_url, alert: 'Please select a chapter first' if session_chapter.nil?
+  end
 end

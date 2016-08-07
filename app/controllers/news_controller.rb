@@ -1,6 +1,7 @@
 class NewsController < ApplicationController
   before_action :find_news, only: [:show, :edit, :update, :destroy]
   before_action :chapter_in_sessions?, only: [:create, :index]
+  before_action :redirect_if_no_chapter_in_session
 
   # GET /news
   # GET /news.json
