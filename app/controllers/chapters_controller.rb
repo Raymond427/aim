@@ -55,6 +55,9 @@ class ChaptersController < ApplicationController
     end
   end
 
+  def sponsorship
+  end
+
   # DELETE /chapters/1
   # DELETE /chapters/1.json
   def destroy

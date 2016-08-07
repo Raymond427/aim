@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   #get '/chapters' => 'index#chapters', as: '/'
 
   resources :chapters#, except: :index
+  get '/sponsorship', to: 'chapters#sponsorship'
 
   match 'auth/:provider/callback', to: 'sessions#linkedin_signup', via: [:get, :post]
 
