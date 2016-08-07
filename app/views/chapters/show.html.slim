@@ -1,17 +1,4 @@
+- if member_can_edit?
+  = link_to 'Edit', edit_chapter_path(@chapter)
 - session[:chapter_id] = params[:id]
-p#notice = notice
-
-p
-  strong School:
-  = @chapter.school
-p
-  strong Logo img:
-  = @chapter.logo
-p
-  strong Email:
-  = @chapter.email
-p
-  strong Donation url:
-  = @chapter.donation_url
-
-= link_to 'Edit', edit_chapter_path(@chapter)
+h1 Welcome to #{@chapter.school}&#39;s AIM Chapter!
