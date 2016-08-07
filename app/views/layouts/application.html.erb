@@ -1,49 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Aim</title>
+    <%= render partial: "partials/google_analytics" %> <!-- attaches Google Universal Analytics -->
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <!-- This is the title shown in your browser's title bar -->
+    <title>Advancing Innovative Minds</title>
+    <!-- Update keywords and description to help get picked up by search engines -->
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <nav>
-        CHAPTER IN SESSIONS =
-      <%= chapter_in_sessions? %>
-        CURRENT MEMBER =
-      <%= session[:member_id] %>
-      <% if member_can_create? %>
-        CAN CREATE
-      <% end %>
-      <% if member_can_delete? %>
-        CAN DELETE
-      <% end %>
-      <% if member_can_edit? %>
-        CAN EDIT
-      <% end %>
-      <% if !@member.nil? %>
-        <% if @member.role == 'webmaster' %>
-          <%= link_to 'Create a Chapter', new_chapter_path %>
-          WEBMASTER
-        <% end %>
-        <% if @member.role == 'admin' %>
-          ADMIN
-        <% end %>
-        <% if @member.role == 'editor' %>
-          EDITOR
-        <% end %>
-        <% if @member.role == 'general' %>
-          GENERAL
-        <% end %>
-      <% end %>
-      <% if logged_in? %>
-        LOGGED IN
-      <% end %>
-      <% if logged_in? %>
-        <%= link_to 'Log Out', logout_path, method: 'delete' %>
-      <% else %>
-        <%= link_to 'Sign Up', new_member_path %>
-        <%= link_to 'Log In', login_path %>
-      <% end %>
-    </nav>
+    <meta name="keywords" content="Advancing Innovative Minds, AIM, UNCC AIM, AIM UNCC, aim uncc, unccaim, aimuncc, Charlotte, Entrepreneur, Entrepreneurship" />
+    <meta name="description" content="Advancing Innovative Minds (AIM) is UNC Charlotte's most active and dedicated entrepreneurial club. We plan on using the booming development of the Charlotte area as a catalyst to create truly effective ideas that will culminate into thriving businesses." />
+    <meta name="viewport" content="width=device-width">
+    <!-- This is a favicon (the icon you see when you bookmark a website). Favicons must have .ico extension. -->
+    <link rel="icon" src="favicon.ico"/>
+    <% if request.path == '/' || request.path == '/chapters' %>
+    <% else %>
+      <%= render 'partials/navbar' %>
+    <% end %>
   </head>
 
   <body>

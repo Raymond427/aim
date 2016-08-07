@@ -1,0 +1,43 @@
+nav.navbar.navbar-default.navbar-fixed-top
+  .container
+    .navbar-header
+      .hidden-sm.visible-xs
+        a href="/" title="Home" 
+          = image_tag session_chapter.logo, :id => 'mobile_img', :alt => 'logo'
+      button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button" 
+        span.sr-only Toggle Navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+    ul.nav.navbar-nav.navbar-left.collapse.navbar-collapse
+      li
+        a.nav_img.hidden-xs href="/" title="Home" 
+          = image_tag 'logo.png', :alt => 'logo'
+      li= link_to 'HOME', session_chapter
+      li= link_to 'EXECUTIVE BOARD', executives_path
+      /! <li><haml_loud> link_to &quot;MEMBERS&quot;, :controller =&gt; &#39;members&#39;, :action =&gt; &#39;index&#39; </haml_loud></li
+      li= link_to 'NEWS', news_index_path
+      / li= link_to 'CALENDAR', :controller => 'pages', :action => 'calendar'
+      li= link_to 'SPONSORSHIP', sponsorship_path
+    .nav.navbar-nav.navbar-right.collapse.navbar-collapse
+      - if member_can_create?
+        li
+          .dropdown
+            button#dropdownMenu2.btn.btn-default.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" 
+              | Mail
+              /! <haml_loud> current_user.user_name </haml_loud
+              span.caret
+            ul.dropdown-menu aria-labelledby="dropdownMenu2" 
+              / li= link_to 'Mail Database', :controller => 'guests', :action => 'index'
+              li= link_to 'Log Out', logout_path, method: 'delete'
+      - else
+        li= button_to "Join Now", new_member_path, method: 'get'
+      li
+        a.nav_img.hidden-sm.hidden-xs href="https://www.uncc.edu" title="Visit UNCC"
+          = image_tag session_chapter.logo, :alt => 'school'
+  - if flash[:notice]
+    #notice
+      = notice
+  - elsif flash[:alert]
+    #alert
+      = alert
