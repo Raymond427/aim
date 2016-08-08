@@ -58,6 +58,9 @@ class ChaptersController < ApplicationController
   def sponsorship
   end
 
+  def calendar
+  end
+
   # DELETE /chapters/1
   # DELETE /chapters/1.json
   def destroy

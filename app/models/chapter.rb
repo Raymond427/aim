@@ -9,7 +9,7 @@ class Chapter < ApplicationRecord
   # First, we validate that all of the required attributes are present
   validates_presence_of :school
   validates_presence_of :email
-  # validates_presence_of :donation_url
+  validates_presence_of :donation_url
   # has_attached_file :logo, styles: {
   # thumb: '100x100>',
   # square: '200x200#',

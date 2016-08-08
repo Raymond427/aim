@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 
   resources :chapters#, except: :index
   get '/sponsorship', to: 'chapters#sponsorship'
+  get '/calendar', to: 'chapters#calendar'
 
   match 'auth/:provider/callback', to: 'sessions#linkedin_signup', via: [:get, :post]
 

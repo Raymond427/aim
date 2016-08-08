@@ -1,0 +1,11 @@
+main
+  header
+    h1
+      | Calendar
+    h2
+      | Mark your calendar for upcomming events!
+  .loading
+    = image_tag 'loading.gif'
+    h3 Loading Calendar
+  .events
+    iframe src="https://orgsync.com/83120/calendar/iframe" style=("border: 0; height: 750px; width: 100%") 

@@ -17,21 +17,25 @@ nav.navbar.navbar-default.navbar-fixed-top
       li= link_to 'EXECUTIVE BOARD', executives_path
       /! <li><haml_loud> link_to &quot;MEMBERS&quot;, :controller =&gt; &#39;members&#39;, :action =&gt; &#39;index&#39; </haml_loud></li
       li= link_to 'NEWS', news_index_path
-      / li= link_to 'CALENDAR', :controller => 'pages', :action => 'calendar'
+      li= link_to 'CALENDAR', calendar_path
       li= link_to 'SPONSORSHIP', sponsorship_path
     .nav.navbar-nav.navbar-right.collapse.navbar-collapse
-      - if member_can_create?
+      - if logged_in?
         li
           .dropdown
             button#dropdownMenu2.btn.btn-default.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" 
-              | Mail
+              | Profile
               /! <haml_loud> current_user.user_name </haml_loud
               span.caret
             ul.dropdown-menu aria-labelledby="dropdownMenu2" 
               / li= link_to 'Mail Database', :controller => 'guests', :action => 'index'
+              li= link_to 'Edit Profile', edit_member_path(current_member)
+              - if current_member.role == 'webmaster'
+                li= link_to 'Create a Chapter', new_chapter_path
               li= link_to 'Log Out', logout_path, method: 'delete'
       - else
         li= button_to "Join Now", new_member_path, method: 'get'
+        li= button_to "Log In", login_path, method: 'get'
       li
         a.nav_img.hidden-sm.hidden-xs href="https://www.uncc.edu" title="Visit UNCC"
           = image_tag session_chapter.logo, :alt => 'school'
