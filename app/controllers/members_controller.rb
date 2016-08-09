@@ -40,6 +40,7 @@ class MembersController < ApplicationController
         format.html { redirect_to member_chapter(@member.chapter_id), notice: 'Member was successfully created.' }
         format.json { render :show, status: :created, location: @member }
         log_in @member
+        MemberMailer.welcome_email(@member).deliver_later
       else
         format.html { render :new }
         format.json { render json: @member.errors, status: :unprocessable_entity }

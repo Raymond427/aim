@@ -1,5 +1,4 @@
 require "rails_helper"
 
-RSpec.describe MemberMailerMailer, type: :mailer do
-  pending "add some examples to (or delete) #{__FILE__}"
+RSpec.describe MemberMailer, type: :mailer do
 end
