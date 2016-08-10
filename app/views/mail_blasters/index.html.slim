@@ -1,0 +1,27 @@
+h1 Listing mail_blasters
+
+table
+  thead
+    tr
+      th To
+      th Subject
+      th From
+      th Body
+      th
+      th
+      th
+
+  tbody
+    - @mail_blasters.each do |mail_blaster|
+      tr
+        td = mail_blaster.to
+        td = mail_blaster.subject
+        td = mail_blaster.from
+        td = mail_blaster.body
+        td = link_to 'Show', mail_blaster
+        td = link_to 'Edit', edit_mail_blaster_path(mail_blaster)
+        td = link_to 'Destroy', mail_blaster, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Mail blaster', new_mail_blaster_path

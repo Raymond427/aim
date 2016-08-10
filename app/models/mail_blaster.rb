@@ -1,0 +1,2 @@
+class MailBlaster < ApplicationRecord
+end

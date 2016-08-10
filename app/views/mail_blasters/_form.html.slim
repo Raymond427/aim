@@ -1,0 +1,21 @@
+= form_for @mail_blaster do |f|
+  - if @mail_blaster.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@mail_blaster.errors.count, "error")} prohibited this mail_blaster from being saved:"
+      ul
+        - @mail_blaster.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :to
+    = f.text_field :to
+  .field
+    = f.label :subject
+    = f.text_field :subject
+  .field
+    = f.label :from
+    = f.text_field :from
+  .field
+    = f.label :body
+    = f.text_area :body
+  .actions = f.submit
