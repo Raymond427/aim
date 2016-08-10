@@ -101,6 +101,17 @@ To build the app, be sure you have these installed:
 
 TODO
 
+#### Using Mailcatcher
+
+    If you're using rvm, the documentation suggests installing mailcatcher in its own gemset, and creating a wrapper to allow for running it independently of your current gemset:
+        ```
+        $ rvm default@mailcatcher --create do gem install mailcatcher
+        $ rvm wrapper default@mailcatcher --no-prefix mailcatcher catchmail
+        $ mailcatcher  # `$rvm_bin_path/mailcatcher`
+        $ open http://localhost:1080/
+        ```
+    Learn more at [mailcatcher.me](http://mailcatcher.me/). And please don't add mailcatcher to the Gemfile.
+
 ## Server Environments
 
 ### Hosting
