@@ -28,7 +28,7 @@ nav.navbar.navbar-default.navbar-fixed-top
               /! <haml_loud> current_user.user_name </haml_loud
               span.caret
             ul.dropdown-menu aria-labelledby="dropdownMenu2" 
-              li= link_to 'Mail Blaster', :controller => 'guests', :action => 'index'
+              li= link_to 'Mail Blaster', new_mail_blaster_path
               li= link_to 'Edit Profile', edit_member_path(current_member)
               - if current_member.role == 'webmaster'
                 li= link_to 'Create a Chapter', new_chapter_path
