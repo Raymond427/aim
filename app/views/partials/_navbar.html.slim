@@ -34,8 +34,18 @@ nav.navbar.navbar-default.navbar-fixed-top
                 li= link_to 'Create a Chapter', new_chapter_path
               li= link_to 'Log Out', logout_path, method: 'delete'
       - else
-        li= button_to "Join Now", signup_path, method: 'get'
-        li= button_to "Log In", login_path, method: 'get'
+        li
+          .dropdown
+            button#dropdownMenu2.btn.btn-default.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" 
+              | Get Involved
+              /! <haml_loud> current_user.user_name </haml_loud
+              span.caret
+            ul.dropdown-menu aria-labelledby="dropdownMenu2"
+              li= link_to 'Join Now'
+              li= link_to "Log In", login_path
+              li= link_to 'One-on-one Advice'
+              li= link_to 'Speak at a Meeting'
+              li= link_to 'Start a Chapter'
       li
         a.nav_img.hidden-sm.hidden-xs href="https://www.uncc.edu" title="Visit UNCC"
           = image_tag session_chapter.logo, :alt => 'school'

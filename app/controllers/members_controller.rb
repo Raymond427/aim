@@ -22,6 +22,7 @@ class MembersController < ApplicationController
 
   # GET /members/1/edit
   def edit
+    redirect_to session_chapter, alert: 'You cannot edit other members!' unless @member.id == current_member.id || (member_can_edit? || member_can_create?)
   end
 
   def executives
@@ -76,6 +77,7 @@ class MembersController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def find_member
       @member = Member.find(params[:id])
+      redirect_to session_chapter, alert: 'No member found' if @member.nil?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
