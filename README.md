@@ -14,39 +14,39 @@ To build the app, be sure you have these installed:
 * Make sure that you have postgreSQL installed
   Run these commands:
 
-    `$ sudo apt-get install`
+    `sudo apt-get install`
 
-    `$ postgresql-client-common`
+    `postgresql-client-common`
 
-    `$ sudo apt-get install`
+    `sudo apt-get install`
 
-    `$ postgresql-client-9.3`
+    `postgresql-client-9.3`
 
-    `$ sudo apt-get install postgresql-9.3`
+    `sudo apt-get install postgresql-9.3`
 
-    `$ sudo apt-get install postgresql`
+    `sudo apt-get install postgresql`
 
-    `$ postgresql-contrib libpq-dev`
+    `postgresql-contrib libpq-dev`
 
 
 * Create a user that will control the database
 
-    `$ sudo -u postgres createuser -s pguser`
+    `sudo -u postgres createuser -s pguser`
 
 
 * Set a password for that user
 
-    `$ sudo -u postgres psql`
+    `sudo -u postgres psql`
 
-    `$ \password pguser`
+    `\password pguser`
 
 * Leave psql
 
-    `$ \q`
+    `\q`
 
 * Move into the app directory if you haven't
 
-    `$ cd aim`
+    `cd aim`
 
 * Configure the database connection
 
@@ -67,32 +67,32 @@ To build the app, be sure you have these installed:
 
 * Check the status of the postgres server, it should be online
 
-  	`$ service postgresql status`
+  	`service postgresql status`
 
 * If it isn't online, start the postgres server
 
-  	`$ sudo service postgresql start`
+  	`sudo service postgresql start`
 
 * Create connection to postgres server
 
-  	`$ sudo ln -s /tmp/.s.PGSQL.5432 /var/run/postgresql/.s.PGSQL.5432`
+  	`sudo ln -s /tmp/.s.PGSQL.5432 /var/run/postgresql/.s.PGSQL.5432`
 
 * Create rails database
 
-  	`$ rake db:create`
+  	`rake db:create`
 
 * Migrate default values of app to database
 
-  	`$ rake db:migrate`
+  	`rake db:migrate`
 
 * Setup rails database
 
-  	`$ rake db:setup`
+  	`rake db:setup`
 
 
 #### Running the Application Locally
 
-    `$ rails server`
+    `rails server`
 
     Open your favorite browser and put in the address: http://localhost:3000
 
@@ -105,10 +105,10 @@ TODO
 
 If you're using rvm, the documentation suggests installing mailcatcher in its own gemset, and creating a wrapper to allow for running it independently of your current gemset:
     ```
-    $ rvm default@mailcatcher --create do gem install mailcatcher
-    $ rvm wrapper default@mailcatcher --no-prefix mailcatcher catchmail
-    $ mailcatcher  # `$rvm_bin_path/mailcatcher`
-    $ open http://localhost:1080/
+    rvm default@mailcatcher --create do gem install mailcatcher
+    rvm wrapper default@mailcatcher --no-prefix mailcatcher catchmail
+    mailcatcher  # `$rvm_bin_path/mailcatcher`
+    open http://localhost:1080/
     ```
 Learn more at [mailcatcher.me](http://mailcatcher.me/). And please don't add mailcatcher to the Gemfile.
 
@@ -123,4 +123,4 @@ The database is hosted on AWS S3 under the account rferrel9@uncc.edu
 ### Deployment Instructions
 
 * Stage and commit all of your changes and run:
-    `$ git push heroku master`
+    `git push heroku master`
