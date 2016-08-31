@@ -21,7 +21,7 @@ members = Member.create([
     first_name: 'Raymond',
     last_name: 'Ferrell',
     email: 'rferrel427@gmail.com',
-    password: ENV['admin_password'],
+    password: ENV['ADMIN_PASSWORD'],
     role: 'admin',
     linkedinurl: 'https://www.linkedin.com/in/raymondferrell',
     major: 'Computer Science',

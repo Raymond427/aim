@@ -41,14 +41,14 @@ nav.navbar.navbar-default.navbar-fixed-top
               /! <haml_loud> current_user.user_name </haml_loud
               span.caret
             ul.dropdown-menu aria-labelledby="dropdownMenu2"
-              li= link_to 'Join Now'
+              li= link_to 'Join Now', new_member_path
               li= link_to "Log In", login_path
               li= link_to 'One-on-one Advice'
-              li= link_to 'Speak at a Meeting'
+              li= link_to 'Speak at our Meetings'
               li= link_to 'Start a Chapter'
-      li
-        a.nav_img.hidden-sm.hidden-xs href="https://www.uncc.edu" title="Visit UNCC"
-          = image_tag session_chapter.logo, :alt => 'school'
+      /li
+        /a.nav_img.hidden-sm.hidden-xs href="https://www.uncc.edu" title="Visit UNCC"
+          /= image_tag session_chapter.logo, :alt => 'school' UNCOMMENT TO SHOW SCHOOL LOGO
   - if flash[:notice]
     #notice
       = notice

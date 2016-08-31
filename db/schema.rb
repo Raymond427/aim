@@ -30,12 +30,14 @@ ActiveRecord::Schema.define(version: 20160810051425) do
   end
 
   create_table "mail_blasters", force: :cascade do |t|
+    t.integer  "chapter_id"
     t.string   "to",         default: [],              array: true
     t.string   "subject"
     t.string   "from"
     t.text     "body"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.index ["chapter_id"], name: "index_mail_blasters_on_chapter_id", using: :btree
   end
 
   create_table "members", force: :cascade do |t|

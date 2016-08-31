@@ -5,6 +5,7 @@ class Chapter < ApplicationRecord
   # has_many :members, dependent: :destroy
   has_many :news
   has_many :members
+  has_many :mail_blasters
 
   # First, we validate that all of the required attributes are present
   validates_presence_of :school

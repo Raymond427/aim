@@ -1,10 +1,10 @@
 class MailBlastersController < ApplicationController
-  before_action :set_mail_blaster, only: [:show, :edit, :update, :destroy]
+  before_action :find_mail_blaster, only: [:show, :edit, :update, :destroy]
 
   # GET /mail_blasters
   # GET /mail_blasters.json
   def index
-    @mail_blasters = MailBlaster.all
+    @mail_blasters = session_chapter.mail_blasters.all
   end
 
   # GET /mail_blasters/1
@@ -24,12 +24,14 @@ class MailBlastersController < ApplicationController
   # POST /mail_blasters
   # POST /mail_blasters.json
   def create
-    @mail_blaster = MailBlaster.new(mail_blaster_params)
-
+    @mail_blaster = session_chapter.mail_blasters.new(mail_blaster_params)
+    @mail_blaster.to = session_chapter.members.all.pluck(:email)
+    @mail_blaster.from = current_member.email
     respond_to do |format|
       if @mail_blaster.save
-        format.html { redirect_to @mail_blaster, notice: 'Mail blaster was successfully created.' }
+        format.html { redirect_to @mail_blaster, notice: 'Your message will be sent shortly' }
         format.json { render :show, status: :created, location: @mail_blaster }
+        MailBlasterMailer.blast_email(@mail_blaster).deliver_later
       else
         format.html { render :new }
         format.json { render json: @mail_blaster.errors, status: :unprocessable_entity }
@@ -40,15 +42,15 @@ class MailBlastersController < ApplicationController
   # PATCH/PUT /mail_blasters/1
   # PATCH/PUT /mail_blasters/1.json
   def update
-    respond_to do |format|
-      if @mail_blaster.update(mail_blaster_params)
-        format.html { redirect_to @mail_blaster, notice: 'Mail blaster was successfully updated.' }
-        format.json { render :show, status: :ok, location: @mail_blaster }
-      else
-        format.html { render :edit }
-        format.json { render json: @mail_blaster.errors, status: :unprocessable_entity }
-      end
-    end
+    # respond_to do |format|
+    #   if @mail_blaster.update(mail_blaster_params)
+    #     format.html { redirect_to @mail_blaster, notice: 'Mail blaster was successfully updated.' }
+    #     format.json { render :show, status: :ok, location: @mail_blaster }
+    #   else
+    #     format.html { render :edit }
+    #     format.json { render json: @mail_blaster.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # DELETE /mail_blasters/1
@@ -63,7 +65,7 @@ class MailBlastersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_mail_blaster
+    def find_mail_blaster
       @mail_blaster = MailBlaster.find(params[:id])
     end
 

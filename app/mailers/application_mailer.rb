@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  default from: 'noreply-aim@gmail.com'
   layout 'mailer'
 
   def welcome_email(member)

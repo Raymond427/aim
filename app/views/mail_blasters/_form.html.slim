@@ -5,16 +5,9 @@
       ul
         - @mail_blaster.errors.full_messages.each do |message|
           li = message
-
-  .field
-    = f.label :to
-    = f.text_field :to
   .field
     = f.label :subject
     = f.text_field :subject
-  .field
-    = f.label :from
-    = f.text_field :from
   .field
     = f.label :body
     = f.text_area :body
