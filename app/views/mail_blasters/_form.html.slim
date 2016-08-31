@@ -6,6 +6,9 @@
         - @mail_blaster.errors.full_messages.each do |message|
           li = message
   .field
+    = f.label :heading
+    = f.text_field :heading
+  .field
     = f.label :subject
     = f.text_field :subject
   .field

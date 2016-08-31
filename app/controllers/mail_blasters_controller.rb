@@ -31,7 +31,7 @@ class MailBlastersController < ApplicationController
       if @mail_blaster.save
         format.html { redirect_to @mail_blaster, notice: 'Your message will be sent shortly' }
         format.json { render :show, status: :created, location: @mail_blaster }
-        MailBlasterMailer.blast_email(@mail_blaster).deliver_later
+        MailBlasterMailer.blast_email(@mail_blaster).deliver_now
       else
         format.html { render :new }
         format.json { render json: @mail_blaster.errors, status: :unprocessable_entity }
@@ -71,6 +71,6 @@ class MailBlastersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def mail_blaster_params
-      params.require(:mail_blaster).permit(:to, :subject, :from, :body)
+      params.require(:mail_blaster).permit(:to, :subject, :from, :heading, :body)
     end
 end

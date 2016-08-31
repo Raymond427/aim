@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20160810051425) do
     t.string   "to",         default: [],              array: true
     t.string   "subject"
     t.string   "from"
+    t.string   "heading"
     t.text     "body"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
