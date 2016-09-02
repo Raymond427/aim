@@ -4,6 +4,12 @@ html
     meta content=("text/html; charset=UTF-8") http-equiv="Content-Type" /
   body
     /= image_tag attachments['image.jpg'].url
-    h1 Welcome to example.com, #{@member.first_name}
-    p To login to the site, just follow this link: #{@url}.
-    p Thanks for joining and have a great day!
+    h1 Hey #{@member.first_name}, Welcome to Advancing Innovative Minds!
+    .mail__body
+      p I Want to thank you for supporting and believing in what we are trying to do at #{@school_name}
+      p You can get reminders about meeting times by adding our events below to you Google Calendar
+      .mail__calendar
+        iframe src="https://orgsync.com/83120/calendar/iframe" style=("border: 0; height: 750px; width: 100%")
+      p Thanks again for joining and have a great day!
+      p Raymond Ferrell
+      p President

@@ -35,13 +35,12 @@ class MembersController < ApplicationController
     #TODO: Test the line below
     @chapter = session_chapter || member_params[:chapter_id]
     @member = member_chapter(@chapter).members.new(member_params)
-
     respond_to do |format|
       if @member.save
         format.html { redirect_to member_chapter(@member.chapter_id), notice: 'Member was successfully created.' }
         format.json { render :show, status: :created, location: @member }
         log_in @member
-        MemberMailer.welcome_email(@member).deliver_later
+        MemberMailer.welcome_email(@member).deliver_now
       else
         format.html { render :new }
         format.json { render json: @member.errors, status: :unprocessable_entity }
