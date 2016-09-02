@@ -5,6 +5,6 @@ FactoryGirl.define do
   factory :chapter do
     school "The University of North Carolina at Charlotte"
     email "aim@uncc.edu"
-    donation_url "https://www.paypal.com/uncc"
+    donation_snippet "https://www.paypal.com/uncc"
   end
 end

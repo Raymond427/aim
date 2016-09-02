@@ -5,7 +5,7 @@ RSpec.describe "chapters/edit", type: :view do
     @chapter = assign(:chapter, Chapter.create!(
       :school => "MyString",
       :email => "MyString",
-      :donation_url => "MyString"
+      :donation_snippet => "MyString"
     ))
   end
 
@@ -18,7 +18,7 @@ RSpec.describe "chapters/edit", type: :view do
 
       assert_select "input#chapter_email[name=?]", "chapter[email]"
 
-      assert_select "input#chapter_donation_url[name=?]", "chapter[donation_url]"
+      assert_select "input#chapter_donation_snippet[name=?]", "chapter[donation_snippet]"
     end
   end
 end

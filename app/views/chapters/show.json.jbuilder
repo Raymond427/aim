@@ -1,1 +1,1 @@
-json.extract! @chapter, :id, :school, :logo, :email, :donation_url, :created_at, :updated_at
+json.extract! @chapter, :id, :school, :logo, :email, :donation_snippet, :created_at, :updated_at

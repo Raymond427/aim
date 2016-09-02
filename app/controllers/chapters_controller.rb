@@ -79,6 +79,6 @@ class ChaptersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def chapter_params
-      params.require(:chapter).permit(:school, :logo, :email, :donation_url)
+      params.require(:chapter).permit(:school, :logo, :email, :donation_snippet, :youtube_url, :facebook_url, :linkedin_url, :twitter_url, :instagram_url)
     end
 end

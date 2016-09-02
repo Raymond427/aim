@@ -23,8 +23,8 @@ RSpec.describe ChaptersController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Chapter. As you add validations to Chapter, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { {school: 'UNCC', email: 'aim@uncc.edu', donation_url: 'www.paypal.com'} }
-  let(:invalid_attributes) { {school: nil, logo: nil, email: nil, donation_url: nil} }
+  let(:valid_attributes) { {school: 'UNCC', email: 'aim@uncc.edu', donation_snippet: 'www.paypal.com'} }
+  let(:invalid_attributes) { {school: nil, logo: nil, email: nil, donation_snippet: nil} }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in

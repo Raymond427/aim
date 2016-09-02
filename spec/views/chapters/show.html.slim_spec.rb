@@ -5,7 +5,7 @@ RSpec.describe "chapters/show", type: :view do
     @chapter = assign(:chapter, Chapter.create!(
       :school => "School",
       :email => "Email",
-      :donation_url => "Donation Url"
+      :donation_snippet => "Donation Url"
     ))
   end
   # 

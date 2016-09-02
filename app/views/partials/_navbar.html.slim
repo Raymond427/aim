@@ -25,7 +25,6 @@ nav.navbar.navbar-default.navbar-fixed-top
           .dropdown
             button#dropdownMenu2.btn.btn-default.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" 
               | Profile
-              /! <haml_loud> current_user.user_name </haml_loud
               span.caret
             ul.dropdown-menu aria-labelledby="dropdownMenu2" 
               li= link_to 'Mail Blaster', new_mail_blaster_path
@@ -38,7 +37,6 @@ nav.navbar.navbar-default.navbar-fixed-top
           .dropdown
             button#dropdownMenu2.btn.btn-default.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" 
               | Get Involved
-              /! <haml_loud> current_user.user_name </haml_loud
               span.caret
             ul.dropdown-menu aria-labelledby="dropdownMenu2"
               li= link_to 'Join Now', new_member_path

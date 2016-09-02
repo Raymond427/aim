@@ -5,7 +5,7 @@ class CreateChapters < ActiveRecord::Migration[5.0]
       t.string :acronym
       t.string :logo
       t.string :email
-      t.string :donation_url
+      t.text :donation_snippet
       t.string :facebook_url
       t.string :instagram_url
       t.string :twitter_url

@@ -12,7 +12,7 @@ chapters = Chapter.create([
   acronym: 'UNCC',
   logo: 'uncc.gif',
   email: 'aimunccsecretary@gmail.com',
-  donation_url: 'paypal.com',
+  donation_snippet: 'paypal.com',
   facebook_url: 'https://www.facebook.com/aimuncc',
   linkedin_url: 'https://www.linkedin.com/groups/Advancing-Innovative-Minds-8104445/about',
   twitter_url: 'https://twitter.com/aimuncc',

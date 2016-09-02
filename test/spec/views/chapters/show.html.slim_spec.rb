@@ -6,7 +6,7 @@ RSpec.describe "chapters/show", type: :view do
       :school => "School",
       :logo => "Logo Img",
       :email => "Email",
-      :donation_url => "Donation Url"
+      :donation_snippet => "Donation Url"
     ))
   end
 

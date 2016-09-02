@@ -6,12 +6,12 @@ RSpec.describe "chapters/index", type: :view do
       Chapter.create!(
         :school => "School",
         :email => "Email",
-        :donation_url => "Donation Url"
+        :donation_snippet => "Donation Url"
       ),
       Chapter.create!(
         :school => "School",
         :email => "Email",
-        :donation_url => "Donation Url"
+        :donation_snippet => "Donation Url"
       )
     ])
   end
