@@ -64,6 +64,7 @@ RSpec.describe MembersController, type: :controller do
   describe "GET #edit" do
     it "assigns the requested member as @member" do
       member = chapter.members.create! valid_attributes
+      valid_session[:member_id] = member.id
       get :edit, params: {id: member.to_param}, session: valid_session
       expect(assigns(:member)).to eq(member)
     end

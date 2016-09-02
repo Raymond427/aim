@@ -15,7 +15,7 @@ nav.navbar.navbar-default.navbar-fixed-top
           = image_tag 'logo.png', :alt => 'logo'
       li= link_to 'HOME', session_chapter
       li= link_to 'EXECUTIVE BOARD', executives_path
-      /! <li><haml_loud> link_to &quot;MEMBERS&quot;, :controller =&gt; &#39;members&#39;, :action =&gt; &#39;index&#39; </haml_loud></li
+      /li= link_to 'MEMBERS', members_index_path
       li= link_to 'NEWS', news_index_path
       li= link_to 'CALENDAR', calendar_path
       li= link_to 'SPONSORSHIP', sponsorship_path
