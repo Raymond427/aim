@@ -12,7 +12,12 @@ chapters = Chapter.create([
   acronym: 'UNCC',
   logo: 'uncc.gif',
   email: 'aimunccsecretary@gmail.com',
-  donation_url: 'paypal.com'
+  donation_url: 'paypal.com',
+  facebook_url: 'https://www.facebook.com/aimuncc',
+  linkedin_url: 'https://www.linkedin.com/groups/Advancing-Innovative-Minds-8104445/about',
+  twitter_url: 'https://twitter.com/aimuncc',
+  instagram_url: 'http://instagram.com/uncc_aim',
+  youtube_url: 'https://www.youtube.com/channel/UCrY4YxyA9gU0dPxcWLgTaYw'
   }
 ])
 
@@ -27,6 +32,7 @@ members = Member.create([
     major: 'Computer Science',
     graduation_date: 'December 2016',
     is_executive: true,
+    subscribed: true,
     executive_position: 'President',
     chapter: chapters.first
   }
@@ -37,6 +43,7 @@ news = News.create([
     title: 'Niner Nights',
     date: '2014-07-12',
     mediatype: 'Image',
-    description: 'Come out to visit the AIM booth during Niner Nights on the UNC Charlotte campus! future freshman signed AIM&#39;s door to "open your door from dreams to reality!"'
+    description: 'Come out to visit the AIM booth during Niner Nights on the UNC Charlotte campus! future freshman signed AIM&#39;s door to "open your door from dreams to reality!"',
+    chapter: chapters.first
   }
 ])

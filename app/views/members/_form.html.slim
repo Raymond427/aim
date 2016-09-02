@@ -69,7 +69,7 @@ small
       = f.check_box :is_executive
       .field
         = f.label :subscribed
-        = f.check_box :subscribed, value: true
+        = f.check_box :subscribed, checked: true
     .field
       = f.label :executive_position
       = f.select :executive_position, Member::POSITIONS, selected: @member.executive_position, prompt: 'Please select a Position'

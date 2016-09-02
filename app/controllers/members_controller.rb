@@ -81,6 +81,6 @@ class MembersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
-      params.require(:member).permit(:first_name, :last_name, :email, :password, :password_confirmation, :role, :linkedinurl, :major, :graduation_date, :is_executive, :executive_position, :chapter_id, :phone_number, :thumbnail_url )
+      params.require(:member).permit(:first_name, :last_name, :email, :password, :password_confirmation, :role, :linkedinurl, :major, :graduation_date, :is_executive, :executive_position, :chapter_id, :subscribed, :phone_number, :thumbnail_url )
     end
 end

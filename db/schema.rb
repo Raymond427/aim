@@ -21,6 +21,11 @@ ActiveRecord::Schema.define(version: 20160810051425) do
     t.string   "logo"
     t.string   "email"
     t.string   "donation_url"
+    t.string   "facebook_url"
+    t.string   "instagram_url"
+    t.string   "twitter_url"
+    t.string   "linkedin_url"
+    t.string   "youtube_url"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
     t.string   "logo_file_name"
@@ -54,6 +59,7 @@ ActiveRecord::Schema.define(version: 20160810051425) do
     t.string   "major"
     t.string   "graduation_date"
     t.boolean  "is_executive"
+    t.boolean  "subscribed"
     t.string   "executive_position"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
