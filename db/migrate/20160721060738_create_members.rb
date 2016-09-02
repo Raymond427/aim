@@ -13,6 +13,7 @@ class CreateMembers < ActiveRecord::Migration[5.0]
       t.string :major
       t.string :graduation_date
       t.boolean :is_executive
+      t.boolean :subscribed
       t.string :executive_position
 
       t.timestamps

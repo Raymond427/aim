@@ -25,7 +25,7 @@ class MailBlastersController < ApplicationController
   # POST /mail_blasters.json
   def create
     @mail_blaster = session_chapter.mail_blasters.new(mail_blaster_params)
-    @mail_blaster.to = session_chapter.members.all.pluck(:email)
+    @mail_blaster.to = session_chapter.members.where(subscribed: true).pluck(:email)
     @mail_blaster.from = current_member.email
     respond_to do |format|
       if @mail_blaster.save
