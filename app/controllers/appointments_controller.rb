@@ -1,5 +1,6 @@
 class AppointmentsController < ApplicationController
-  before_action :find_appointment, only: [:show, :edit, :update, :destroy]
+  before_action :redirect_if_not_logged_in
+  before_action :find_appointment, only: [:show, :destroy]
 
   # GET /appointments
   # GET /appointments.json
@@ -17,37 +18,18 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new
   end
 
-  # GET /appointments/1/edit
-  def edit
-  end
-
   # POST /appointments
   # POST /appointments.json
   def create
     @appointment = Appointment.new(appointment_params)
-
     respond_to do |format|
       if @appointment.save
-        format.html { redirect_to @appointment, notice: 'Appointment was successfully created.' }
+        format.html { redirect_to @appointment, notice: 'Thank You! We\'ll Schedule Your Session Soon' }
         format.json { render :show, status: :created, location: @appointment }
         AppointmentMailer.appointment_email(@appointment).deliver_now
         AppointmentMailer.pres_email(@appointment, chapter_president).deliver_now
       else
         format.html { render :new }
-        format.json { render json: @appointment.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /appointments/1
-  # PATCH/PUT /appointments/1.json
-  def update
-    respond_to do |format|
-      if @appointment.update(appointment_params)
-        format.html { redirect_to @appointment, notice: 'Appointment was successfully updated.' }
-        format.json { render :show, status: :ok, location: @appointment }
-      else
-        format.html { render :edit }
         format.json { render json: @appointment.errors, status: :unprocessable_entity }
       end
     end
