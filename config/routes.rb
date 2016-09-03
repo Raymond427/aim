@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :appointments
   resources :guests
   resources :mail_blasters
   resources :members

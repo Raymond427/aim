@@ -1,0 +1,21 @@
+p#notice = notice
+
+p
+  strong First name:
+  = @appointment.first_name
+p
+  strong Last name:
+  = @appointment.last_name
+p
+  strong Email:
+  = @appointment.email
+p
+  strong Phone number:
+  = @appointment.phone_number
+p
+  strong Message:
+  = @appointment.message
+
+= link_to 'Edit', edit_appointment_path(@appointment)
+'|
+= link_to 'Back', appointments_path
