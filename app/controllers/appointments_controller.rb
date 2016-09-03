@@ -1,5 +1,5 @@
 class AppointmentsController < ApplicationController
-  before_action :set_appointment, only: [:show, :edit, :update, :destroy]
+  before_action :find_appointment, only: [:show, :edit, :update, :destroy]
 
   # GET /appointments
   # GET /appointments.json
@@ -30,6 +30,8 @@ class AppointmentsController < ApplicationController
       if @appointment.save
         format.html { redirect_to @appointment, notice: 'Appointment was successfully created.' }
         format.json { render :show, status: :created, location: @appointment }
+        AppointmentMailer.appointment_email(@appointment).deliver_now
+        AppointmentMailer.pres_email(@appointment, chapter_president).deliver_now
       else
         format.html { render :new }
         format.json { render json: @appointment.errors, status: :unprocessable_entity }
@@ -63,7 +65,7 @@ class AppointmentsController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_appointment
+    def find_appointment
       @appointment = Appointment.find(params[:id])
     end
 

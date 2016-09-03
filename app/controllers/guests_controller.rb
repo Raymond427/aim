@@ -31,7 +31,7 @@ class GuestsController < ApplicationController
         format.html { redirect_to @guest, notice: 'Guest was successfully created.' }
         format.json { render :show, status: :created, location: @guest }
         GuestMailer.guest_email(@guest).deliver_now
-        GuestMailer.pres_email(@guest, chapter_president).deliver_now
+        GuestMailer.pres_email(@guest, chapter_president.email).deliver_now
       else
         format.html { render :new }
         format.json { render json: @guest.errors, status: :unprocessable_entity }

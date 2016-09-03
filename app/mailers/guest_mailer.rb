@@ -5,12 +5,11 @@ class GuestMailer < ApplicationMailer
   def guest_email(guest)
     #attachments.inline['image.jpg'] = File.read('/path/to/image.jpg')
     @guest = guest
-    mail(to: email.to, subject: "We've got your request!")
+    mail(to: guest.email, subject: "We've got your request!")
   end
 
-  def pres_email(guest, president)
+  def pres_email(guest, president_email)
     @guest = guest
-    @president = president
-    mail(to: @president.email, subject: "Guest Speaker Request!")
+    mail(to: president_email, subject: "Guest Speaker Request!")
   end
 end

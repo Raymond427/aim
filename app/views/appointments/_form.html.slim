@@ -16,6 +16,9 @@
     = f.label :email
     = f.text_field :email
   .field
+    = f.label :chapter
+    = f.select :chapter_id, options_for_select(chapter_schools), selected: session_chapter.school, prompt: 'Please select a Chapter'
+  .field
     = f.label :phone_number
     = f.text_field :phone_number
   .field

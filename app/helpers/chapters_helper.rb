@@ -15,6 +15,6 @@ module ChaptersHelper
     redirect_to root_url, alert: 'Please select a chapter first' if session_chapter.nil?
   end
   def chapter_president
-    session_chapter.members.where(executive_position: 'President')
+    session_chapter.members.where(executive_position: 'President').first
   end
 end
