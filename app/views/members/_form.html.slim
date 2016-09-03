@@ -35,20 +35,18 @@ small
   .field
     = f.label :password_confirmation
     = f.password_field :password_confirmation
-    
-    .field 
-      label Webmaster
-      = f.radio_button :role, 'webmaster'
-    .field
-      label Admin
-      = f.radio_button :role, 'admin'
-    .field
-      label Editor
-      = f.radio_button :role, 'editor'
-    .field
-      label General
-      = f.radio_button :role, 'general'
-    
+  .field 
+    label Webmaster
+    = f.radio_button :role, 'webmaster'
+  .field
+    label Admin
+    = f.radio_button :role, 'admin'
+  .field
+    label Editor
+    = f.radio_button :role, 'editor'
+  .field
+    label General
+    = f.radio_button :role, 'general'
   .field
     = f.label :linkedinurl
     = f.url_field :linkedinurl, value: @linkedin_info.nil? ? '' : @linkedin_info['urls']['public_profile']
@@ -58,20 +56,17 @@ small
   .field
     = f.label :graduation_date
     = f.select :graduation_date, Member::GRAD_MONTHS, selected: @member.graduation_date, prompt: 'Month'
-    
+  .field
+    = f.label :chapter
+    = f.select :chapter_id, options_for_select(chapter_schools), selected: session_chapter.school, prompt: 'Please select a Chapter'
+    / TODO make javascript validation that makes the chapter id required!
+  .field
+    = f.label :is_executive
+    = f.check_box :is_executive
     .field
-      = f.label :chapter
-      = f.select :chapter_id, options_for_select(chapter_schools), prompt: 'Please select a Chapter'
-      / TODO make javascript validation that makes the chapter id required!
-      
-    .field
-      = f.label :is_executive
-      = f.check_box :is_executive
-      .field
-        = f.label :subscribed
-        = f.check_box :subscribed, checked: true
-    .field
-      = f.label :executive_position
-      = f.select :executive_position, Member::POSITIONS, selected: @member.executive_position, prompt: 'Please select a Position'
-      
+      = f.label :subscribed
+      = f.check_box :subscribed, checked: true
+  .field
+    = f.label :executive_position
+    = f.select :executive_position, Member::POSITIONS, selected: @member.executive_position, prompt: 'Please select a Position'
   .actions = f.submit

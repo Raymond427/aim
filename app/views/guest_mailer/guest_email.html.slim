@@ -1,0 +1,6 @@
+h1 Get Ready to Speak at AIM!
+p Hello #{@guest.first_name}, we've got your message! You should hear from our president shortly
+p Email: #{@guest.email}
+- if @guest.date.present?
+  p Preferred Date: #{@guest.date}
+p Message: #{@guest.message}

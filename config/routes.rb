@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+  resources :guests
   resources :mail_blasters
   resources :members
   get '/executives', to: 'members#executives'
