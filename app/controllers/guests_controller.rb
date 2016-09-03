@@ -1,5 +1,6 @@
 class GuestsController < ApplicationController
   before_action :set_guest, only: [:show, :edit, :update, :destroy]
+  before_action :redirect_if_not_webmaster_or_admin, only: [:index, :show, :new, :create, :destroy]
 
   # GET /guests
   # GET /guests.json
@@ -17,10 +18,6 @@ class GuestsController < ApplicationController
     @guest = Guest.new
   end
 
-  # GET /guests/1/edit
-  def edit
-  end
-
   # POST /guests
   # POST /guests.json
   def create
@@ -34,20 +31,6 @@ class GuestsController < ApplicationController
         GuestMailer.pres_email(@guest, chapter_president.email).deliver_now
       else
         format.html { render :new }
-        format.json { render json: @guest.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # PATCH/PUT /guests/1
-  # PATCH/PUT /guests/1.json
-  def update
-    respond_to do |format|
-      if @guest.update(guest_params)
-        format.html { redirect_to @guest, notice: 'Guest was successfully updated.' }
-        format.json { render :show, status: :ok, location: @guest }
-      else
-        format.html { render :edit }
         format.json { render json: @guest.errors, status: :unprocessable_entity }
       end
     end

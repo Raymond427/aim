@@ -31,4 +31,10 @@ module MembersHelper
       current_member.role == 'webmaster'
     end
   end
+
+  def member_is_admin?
+    if logged_in?
+      current_member.role == 'admin'
+    end
+  end
 end

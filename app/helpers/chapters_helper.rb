@@ -27,4 +27,8 @@ module ChaptersHelper
   def redirect_if_not_webmaster
     redirect_to root_url, alert: 'You do not have permission to do that' unless member_is_webmaster?
   end
+
+  def redirect_if_not_webmaster_or_admin
+    redirect_to root_url, alert: 'You do not have permission to do that' unless member_can_create?
+  end
 end
