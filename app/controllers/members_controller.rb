@@ -1,6 +1,6 @@
 class MembersController < ApplicationController
+  before_action :redirect_if_not_webmaster, only: [:index]
   before_action :find_member, only: [:show, :edit, :update, :destroy]
-  before_action :chapter_in_sessions?, only: [:create, :index]
   before_action :chapter_schools, only: [:index]
   before_action :redirect_if_no_chapter_in_session, only: [:executives]
 
