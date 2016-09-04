@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
         redirect_to session_chapter
       end
     else
-      flash[:danger] = 'Invalid email/password combination' # Not quite right!
+      flash[:alert] = 'Invalid email/password combination' # Not quite right!
       render 'new'
     end
   end
