@@ -1,5 +1,7 @@
 class MailBlastersController < ApplicationController
   before_action :find_mail_blaster, only: [:show, :edit, :update, :destroy]
+  before_action :redirect_if_not_webmaster_admin_or_editor, only: [:index, :show, :new, :create]
+  before_action :redirect_if_not_webmaster_or_admin, only: [:destroy]
 
   # GET /mail_blasters
   # GET /mail_blasters.json
@@ -15,10 +17,6 @@ class MailBlastersController < ApplicationController
   # GET /mail_blasters/new
   def new
     @mail_blaster = MailBlaster.new
-  end
-
-  # GET /mail_blasters/1/edit
-  def edit
   end
 
   # POST /mail_blasters
@@ -37,20 +35,6 @@ class MailBlastersController < ApplicationController
         format.json { render json: @mail_blaster.errors, status: :unprocessable_entity }
       end
     end
-  end
-
-  # PATCH/PUT /mail_blasters/1
-  # PATCH/PUT /mail_blasters/1.json
-  def update
-    # respond_to do |format|
-    #   if @mail_blaster.update(mail_blaster_params)
-    #     format.html { redirect_to @mail_blaster, notice: 'Mail blaster was successfully updated.' }
-    #     format.json { render :show, status: :ok, location: @mail_blaster }
-    #   else
-    #     format.html { render :edit }
-    #     format.json { render json: @mail_blaster.errors, status: :unprocessable_entity }
-    #   end
-    # end
   end
 
   # DELETE /mail_blasters/1

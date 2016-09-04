@@ -8,6 +8,12 @@ module MembersHelper
     end
   end
 
+  def member_has_any_permissions?
+    if logged_in?
+      current_member.role == 'webmaster' || ((current_member.role == 'admin' || current_member.role == 'admin') && member_in_chapter?)
+    end
+  end
+
   def member_can_edit?
     if logged_in?
       if current_member.role == 'webmaster'
