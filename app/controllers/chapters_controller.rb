@@ -4,7 +4,7 @@
 class ChaptersController < ApplicationController
   before_action :find_chapter, only: [:show, :edit, :update, :destroy]
   before_action :redirect_if_no_chapter_in_session, only: [:sponsorship, :calendar]
-  before_action :redirect_if_not_webmaster, only: [:index, :new, :edit, :create, :update, :destroy]
+  before_action :redirect_if_not_webmaster, only: [:new, :edit, :create, :update, :destroy]
 
   # GET /chapters
   # GET /chapters.json

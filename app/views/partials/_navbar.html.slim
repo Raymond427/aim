@@ -20,30 +20,28 @@ nav.navbar.navbar-default.navbar-fixed-top
       li= link_to 'CALENDAR', calendar_path
       li= link_to 'SPONSORSHIP', sponsorship_path
     .nav.navbar-nav.navbar-right.collapse.navbar-collapse
-      - if logged_in?
-        li
-          .dropdown
-            button#dropdownMenu2.btn.btn-default.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" 
-              | Profile
-              span.caret
-            ul.dropdown-menu aria-labelledby="dropdownMenu2" 
-              li= link_to 'Mail Blaster', new_mail_blaster_path
+      li
+        .dropdown
+          button#dropdownMenu2.btn.btn-default.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button"
+            | #{logged_in? ? 'Profile' : 'Get Involved'}&nbsp;
+            span.caret
+          ul.dropdown-menu aria-labelledby="dropdownMenu2"
+            - if logged_in?
               li= link_to 'Edit Profile', edit_member_path(current_member)
-              - if current_member.role == 'webmaster'
-                li= link_to 'Create a Chapter', new_chapter_path
               li= link_to 'Log Out', logout_path, method: 'delete'
-      - else
-        li
-          .dropdown
-            button#dropdownMenu2.btn.btn-default.dropdown-toggle aria-expanded="false" aria-haspopup="true" data-toggle="dropdown" type="button" 
-              | Get Involved
-              span.caret
-            ul.dropdown-menu aria-labelledby="dropdownMenu2"
+            - else
               li= link_to 'Join Now', new_member_path
               li= link_to "Log In", login_path
-              li= link_to 'One-on-one Advice', new_appointment_path
-              li= link_to 'Speak at our Meetings', new_guest_path
-              li= link_to 'Start a Chapter', new_chapter_path
+            li= link_to 'One-on-one Advice', new_appointment_path
+            li= link_to 'Speak at our Meetings', new_guest_path
+            /li= link_to 'Apply to Start a Chapter'
+            - if member_can_create?
+              li= link_to 'Mail Blaster', new_mail_blaster_path
+              li= link_to 'View Mass Emails', mail_blaster_index_path
+              li= link_to 'View Appointments', appointment_index_path
+            - if member_is_webmaster?
+              li= link_to 'Create a Chapter', new_chapter_path
+              li= link_to 'View Members', member_index_path
       /li
         /a.nav_img.hidden-sm.hidden-xs href="https://www.uncc.edu" title="Visit UNCC"
           /= image_tag session_chapter.logo, :alt => 'school' UNCOMMENT TO SHOW SCHOOL LOGO

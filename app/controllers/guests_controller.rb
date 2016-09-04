@@ -1,6 +1,6 @@
 class GuestsController < ApplicationController
   before_action :set_guest, only: [:show, :edit, :update, :destroy]
-  before_action :redirect_if_not_webmaster_or_admin, only: [:index, :show, :new, :create, :destroy]
+  before_action :redirect_if_not_webmaster_or_admin, only: [:index, :show, :destroy]
 
   # GET /guests
   # GET /guests.json

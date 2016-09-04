@@ -23,8 +23,7 @@
   <body>
     <%= yield %>
   </body>
-  <% if request.path == '/' || request.path == '/chapters' %>
-  <% else %>
+  <% if !(request.path == '/' || request.path == '/chapters') %>
     <%= render 'partials/footer' %>
   <% end %>
 </html>
