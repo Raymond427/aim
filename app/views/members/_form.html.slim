@@ -3,70 +3,106 @@ small
         * = requried
 = form_for @member do |f|
   - if @member.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@member.errors.count, "error")} prohibited this member from being saved:"
-      ul
-        - @member.errors.full_messages.each do |message|
-          li = message
-
-  .field
-    = f.label :first_name
-    = f.text_field :first_name, value: @linkedin_info.nil? ? '' : @linkedin_info['first_name']
-  .field
-    = f.label :last_name
-    = f.text_field :last_name, value: @linkedin_info.nil? ? '' : @linkedin_info['last_name']
-  .field
-    = f.label :email
-    = f.email_field :email, value: @linkedin_info.nil? ? '' : @linkedin_info['email']
-  .field
-    = f.label :phone_number
-    = f.telephone_field :phone_number, value: @linkedin_info.nil? ? '' : @linkedin_info['phone']
-  - if !@linkedin_info.nil?
+    ul
+      - @member.errors.full_messages.each do |message|
+        li = message
+  - if @linkedin_info.present?  
     .field
-      label LinkedIn Picture
-      = image_tag @linkedin_info['image']
+      = f.label :first_name
+      = f.text_field :first_name, value: @linkedin_info['first_name'] unless @linkedin_info['first_name'].nil?
+    .field
+      = f.label :last_name
+      = f.text_field :last_name, value: @linkedin_info['last_name'] unless @linkedin_info['last_name'].nil?
+    .field
+      = f.label :email
+      = f.email_field :email, value: @linkedin_info['email'] unless @linkedin_info['email'].nil?
+    .field
+      = f.label :phone_number
+      = f.telephone_field :phone_number, value: @linkedin_info['phone'] unless @linkedin_info['phone'].nil?
+    .field
+      = f.label :linkedinurl
+      = f.url_field :linkedinurl, value: @linkedin_info['urls']['public_profile'] unless @linkedin_info['urls']['public_profile'].nil?
+    - if @linkedin_info['image'].present?
+      .field
+        label LinkedIn Picture
+        = image_tag @linkedin_info['image'], id: 'memberPic'
+      .field
+        = f.text_field :linkedin_photo_url, value: @linkedin_info['image']
+    - else
+      .field
+        label Profile Picture
+        = f.file_field :thumbnail, class: 'memberPicInput'
+      = image_tag id: 'memberPic', scr: current_member.thumbnail.nil? ? current_member.thumbnail : '#'
+  - else
+    .field
+      = f.label :first_name
+      = f.text_field :first_name
+    .field
+      = f.label :last_name
+      = f.text_field :last_name
+    .field
+      = f.label :email
+      = f.email_field :email
+    .field
+      = f.label :phone_number
+      = f.telephone_field :phone_number
+    .field
+      label Profile Picture
+      = f.file_field :thumbnail, class: 'memberPicInput'
+    img#memberPic src="#"
+  - if @linkedin_info.nil? || @linkedin_info['urls']['public_profile'].nil?
+    .field
+      = f.label :linkedinurl
+      = f.url_field :linkedinurl
   .field
-    label Profile Picture
-    = f.file_field :thumbnail_url, value: @linkedin_info.nil? ? '' : @linkedin_info['image']
-  .field
-    small The password must contain 6 or more characters, have a captial letter and a number
     = f.label :password
     = f.password_field :password
   .field
     = f.label :password_confirmation
     = f.password_field :password_confirmation
-  .field 
-    label Webmaster
-    = f.radio_button :role, 'webmaster'
-  .field
-    label Admin
-    = f.radio_button :role, 'admin'
-  .field
-    label Editor
-    = f.radio_button :role, 'editor'
-  .field
-    label General
-    = f.radio_button :role, 'general'
-  .field
-    = f.label :linkedinurl
-    = f.url_field :linkedinurl, value: @linkedin_info.nil? ? '' : @linkedin_info['urls']['public_profile']
+  /-#if member_is_webmaster?
+    .field 
+      label Webmaster
+      = f.radio_button :role, 'webmaster'
+  /-#if member_is_webmaster? || current_member.role == 'admin'
+    .field
+      label Admin
+      = f.radio_button :role, 'admin'
+  /-#if member_is_webmaster? || current_member.role == 'admin' || current_member.role == 'editor'
+    .field
+      label Editor
+      = f.radio_button :role, 'editor'
+    .field
+      label General
+      = f.radio_button :role, 'general', checked: true
   .field
     = f.label :major
     = f.select :major, Member::MAJORS, selected: @member.major, prompt: 'Please select a Major'
   .field
-    = f.label :graduation_date
-    = f.select :graduation_date, Member::GRAD_MONTHS, selected: @member.graduation_date, prompt: 'Month'
-  .field
     = f.label :chapter
     = f.select :chapter_id, options_for_select(chapter_schools), selected: session_chapter.school, prompt: 'Please select a Chapter'
-    / TODO make javascript validation that makes the chapter id required!
-  .field
-    = f.label :is_executive
-    = f.check_box :is_executive
+  /-#if member_is_webmaster? || current_member.role == 'admin' || current_member.role == 'editor'
     .field
-      = f.label :subscribed
-      = f.check_box :subscribed, checked: true
+      = f.label :is_executive
+      = f.check_box :is_executive
+    .field
+      = f.label :executive_position
+      = f.select :executive_position, Member::POSITIONS, selected: @member.executive_position, prompt: 'Please select a Position'
   .field
-    = f.label :executive_position
-    = f.select :executive_position, Member::POSITIONS, selected: @member.executive_position, prompt: 'Please select a Position'
+    = f.label :subscribed
+    = f.check_box :subscribed, checked: true
   .actions = f.submit
+  
+javascript:
+  function readURL(input) {
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();    
+      reader.onload = function (e) {
+        $('#memberPic').attr('src', e.target.result);
+      }
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+  $(".memberPicInput").change(function(){
+    readURL(this);
+  });

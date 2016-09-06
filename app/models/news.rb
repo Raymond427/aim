@@ -8,7 +8,7 @@ class News < ApplicationRecord
     has_attached_file :thumbnail, styles: {
     thumb: '100x100>',
     square: '200x200#',
-    medium: '300x300>'
+    preview: '480x480>'
   }
 
   # Validate the attached image is image/jpg, image/png, etc

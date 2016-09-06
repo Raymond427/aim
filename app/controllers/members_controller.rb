@@ -1,5 +1,5 @@
 class MembersController < ApplicationController
-  before_action :redirect_if_not_webmaster, only: [:index]
+  #before_action :redirect_if_not_webmaster, only: [:index]
   before_action :find_member, only: [:show, :edit, :update, :destroy]
   before_action :chapter_schools, only: [:index]
   before_action :redirect_if_no_chapter_in_session, only: [:executives]
@@ -81,6 +81,6 @@ class MembersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
-      params.require(:member).permit(:first_name, :last_name, :email, :password, :password_confirmation, :role, :linkedinurl, :major, :graduation_date, :is_executive, :executive_position, :chapter_id, :subscribed, :phone_number, :thumbnail_url )
+      params.require(:member).permit(:first_name, :last_name, :email, :password, :password_confirmation, :role, :linkedinurl, :major, :graduation_date, :is_executive, :executive_position, :linkedin_photo_url, :chapter_id, :subscribed, :phone_number, :thumbnail )
     end
 end

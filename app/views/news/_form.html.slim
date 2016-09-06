@@ -10,7 +10,7 @@
   = news.text_field :title
   = news.label :date
   = news.date_field :date, value: @news.date
-  = news.radio_button :mediatype, 'Image', id: 'image_input'
+  = news.radio_button :mediatype, 'Image', id: 'image_input', checked: 'checked'
   = news.label :mediatype, 'Image'
   = news.radio_button :mediatype, 'Video', id: 'video_input'
   = news.label :mediatype, 'Video'

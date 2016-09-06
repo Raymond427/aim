@@ -3,7 +3,7 @@ nav.navbar.navbar-default.navbar-fixed-top
     .navbar-header
       .hidden-sm.visible-xs
         a href="/" title="Home" 
-          = image_tag session_chapter.logo, :id => 'mobile_img', :alt => 'logo'
+          /= image_tag session_chapter.logo, :id => 'mobile_img', :alt => 'logo'
       button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button" 
         span.sr-only Toggle Navigation
         span.icon-bar
@@ -12,7 +12,7 @@ nav.navbar.navbar-default.navbar-fixed-top
     ul.nav.navbar-nav.navbar-left.collapse.navbar-collapse
       li
         a.nav_img.hidden-xs href="/" title="Home" 
-          = image_tag 'logo.png', :alt => 'logo'
+          /= image_tag 'logo.png', :alt => 'logo'
       li= link_to 'HOME', session_chapter
       li= link_to 'EXECUTIVE BOARD', executives_path
       /li= link_to 'MEMBERS', members_index_path
@@ -37,11 +37,11 @@ nav.navbar.navbar-default.navbar-fixed-top
             /li= link_to 'Apply to Start a Chapter'
             - if member_can_create?
               li= link_to 'Mail Blaster', new_mail_blaster_path
-              li= link_to 'View Mass Emails', mail_blaster_index_path
-              li= link_to 'View Appointments', appointment_index_path
+              li= link_to 'View Mass Emails', mail_blasters_path
+              li= link_to 'View Appointments', appointments_path
             - if member_is_webmaster?
               li= link_to 'Create a Chapter', new_chapter_path
-              li= link_to 'View Members', member_index_path
+              li= link_to 'View Members', members_path
       /li
         /a.nav_img.hidden-sm.hidden-xs href="https://www.uncc.edu" title="Visit UNCC"
           /= image_tag session_chapter.logo, :alt => 'school' UNCOMMENT TO SHOW SCHOOL LOGO

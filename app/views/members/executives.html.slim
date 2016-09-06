@@ -8,7 +8,12 @@ main
     - @executives.each do |executive|
       section.board_member
         figure
-          / = image_tag executive.avatar.url(:preview), alt: executive.first_name + ' ' + executive.last_name
+          - if executive.thumbnail.present?
+            = image_tag executive.thumbnail.url(:preview), alt: executive.first_name + ' ' + executive.last_name
+          - elsif executive.linkedin_photo_url.present?
+            = image_tag executive.linkedin_photo_url, alt: executive.first_name + ' ' + executive.last_name
+          - else
+            = image_tag src: '#'
           figcaption
             = executive.executive_position
             - if executive.linkedinurl.include? 'http'

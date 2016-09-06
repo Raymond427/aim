@@ -7,12 +7,13 @@ class CreateMembers < ActiveRecord::Migration[5.0]
       t.string :email
       t.string :phone_number
       t.string :password_digest
-      t.string :thumbnail_url
-      t.string :role
+      t.string :linkedin_photo_url
+      t.string :thumbnail
+      t.string :role, default: 'general'
       t.string :linkedinurl
       t.string :major
       t.string :graduation_date
-      t.boolean :is_executive
+      t.boolean :is_executive, default: false
       t.boolean :subscribed
       t.string :executive_position
 

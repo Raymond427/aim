@@ -5,7 +5,12 @@ main
     - @members.each do |member|
       section.board_member
         figure
-          / = image_tag member.avatar.url(:preview), alt: member.first_name + ' ' + member.last_name
+          - if member.thumbnail.present?
+            = image_tag member.thumbnail.url(:preview), alt: member.first_name + ' ' + member.last_name
+          - elsif member.linkedin_photo_url.present?
+            = image_tag member.linkedin_photo_url, alt: member.first_name + ' ' + member.last_name
+          - else
+            = image_tag src: '#'
           figcaption
             - if member.is_executive
               = member.executive_position
@@ -18,7 +23,6 @@ main
             = member.email
             = member.major
             - if member_can_edit?
-              /! <haml_loud> link_to &#39;Show&#39;, member_path(member) </haml_loud
               = link_to 'Edit', edit_member_path(member)
             - if member_can_delete?
               = link_to 'Delete', member, method: :delete, data: { confirm: 'Are you sure you want to delete ' + member.first_name + '?'}

@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 20160903151734) do
     t.string   "email"
     t.string   "phone_number"
     t.string   "chapter"
-    t.datetime "date"
+    t.string   "date"
     t.text     "message"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
@@ -75,16 +75,17 @@ ActiveRecord::Schema.define(version: 20160903151734) do
     t.string   "email"
     t.string   "phone_number"
     t.string   "password_digest"
-    t.string   "thumbnail_url"
-    t.string   "role"
+    t.string   "linkedin_photo_url"
+    t.string   "thumbnail"
+    t.string   "role",                   default: "general"
     t.string   "linkedinurl"
     t.string   "major"
     t.string   "graduation_date"
-    t.boolean  "is_executive"
+    t.boolean  "is_executive",           default: false
     t.boolean  "subscribed"
     t.string   "executive_position"
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.datetime "created_at",                                 null: false
+    t.datetime "updated_at",                                 null: false
     t.string   "thumbnail_file_name"
     t.string   "thumbnail_content_type"
     t.integer  "thumbnail_file_size"
