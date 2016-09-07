@@ -3,7 +3,7 @@ nav.navbar.navbar-default.navbar-fixed-top
     .navbar-header
       .hidden-sm.visible-xs
         a href="/" title="Home" 
-          /= image_tag session_chapter.logo, :id => 'mobile_img', :alt => 'logo'
+          = image_tag 'logo.png', :alt => 'logo'
       button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button" 
         span.sr-only Toggle Navigation
         span.icon-bar
@@ -12,7 +12,7 @@ nav.navbar.navbar-default.navbar-fixed-top
     ul.nav.navbar-nav.navbar-left.collapse.navbar-collapse
       li
         a.nav_img.hidden-xs href="/" title="Home" 
-          /= image_tag 'logo.png', :alt => 'logo'
+          = image_tag 'logo.png', :alt => 'logo'
       li= link_to 'HOME', session_chapter
       li= link_to 'EXECUTIVE BOARD', executives_path
       /li= link_to 'MEMBERS', members_index_path
@@ -42,9 +42,9 @@ nav.navbar.navbar-default.navbar-fixed-top
             - if member_is_webmaster?
               li= link_to 'Create a Chapter', new_chapter_path
               li= link_to 'View Members', members_path
-      /li
-        /a.nav_img.hidden-sm.hidden-xs href="https://www.uncc.edu" title="Visit UNCC"
-          /= image_tag session_chapter.logo, :alt => 'school' UNCOMMENT TO SHOW SCHOOL LOGO
+      li
+        a.nav_img.hidden-sm.hidden-xs href="https://www.uncc.edu" title="Visit UNCC"
+          = image_tag session_chapter.logo, :alt => 'school'
   - if flash[:notice]
     #notice
       = notice

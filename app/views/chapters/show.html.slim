@@ -1,4 +1,63 @@
-- if member_can_edit?
-  = link_to 'Edit', edit_chapter_path(@chapter)
-- session[:chapter_id] = params[:id]
-h1 Welcome to #{@chapter.school}&#39;s AIM Chapter!
+main
+  .row
+    .home_banner.col-sm-12
+      .home_overlay
+        h1 Turning Creative Thinkers,
+        h1 Into Business Leaders
+        = button_to "Join Now", new_member_path, {:method => :get }
+  .row
+    section.home_mid
+      h1 Make a Living Doing What You Love, Creating What You Want
+      h2 Whether you have an idea for the next big start-up or are just curious about entrepreneurship and self employment, AIM is the right place to start!
+      .col-md-4.col-sm-6
+        figure
+          = image_tag 'parade.png', :alt => 'Parade'
+          figcaption
+            h3 The Most Innovative Minds
+            p AIM collects the most creative minds at UNC Charlotte to discuss innovative business ideas. Even if you don't have an idea, you can join a team that is developing something that piques your interest.
+      .col-md-4.col-sm-6
+        figure
+          = image_tag 'brokaw.jpg', :alt => 'Jeff Brokaw'
+          figcaption
+            h3 Test Your Idea
+            p When attending AIM's Workshops, you'll find out if your idea is something that people will pay for before you invest your time and money into it.
+      .col-md-4.col-md-offset-0.col-sm-offset-4.col-sm-4
+        figure
+          = image_tag 'recess.png', :alt => 'Cystic Fibrosis Fundraiser'
+          figcaption
+            h3 Pursue your idea with confidence
+            p Once you've mastered AIM's prep skills we'll connect you with entrepreneurial resources that can prepare you for fundraising, legal advice and mentoring.
+  .row
+    #network.home_banner.col-sm-12
+      .home_overlay
+        h1 Connect with the Best Entrepreneurs in Charlotte
+        h2 AIM regularly hosts successful small business owners that give their secrets to success
+  .row
+    section.home_mid
+      h1 Former Speakers
+      .col-md-4.col-sm-6
+        figure.speakers
+          = image_tag 'jb.png', :alt => 'Jeff Brokaw'
+          figcaption
+            h3 Jeff Brokaw
+            p Charlotte Director of Google's Startup Grind
+      .col-md-4.col-sm-6
+        figure.speakers
+          = image_tag 'zb.jpg', :alt => 'Zerrick Bynum'
+          figcaption
+            h3 Zerrick Bynum
+            p Founder of ShopOff
+      .col-md-4.col-md-offset-0.col-sm-offset-3.col-sm-4
+        figure.speakers
+          = image_tag 'pw.jpg', :alt => 'Paul Wettenhall'
+          figcaption
+            h3 Paul Wettenhall
+            p President of Ventureprise
+  .row
+    section.sponsors
+      h1 Sponsored By:
+      figure
+        a href="https://www.studypool.com/" 
+          = image_tag 'studypool.png', :alt=> 'studypool'
+          figcaption
+            p Studypool, a leader in online homework help

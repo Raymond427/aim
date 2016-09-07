@@ -22,7 +22,7 @@ class MembersController < ApplicationController
 
   # GET /members/1/edit
   def edit
-    redirect_to session_chapter, alert: 'You cannot edit other members!' unless @member.id == current_member.id || (member_can_edit? || member_can_create?)
+    redirect_to session_chapter, alert: 'You cannot edit other members!' unless current_member.present? && (@member.id == current_member.id || (member_can_edit? || member_can_create?))
   end
 
   def executives
