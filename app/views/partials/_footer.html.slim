@@ -3,7 +3,8 @@ footer
     - if !session_chapter.facebook_url.nil?
       li
         a href=session_chapter.facebook_url title="Like AIM on Facebook!"
-          = image_tag 'facebook.png', :alt => 'Facebook'
+        i.fa.fa-camera-retro
+          | Take a photo
     - if !session_chapter.linkedin_url.nil?
       li
         a href=session_chapter.linkedin_url title="Join AIM on LinkedIn!"
