@@ -1,6 +1,7 @@
-h1 Turning Creative Thinkers,
-h1 Into Business Leaders
-h2 Please Select a Chapter
-- @chapters.each do |chapter|
-  = link_to chapter do
-    = image_tag chapter.logo, alt: chapter.acronym
+main
+  h1 Turning Creative Thinkers,
+  h1 Into Business Leaders
+  h2 Please Select a Chapter
+  - @chapters.each do |chapter|
+    = link_to chapter do
+      = image_tag chapter.logo, alt: chapter.acronym

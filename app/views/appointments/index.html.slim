@@ -1,31 +1,32 @@
-h1 Listing appointments
+main
+  h1 Listing appointments
 
-table
-  thead
-    tr
-      th First name
-      th Last name
-      th Email
-      th Phone number
-      th Message
-      th
-      th
-      th
-
-  tbody
-    - @appointments.each do |appointment|
+  table
+    thead
       tr
-        td = appointment.first_name
-        td = appointment.last_name
-        td = appointment.email
-        td = appointment.phone_number
-        td = appointment.message
-        td = link_to 'Show', appointment
-        - if member_can_create?
-          td = link_to 'Edit', edit_appointment_path(appointment)
-        - if member_can_delete?
-          td = link_to 'Destroy', appointment, data: { confirm: 'Are you sure?' }, method: :delete
+        th First name
+        th Last name
+        th Email
+        th Phone number
+        th Message
+        th
+        th
+        th
 
-br
+    tbody
+      - @appointments.each do |appointment|
+        tr
+          td = appointment.first_name
+          td = appointment.last_name
+          td = appointment.email
+          td = appointment.phone_number
+          td = appointment.message
+          td = link_to 'Show', appointment
+          - if member_can_create?
+            td = link_to 'Edit', edit_appointment_path(appointment)
+          - if member_can_delete?
+            td = link_to 'Destroy', appointment, data: { confirm: 'Are you sure?' }, method: :delete
 
-= link_to 'New Appointment', new_appointment_path
+  br
+
+  = link_to 'New Appointment', new_appointment_path

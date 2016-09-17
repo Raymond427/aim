@@ -1,18 +1,19 @@
-p#notice = notice
+main
+  p#notice = notice
 
-p
-  strong To:
-  = @mail_blaster.to
-p
-  strong Subject:
-  = @mail_blaster.subject
-p
-  strong From:
-  = @mail_blaster.from
-p
-  strong Body:
-  = @mail_blaster.body
+  p
+    strong To:
+    = @mail_blaster.to
+  p
+    strong Subject:
+    = @mail_blaster.subject
+  p
+    strong From:
+    = @mail_blaster.from
+  p
+    strong Body:
+    = @mail_blaster.body
 
-= link_to 'Edit', edit_mail_blaster_path(@mail_blaster)
-'|
-= link_to 'Back', mail_blasters_path
+  = link_to 'Edit', edit_mail_blaster_path(@mail_blaster)
+  '|
+  = link_to 'Back', mail_blasters_path
