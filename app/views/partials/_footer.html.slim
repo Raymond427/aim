@@ -1,23 +1,19 @@
 footer
   ul.socs
-    - if !session_chapter.facebook_url.nil?
+    - if session_chapter.facebook_url.present?
       li
         a href=session_chapter.facebook_url title="Like AIM on Facebook!"
-        i.fa.fa-camera-retro
-          | Take a photo
-    - if !session_chapter.linkedin_url.nil?
-      li
-        a href=session_chapter.linkedin_url title="Join AIM on LinkedIn!"
-          = image_tag 'LinkedIn.png', :alt => 'LinkedIn'
-    - if !session_chapter.twitter_url.nil?
-      li
-        a href=session_chapter.twitter_url title="Follow AIM on Twitter!"
-          = image_tag 'Twitter.png', :alt => 'Twitter'
-    - if !session_chapter.instagram_url.nil?
+          i.fa.fa-facebook.fa-3x
+    - if session_chapter.instagram_url.present?
       li
         a href=session_chapter.instagram_url title="Follow AIM on Instagram!"
-          = image_tag 'Instagram.png', :alt => 'Instagram'
-    - if !session_chapter.youtube_url.nil?
+          i.fa.fa-instagram.fa-3x
+
+    - if session_chapter.twitter_url.present?
+      li
+        a href=session_chapter.twitter_url title="Follow AIM on Twitter!"
+          i.fa.fa-twitter.fa-3x
+    - if session_chapter.youtube_url.present?
       li
         a href=session_chapter.youtube_url title="Subscribe to AIM's YouTube channel!"
-          = image_tag 'YouTube.png', :alt => 'Youtube'
+          i.fa.fa-youtube-play.fa-3x

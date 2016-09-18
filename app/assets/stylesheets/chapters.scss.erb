@@ -17,6 +17,10 @@ h1, h2, h3, h4, h5, h6, li, a, figcaption, p, div, form label, form input, texta
     font-family: Source Sans Pro !important;
 		line-height: 1.5;
 }
+i {
+	color: #FFFFFF;
+	margin: 0 5px 0 5px;
+}
 header {
 	visibility: hidden;
 	animation: fadeNdrop 1s ease-out forwards 0.2s;
@@ -41,7 +45,7 @@ h2 {
 h3 {
 	font-size: 20px;
 }
-p {
+p, span {
 	font-size: 20px;
 }
 figcaption h3 {
@@ -316,20 +320,29 @@ a:link {
   padding: 0 0 2% 0;
 }
 .speakers {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	max-width: 1150px;
+	margin: 0 auto 0 auto;
+}
+.speaker {
 	margin-top: 15px;
 }
-.speakers img {
+.speaker img {
 	height: 200px !important;
 	width: 200px !important;
 }
-.speakers figcaption img  {
+.speaker figcaption img  {
 	height: 70% !important;
 	width: 70% !important;
 }
-.speakers img {
+.speaker img {
 	height: 40%;
 }
-.speakers figcaption {
+.speaker figcaption {
 	text-align: center;
 }
 .home_mid img {
@@ -362,6 +375,14 @@ a:link {
 	float: none;
 	width: 200px;
 	color: #7F7F7F;
+}
+.sponsors {
+	margin: 0 auto 0 auto;
+	max-width: 600px;
+	display: flex;
+}
+.sponsors figure {
+	flex-direction: row;
 }
 /*HOME*/
 
@@ -439,16 +460,17 @@ figcaption {
     background-color: #66AA33;
 }
 /*NEWS*/
-.Events{
+.events{
 	position: relative;
   width: 90%;
+	max-width: 1100px;
   height: auto;
   margin-left: auto;
   margin-right: auto;
   padding-bottom: 10%;
 	z-index: 1;
 }
-.Events iframe {
+.events iframe {
   padding-bottom: 10%;
   height: 820px !important;
   min-height: 30% !important;
@@ -459,6 +481,7 @@ article
     margin-top: 3%;
     margin-bottom: 3%;
     width: 80% !important;
+		max-width: 800px;
     margin-left: auto;
     margin-right: auto;
     color: #FFFFFF;
@@ -514,21 +537,25 @@ footer
     bottom: 0 !important;
 		font-weight: bold;
 }
-footer a:hover, footer ul li a:hover {
+footer a:hover, footer ul li a:hover, footer ul li a i:hover {
 	text-decoration: none;
 }
 footer ul li {
   display: inline;
-  padding: 0 10px 0 10px;
+  padding: 0 15px 0 15px;
 }
 footer ul {
     padding: 10px 0 10px 0;
 }
-footer img {
-  height: 36px;
+.socs {
+	margin-top: 10px;
 }
 .socs ul li a:hover {
 	text-decoration: none;
+}
+footer i {
+	color: #7F7F7F;
+	font-size: 36px;
 }
 /* <--------------------- KEYFRAMES -------------------> */
 @keyframes fadeNdrop{

@@ -13,10 +13,12 @@ main
           - elsif news.mediatype == 'Video'
             iframe frameborder="0" src=news.youtube_url
           figcaption
-            = news.title
-            = news.date.to_date.to_formatted_s(:long_ordinal)
-            = news.description
+            h2 = news.title
+            p = news.date.to_date.to_formatted_s(:long_ordinal)
+            p = news.description
             - if member_can_edit?
-              = link_to 'Edit', edit_news_path(news)
+              = link_to edit_news_path(news)
+                i.fa.fa-pencil.fa-2x
             - if member_can_delete?
-              = link_to 'Delete', news, method: :delete, data: { confirm: 'Are you sure you want to delete ' + news.title + '?'}
+              = link_to news, method: :delete, data: { confirm: 'Are you sure you want to delete ' + news.title + '?'}
+                i.fa.fa-trash.fa-2x

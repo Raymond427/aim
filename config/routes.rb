@@ -4,7 +4,6 @@ Rails.application.routes.draw do
   resources :mail_blasters
   resources :members
   get '/executives', to: 'members#executives'
-  root 'chapters#index'
 
   #When there is only one AIM chapter
   #get '/chapters' => 'index#chapters', as: '/'
@@ -18,7 +17,7 @@ Rails.application.routes.draw do
   get '/calendar', to: 'chapters#calendar'
 
   match 'auth/:provider/callback', to: 'sessions#linkedin_signup', via: [:get, :post]
-
+  
   resources :news
   get '/signup', to: 'members#new'
   get    '/login',   to: 'sessions#new'
