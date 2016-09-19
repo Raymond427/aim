@@ -16,4 +16,5 @@
       = f.label :body
       = f.text_area :body
     .actions = f.submit
-    = button_to "Cancel", root_path, class: "button", method: :get
+    = content_tag :a, href: root_path
+      .cancel-button Cancel

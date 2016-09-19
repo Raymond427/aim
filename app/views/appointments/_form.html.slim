@@ -26,4 +26,5 @@
       = f.label :message
       = f.text_area :message, placeholder: 'Mention possible dates, locations etc.'
     .actions = f.submit
-    = button_to "Cancel", root_path, class: "button", method: :get
+    = content_tag :a, href: root_path
+      .cancel-button Cancel

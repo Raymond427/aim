@@ -22,4 +22,5 @@
     = news.label :description
     = news.text_area :description
     = news.submit
-    = link_to 'Cancel', '/news'
+    = content_tag :a, href: news_index_path
+      .cancel-button Cancel
