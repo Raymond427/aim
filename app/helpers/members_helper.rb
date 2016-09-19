@@ -43,4 +43,9 @@ module MembersHelper
       current_member.role == 'admin'
     end
   end
+  def member_is_editor?
+    if logged_in?
+      current_member.role == 'editor'
+    end
+  end
 end

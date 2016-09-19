@@ -28,7 +28,7 @@ members = Member.create([
     email: 'rferrel427@gmail.com',
     phone_number: '9193326212',
     password: ENV['ADMIN_PASSWORD'],
-    role: 'admin',
+    role: 'webmaster',
     linkedinurl: 'https://www.linkedin.com/in/raymondferrell',
     linkedin_photo_url: 'https://media.licdn.com/media/AAEAAQAAAAAAAAVIAAAAJGYzMjhkZGE2LWUzNTYtNGZiZC1iMzNiLTNkN2UyYzZmZTIxMA.jpg',
     major: 'Computer Science',

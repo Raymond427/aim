@@ -36,40 +36,40 @@
         = image_tag id: 'memberPic', scr: current_member.thumbnail.nil? ? current_member.thumbnail : '#'
     - else
       .field
-        = f.label :first_name
+        label First Name*
         = f.text_field :first_name
       .field
-        = f.label :last_name
+        label Last Name*
         = f.text_field :last_name
       .field
         = f.label :email
         = f.email_field :email
       .field
-        = f.label :phone_number
+        label Phone Number
         = f.telephone_field :phone_number
+      img#memberPic src="#"
       .field
         label Profile Picture
         = f.file_field :thumbnail, class: 'memberPicInput'
-      img#memberPic src="#"
     - if @linkedin_info.nil? || @linkedin_info['urls']['public_profile'].nil?
       .field
-        = f.label :linkedinurl
+        label LinkedIn Profile Address
         = f.url_field :linkedinurl
     .field
-      = f.label :password
+      label Password*
       = f.password_field :password
     .field
-      = f.label :password_confirmation
+      label Password Confirmation*
       = f.password_field :password_confirmation
-    /-#if member_is_webmaster?
+    -if member_is_webmaster?
       .field 
         label Webmaster
         = f.radio_button :role, 'webmaster'
-    /-#if member_is_webmaster? || current_member.role == 'admin'
+    -if member_is_webmaster? || member_is_admin?
       .field
         label Admin
         = f.radio_button :role, 'admin'
-    /-#if member_is_webmaster? || current_member.role == 'admin' || current_member.role == 'editor'
+    -if member_is_webmaster? || member_is_admin? || member_is_editor?
       .field
         label Editor
         = f.radio_button :role, 'editor'
@@ -82,19 +82,21 @@
     .field
       = f.label :chapter
       = f.select :chapter_id, options_for_select(chapter_schools), selected: session_chapter.school, prompt: 'Please select a Chapter'
-    /-#if member_is_webmaster? || current_member.role == 'admin' || current_member.role == 'editor'
+    -if member_is_webmaster? || member_is_admin? || member_is_editor?
       .field
-        = f.label :is_executive
+        label Is This Member An Executive?
         = f.check_box :is_executive
       .field
         = f.label :executive_position
         = f.select :executive_position, Member::POSITIONS, selected: @member.executive_position, prompt: 'Please select a Position'
     .field
-      = f.label :subscribed
+      label Would you like to recieve reminders about upcoming meetings?
       = f.check_box :subscribed, checked: true
     .actions 
       = f.submit
-      = button_to "Cancel", executives_path, type: 'button', :class => "button", :method => :get
+      = content_tag :a, href: executives_path
+        .cancel-button Cancel
+        
     
   javascript:
     function readURL(input) {
