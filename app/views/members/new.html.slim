@@ -1,8 +1,5 @@
 main
   h1 Sign Up
-  = link_to '/auth/linkedin' do
-    = image_tag 'Sign-In-Large---Default.png'
-
+  = button_to '', '/auth/linkedin', class: 'linkedin-button'
   == render 'form'
-
   = link_to 'Back', members_path

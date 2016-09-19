@@ -1,28 +1,29 @@
-= form_for @appointment do |f|
-  - if @appointment.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@appointment.errors.count, "error")} prohibited this appointment from being saved:"
-      ul
-        - @appointment.errors.full_messages.each do |message|
-          li = message
+.forms  
+  = form_for @appointment do |f|
+    - if @appointment.errors.any?
+      #error_explanation
+        h2 = "#{pluralize(@appointment.errors.count, "error")} prohibited this appointment from being saved:"
+        ul
+          - @appointment.errors.full_messages.each do |message|
+            li = message
 
-  .field
-    = f.label :first_name
-    = f.text_field :first_name, value: current_member.first_name
-  .field
-    = f.label :last_name
-    = f.text_field :last_name, value: current_member.last_name
-  .field
-    = f.label :email
-    = f.text_field :email, value: current_member.email
-  .field
-    = f.label :chapter
-    = f.select :chapter_id, options_for_select(chapter_schools), selected: session_chapter.school, prompt: 'Please select a Chapter'
-  .field
-    = f.label :phone_number
-    = f.text_field :phone_number, value: current_member.phone_number
-  .field
-    = f.label :message
-    = f.text_area :message, placeholder: 'Mention possible dates, locations etc.'
-  .actions = f.submit
-  = button_to "Cancel", root_path, class: "button", method: :get
+    .field
+      = f.label :first_name
+      = f.text_field :first_name, value: current_member.first_name
+    .field
+      = f.label :last_name
+      = f.text_field :last_name, value: current_member.last_name
+    .field
+      = f.label :email
+      = f.text_field :email, value: current_member.email
+    .field
+      = f.label :chapter
+      = f.select :chapter_id, options_for_select(chapter_schools), selected: session_chapter.school, prompt: 'Please select a Chapter'
+    .field
+      = f.label :phone_number
+      = f.text_field :phone_number, value: current_member.phone_number
+    .field
+      = f.label :message
+      = f.text_area :message, placeholder: 'Mention possible dates, locations etc.'
+    .actions = f.submit
+    = button_to "Cancel", root_path, class: "button", method: :get

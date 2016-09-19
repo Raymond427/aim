@@ -1,18 +1,19 @@
-= form_for @mail_blaster do |f|
-  - if @mail_blaster.errors.any?
-    #error_explanation
-      h2 = "#{pluralize(@mail_blaster.errors.count, "error")} prohibited this mail_blaster from being saved:"
-      ul
-        - @mail_blaster.errors.full_messages.each do |message|
-          li = message
-  .field
-    = f.label :heading
-    = f.text_field :heading
-  .field
-    = f.label :subject
-    = f.text_field :subject
-  .field
-    = f.label :body
-    = f.text_area :body
-  .actions = f.submit
-  = button_to "Cancel", root_path, class: "button", method: :get
+.forms  
+  = form_for @mail_blaster do |f|
+    - if @mail_blaster.errors.any?
+      #error_explanation
+        h2 = "#{pluralize(@mail_blaster.errors.count, "error")} prohibited this mail_blaster from being saved:"
+        ul
+          - @mail_blaster.errors.full_messages.each do |message|
+            li = message
+    .field
+      = f.label :heading
+      = f.text_field :heading
+    .field
+      = f.label :subject
+      = f.text_field :subject
+    .field
+      = f.label :body
+      = f.text_area :body
+    .actions = f.submit
+    = button_to "Cancel", root_path, class: "button", method: :get

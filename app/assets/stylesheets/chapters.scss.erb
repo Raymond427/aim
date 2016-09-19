@@ -33,9 +33,6 @@ nav input[type="submit"] {
 	font-size: 16px;
 	font-weight: bold;
 }
-// nav form {
-// 	padding-bottom: 0;
-// }
 h1 {
 	font-size: 32px;
 }
@@ -129,35 +126,38 @@ nav {
 .loading img {
 	height: 50px;
 }
-// .forms {
-// 	opacity: 0;
-// 	visibility: hidden;
-// 	margin-top: 35px;
-// 	margin-bottom: 35px;
-// 	padding: 15px;
-// 	width: 233px;
-// 	background-color: #F5F5F5;
-// 	text-align: left;
-//   display: block;
-//   margin-left: auto;
-//   margin-right: auto;
-//   border: #7F7F7F solid 2px;
-//   border-radius: 5px;
-// 	animation: fadeIn 1s ease-out forwards 1.1s;
-// }
-// .forms label {
-// 	font-weight: bold;
-// }
-// .forms small {
-// 	color: red;
-// }
-// form input, textarea, select {
-// 	padding: 10px;
-// 	width: 200px;
-//   border: #7F7F7F solid 2px;
-//   border-radius: 5px;
-// 	resize: none;
-// }
+.forms {
+	opacity: 0;
+	visibility: hidden;
+	margin-top: 35px;
+	margin-bottom: 35px;
+	padding: 15px;
+	width: 300px;
+	background-color: #F5F5F5;
+	text-align: left;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: #7F7F7F solid 1px;
+  border-radius: 5px;
+	animation: fadeIn 1s ease-out forwards 1.1s;
+}
+.forms label {
+	font-weight: bold;
+}
+.forms small {
+	color: red;
+}
+#memberPic {
+	width: 250px;
+}
+form input, textarea, select {
+	padding: 10px;
+	width: 100%;
+  border: #7F7F7F solid 1px;
+  border-radius: 5px;
+	resize: none;
+}
 #guest_grad_season, #guest_grad_year, #member_graduation_date, #member_graduation_year, .forms [type="radio"] {
 	width: auto;
 }
@@ -165,14 +165,14 @@ nav {
 	text-align: center;
 	border: none;
 }
-// form input:focus, textarea:focus, select:focus{
-// 	border-color: #65A933 !important;
-// 	outline: 0;
-// }
-// form label{
-// 	font-weight: normal;
-// 	color: #7F7F7F;
-// }
+form input:focus, textarea:focus, select:focus{
+	border-color: #65A933 !important;
+	outline: 0;
+}
+form label{
+	font-weight: normal;
+	color: #7F7F7F;
+}
 button, .btn-submit, input[type="submit"] {
   border: none;
 	width: auto;
@@ -190,11 +190,26 @@ button:hover, input[type="submit"]:hover {
 button:focus, input[type="submit"]:focus {
 	background-color: #58952D;
 }
-/*input[value="Cancel"], input[value="Cancel"]:hover, input[value="Cancel"]:focus {
+input[value="Cancel"], input[value="Cancel"]:hover, input[value="Cancel"]:focus {
   background-color: #7F7F7F;
   color: #FFFFFF;
 	transition: none;
-} */
+}
+.linkedin-button {
+	background-image: url(<%= asset_path('Sign-In-Large---Default.png') %>);
+	background-position: cover;
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 215px !important;
+	height: 40px;
+}
+.linkedin-button:hover {
+	background-image: url(<%= asset_path('Sign-In-Large---Hover.png') %>);
+}
+.linkedin-button:active {
+	background-image: url(<%= asset_path('Sign-In-Large---Active.png') %>);
+}
+.linkedin-button:clic
 a:link {
     text-decoration: none;
     color: #FFFFFF;
