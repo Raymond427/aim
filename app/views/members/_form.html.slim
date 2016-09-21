@@ -15,7 +15,7 @@
         = f.label :last_name
         = f.text_field :last_name, value: @linkedin_info['last_name'] unless @linkedin_info['last_name'].nil?
       .field
-        = f.label :email
+        label Email*
         = f.email_field :email, value: @linkedin_info['email'] unless @linkedin_info['email'].nil?
       .field
         = f.label :phone_number
@@ -42,7 +42,7 @@
         label Last Name*
         = f.text_field :last_name
       .field
-        = f.label :email
+        label Email*
         = f.email_field :email
       .field
         label Phone Number

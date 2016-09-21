@@ -1,4 +1,4 @@
 main
   header
-    h1 Edit member
+    h1 Edit #{@member.first_name + ' ' + @member.last_name}
     == render 'form'

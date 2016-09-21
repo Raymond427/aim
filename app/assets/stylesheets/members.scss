@@ -48,3 +48,24 @@ figcaption {
   width: 300px;
   padding-top: 20px;
 }
+.after_signup {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  div {
+    width: 500px;
+
+    p {
+      font-size: 16px;
+    }
+  }
+}
+.tshirt {
+
+}
+.join-slack {
+
+}
