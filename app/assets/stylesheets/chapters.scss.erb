@@ -59,7 +59,7 @@ small {
 main {
 	margin-top: 70px;
 }
-main article, .eboard, .news_feed{
+main article, .eboard, .news_feed, .members {
 	visibility: hidden;
 	animation: fadeIn 1s ease-out forwards 0.75s;
 }
@@ -80,9 +80,11 @@ nav {
 .nav_img {
   padding: 0 !important;
   margin-top: 5px;
+	display: inline-block;
 }
 .nav_img img {
   height: 48px;
+	width: 142px;
 }
 .navbar, .navbar-default, .navbar-static-top{
   margin-bottom: 0 !important;
@@ -418,81 +420,6 @@ a:link {
 	flex-direction: row;
 }
 /*HOME*/
-
-/*EXECUTIVE BOARD*/
-
-section {
-    width: 100%;
-}
-header
-{
-    margin-top: 15px;
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    color: #66AA33;
-}
-header {
-  color: #7F7F7F;
-}
-main {
-    padding: -5px;
-    display: inline;
-    text-align: center;
-}
-.board_member /*All Exec blocks*/
-{
-    display: inline-block;
-    border-radius: 3px;
-    margin: 1%;
-    width: 500px;
-    background-color: #66AA33;
-}
-.board_member figure img{
-  float: left;
-  width: 50%;
-  height: 200px;
-  width: 200px;
-}
-figcaption {
-  float: right;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  color: #FFFFFF;
-  width: 300px;
-  padding-top: 20px;
-}
-/*EXECUTIVE BOARD*/
-
-/*NEWS*/
-
-.news figure img, iframe {
-  float: left;
-  width: 50%;
-  height: 300px;
-  width: 375px;
-}
-
-.news figcaption {
-  float: right;
-  text-align: left;
-  color: #FFFFFF;
-  padding-top: 0px !important;
-  width: 250px !important;
-}
-
-.news /*All News blocks*/
-{
-    display: inline-block;
-    border-radius: 3px;
-    margin: 1%;
-    max-width: 650px !important;
-    height: 300px;
-    background-color: #66AA33;
-}
-/*NEWS*/
 .events{
 	position: relative;
   width: 90%;
@@ -536,25 +463,6 @@ article p, ol {
   background-color: #66AA33;
   text-align: center;
 }
-/*SPONSORSHIP*/
-
-/*Mail Database */
-table {
-  margin-left: auto;
-  margin-right: auto;
-}
-th, td {
-  border: solid 1px #7F7F7F;
-  text-decoration: none;
-  padding: 5px !important;
-  color: #7F7F7F;
-}
-table a:link{
-	color: #7F7F7F;
-}
-
-/*STUDENT & BUSINESSES*/
-
 footer
 {
     clear:both;

@@ -4,7 +4,7 @@ main
 	  h2 AIM&#39;s team consists of highly talented and creative individuals who are passionate about improving the world through teamwork and innovation.
   - if member_can_create?
     = button_to "New Executive", new_member_path, :class => "button", :method => :get
-  div
+  .members
     - @executives.each do |executive|
       section.board_member
         figure
@@ -20,8 +20,7 @@ main
               script#linkedin src="//platform.linkedin.com/in.js" type="text/javascript" 
               script data-format="hover" data-id="#{executive.linkedinurl}" data-related="false" data-text=("#{executive.first_name + " "} #{executive.last_name}") type="IN/MemberProfile" 
             - else
-              p = executive.first_name + " "
-              p = executive.last_name
+              p = executive.first_name + " " + executive.last_name
             p = executive.email
             p = executive.major
           .contorls
