@@ -1,10 +1,10 @@
 main
-  h1 Listing mail_blasters
+  header
+    h1 Listing Mass Emails
 
   table
     thead
       tr
-        th To
         th Subject
         th From
         th Body
@@ -15,7 +15,6 @@ main
     tbody
       - @mail_blasters.each do |mail_blaster|
         tr
-          td = mail_blaster.to
           td = mail_blaster.subject
           td = mail_blaster.from
           td = mail_blaster.body

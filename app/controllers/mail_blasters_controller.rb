@@ -6,7 +6,7 @@ class MailBlastersController < ApplicationController
   # GET /mail_blasters
   # GET /mail_blasters.json
   def index
-    @mail_blasters = session_chapter.mail_blasters.all
+    @mail_blasters = session_chapter.mail_blasters.all.reverse
   end
 
   # GET /mail_blasters/1
@@ -27,7 +27,7 @@ class MailBlastersController < ApplicationController
     @mail_blaster.from = current_member.email
     respond_to do |format|
       if @mail_blaster.save
-        format.html { redirect_to @mail_blaster, notice: 'Your message will be sent shortly' }
+        format.html { redirect_to mail_blasters_path, notice: 'Your message will be sent shortly' }
         format.json { render :show, status: :created, location: @mail_blaster }
         MailBlasterMailer.blast_email(@mail_blaster).deliver_later
       else
