@@ -1,8 +1,8 @@
 nav.navbar.navbar-default.navbar-fixed-top
   .container
     .navbar-header
-      a.nav_img.hidden-sm.visible-xs href="/" title="Home" 
-        = image_tag 'logo.png', :alt => 'logo'
+      a.nav_img.hidden-sm.visible-xs.mobile_logo href="/" title="Home" 
+        = image_tag 'logo.png', :alt => 'logo', class: 'aim_logo'
       button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button" 
         span.sr-only Toggle Navigation
         span.icon-bar
@@ -11,7 +11,7 @@ nav.navbar.navbar-default.navbar-fixed-top
     ul.nav.navbar-nav.navbar-left.collapse.navbar-collapse
       li
         a.nav_img.hidden-xs href="/" title="Home" 
-          = image_tag 'logo.png', :alt => 'logo'
+          = image_tag 'logo.png', alt: 'logo', class: 'aim_logo'
       li= link_to 'HOME', session_chapter
       li= link_to 'EXECUTIVE BOARD', executives_path
       /li= link_to 'MEMBERS', members_index_path
@@ -43,7 +43,7 @@ nav.navbar.navbar-default.navbar-fixed-top
               li= link_to 'View Members', members_path
       li
         a.nav_img.hidden-sm.hidden-xs href="https://www.uncc.edu" title="Visit UNCC"
-          = image_tag session_chapter.logo, :alt => 'school'
+          = image_tag session_chapter.logo, :alt => 'school', class: 'school_logo'
   - if flash[:notice]
     #notice
       = notice
