@@ -24,10 +24,10 @@ class AppointmentsController < ApplicationController
     @appointment = Appointment.new(appointment_params)
     respond_to do |format|
       if @appointment.save
-        format.html { redirect_to @appointment, notice: 'Thank You! We\'ll Schedule Your Session Soon' }
+        format.html { redirect_to session_chapter, notice: 'Thank You! We\'ll Schedule Your Session Soon' }
         format.json { render :show, status: :created, location: @appointment }
-        AppointmentMailer.appointment_email(@appointment).deliver_now
-        AppointmentMailer.pres_email(@appointment, chapter_president).deliver_now
+        AppointmentMailer.appointment_email(@appointment).deliver_later
+        AppointmentMailer.pres_email(@appointment, chapter_president).deliver_later
       else
         format.html { render :new }
         format.json { render json: @appointment.errors, status: :unprocessable_entity }

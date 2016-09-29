@@ -25,10 +25,10 @@ class GuestsController < ApplicationController
 
     respond_to do |format|
       if @guest.save
-        format.html { redirect_to @guest, notice: 'Guest was successfully created.' }
+        format.html { redirect_to session_chapter, notice: "We got your message! We'll be in touch soon" }
         format.json { render :show, status: :created, location: @guest }
-        GuestMailer.guest_email(@guest).deliver_now
-        GuestMailer.pres_email(@guest, chapter_president.email).deliver_now
+        GuestMailer.guest_email(@guest).deliver_later
+        GuestMailer.pres_email(@guest, chapter_president.email).deliver_later
       else
         format.html { render :new }
         format.json { render json: @guest.errors, status: :unprocessable_entity }

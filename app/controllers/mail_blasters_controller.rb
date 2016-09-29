@@ -29,7 +29,7 @@ class MailBlastersController < ApplicationController
       if @mail_blaster.save
         format.html { redirect_to @mail_blaster, notice: 'Your message will be sent shortly' }
         format.json { render :show, status: :created, location: @mail_blaster }
-        MailBlasterMailer.blast_email(@mail_blaster).deliver_now
+        MailBlasterMailer.blast_email(@mail_blaster).deliver_later
       else
         format.html { render :new }
         format.json { render json: @mail_blaster.errors, status: :unprocessable_entity }
