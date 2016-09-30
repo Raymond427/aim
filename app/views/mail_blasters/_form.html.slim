@@ -15,6 +15,7 @@
     .field
       = f.label :body
       = f.text_area :body
-    .actions = f.submit 'Send Mail', data: { confirm: 'Are you sure? Your are about to email all members in your chapter' }
-    = content_tag :a, href: root_path
-      .form-button.cancel-button Cancel
+    .actions 
+      = f.submit 'Send Mail', data: { confirm: 'Are you sure? Your are about to email all members in your chapter' }
+      = content_tag :a, href: root_path
+        .form-button.cancel-button Cancel

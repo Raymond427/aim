@@ -1,9 +1,10 @@
 main
   header
-    h1 = session_chapter.school
+    h1 #{session_chapter.school} Members
   table
     thead
       tr
+        th Image
         th First Name
         th Last Name
         th Email
@@ -13,6 +14,12 @@ main
     tbody
       - @members.each do |member|
         tr
+          - if member.thumbnail.present?
+            td= image_tag member.thumbnail.url(:thumb), alt: member.first_name + ' ' + member.last_name, class: 'member-index-pic'
+          - elsif member.linkedin_photo_url.present?
+            td= image_tag member.linkedin_photo_url, alt: member.first_name + ' ' + member.last_name, class: 'member-index-pic'
+          - else
+            td= image_tag member.first_name + ' ' + member.last_name
           td= member.first_name
           td= member.last_name
           td= member.email

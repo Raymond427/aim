@@ -15,12 +15,13 @@
     = news.label :mediatype, 'Image'
     = news.radio_button :mediatype, 'Video', id: 'video_input'
     = news.label :mediatype, 'Video'
+    br
     = news.label 'Photo', id: 'image_input', class: 'news_media'
     = news.file_field :thumbnail, id: 'image_input', class: 'news_media'
     label#video_input.news_media Paste the YouTube video URL here:
     = news.url_field :youtube_url, id: 'video_input', class: 'news_media'
     = news.label :description
     = news.text_area :description
-    = news.submit
+    = news.submit 'Submit'
     = content_tag :a, href: news_index_path
       .form-button.cancel-button Cancel

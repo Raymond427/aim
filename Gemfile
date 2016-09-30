@@ -60,6 +60,8 @@ gem 'omniauth-linkedin'
 
 gem 'font-awesome-rails', '~> 4.6', '>= 4.6.3.1'
 
+gem 'sendgrid-ruby'
+
 group :test do
   gem 'capybara'
   gem 'capybara-screenshot'

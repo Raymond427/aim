@@ -18,7 +18,7 @@
       = f.text_field :email
     .field
       = f.label :donation_snippet
-      = f.text_field :donation_snippet
+      = f.text_area :donation_snippet
     .field
       = f.label :facebook_url
       = f.text_field :facebook_url
@@ -34,6 +34,7 @@
     .field
       = f.label :youtube_url
       = f.text_field :youtube_url
-    .actions = f.submit
-    = content_tag :a, href: root_path
-      .form-button.cancel-button Cancel
+    .actions 
+      = f.submit 'Submit'
+      = content_tag :a, href: root_path
+        .form-button.cancel-button Cancel
