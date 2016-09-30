@@ -15,12 +15,11 @@ main
       - @members.each do |member|
         tr
           - if member.thumbnail.present?
-            td= image_tag member.thumbnail.url(:thumb), alt: member.first_name + ' ' + member.last_name
+            td= image_tag member.thumbnail.url(:thumb), alt: member.first_name + ' ' + member.last_name, class: 'member-index-pic'
           - elsif member.linkedin_photo_url.present?
-            td= image_tag member.linkedin_photo_url, alt: member.first_name + ' ' + member.last_name
+            td= image_tag member.linkedin_photo_url, alt: member.first_name + ' ' + member.last_name, class: 'member-index-pic'
           - else
-            td= image_tag src: '#', alt: member.first_name + ' ' + member.last_name
-          td= member.thumbnail.url(:preview)
+            td= image_tag member.first_name + ' ' + member.last_name
           td= member.first_name
           td= member.last_name
           td= member.email

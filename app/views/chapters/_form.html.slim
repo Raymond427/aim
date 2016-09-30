@@ -34,6 +34,7 @@
     .field
       = f.label :youtube_url
       = f.text_field :youtube_url
-    .actions = f.submit, 'Submit'
-    = content_tag :a, href: root_path
-      .form-button.cancel-button Cancel
+    .actions 
+      = f.submit 'Submit'
+      = content_tag :a, href: root_path
+        .form-button.cancel-button Cancel
