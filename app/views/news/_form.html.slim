@@ -21,6 +21,6 @@
     = news.url_field :youtube_url, id: 'video_input', class: 'news_media'
     = news.label :description
     = news.text_area :description
-    = news.submit
+    = news.submit, 'Submit'
     = content_tag :a, href: news_index_path
       .form-button.cancel-button Cancel

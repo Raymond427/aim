@@ -11,12 +11,11 @@ class Chapter < ApplicationRecord
   validates_presence_of :school
   validates_presence_of :email
   validates_presence_of :donation_snippet
-  # has_attached_file :logo, styles: {
-  # thumb: '100x100>',
-  # square: '200x200#',
-  # medium: '300x300>'
-  # }
-  #
-  # # Validate the attached image is image/jpg, image/png, etc
-  # validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
+  has_attached_file :logo, styles: {
+    thumb: '100x100>',
+    square: '200x200#',
+    medium: '300x300>'
+  }
+  # Validate the attached image is image/jpg, image/png, etc
+  validates_attachment_content_type :logo, :content_type => /\Aimage\/.*\Z/
 end

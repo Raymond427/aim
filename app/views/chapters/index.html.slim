@@ -4,4 +4,4 @@ main
   h2 Please Select a Chapter
   - @chapters.each do |chapter|
     = link_to chapter do
-      = image_tag chapter.logo, alt: chapter.acronym
+      = image_tag chapter.logo.url(:medium), alt: chapter.acronym

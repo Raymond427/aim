@@ -44,7 +44,7 @@ nav.navbar.navbar-default.navbar-fixed-top
               li= link_to 'View Members', members_path
       li
         a.nav_img.hidden-sm.hidden-xs href="https://www.uncc.edu" title="Visit UNCC"
-          = image_tag session_chapter.logo, :alt => 'school', class: 'school_logo'
+          = image_tag session_chapter.logo.url(:medium), :alt => 'school', class: 'school_logo'
   - if flash[:notice]
     #notice
       = notice

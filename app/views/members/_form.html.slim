@@ -75,7 +75,7 @@
         = f.radio_button :role, 'editor'
       .field
         label General
-        = f.radio_button :role, 'general', checked: true
+        = f.radio_button :role, 'general'
     .field
       = f.label :major
       = f.select :major, Member::MAJORS, selected: @member.major, prompt: 'Please select a Major'
@@ -93,7 +93,7 @@
       label Would you like to recieve reminders about upcoming meetings?
       = f.check_box :subscribed, checked: true
     .actions 
-      = f.submit
+      = f.submit, 'Submit'
       = content_tag :a, href: root_path
         .form-button.cancel-button Cancel
         
