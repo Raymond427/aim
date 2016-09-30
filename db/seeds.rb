@@ -10,7 +10,6 @@ chapters = Chapter.create([
   {
     school: 'The University of North Carolina at Charlotte',
     acronym: 'UNCC',
-    logo: 'uncc.gif',
     email: 'aimunccsecretary@gmail.com',
     donation_snippet: 'paypal.com',
     facebook_url: 'https://www.facebook.com/aimuncc',
