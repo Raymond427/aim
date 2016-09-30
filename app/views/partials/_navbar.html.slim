@@ -1,8 +1,9 @@
 nav.navbar.navbar-default.navbar-fixed-top
   .container
     .navbar-header
-      a.nav_img.hidden-sm.visible-xs.mobile_logo href="/" title="Home" 
-        = image_tag 'logo.png', :alt => 'logo', class: 'aim_logo'
+      .hidden-sm.visible-xs
+        a href="/" title="Home" 
+          = image_tag 'logo.png', :id => 'mobile_img', :alt => 'logo'
       button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button" 
         span.sr-only Toggle Navigation
         span.icon-bar
