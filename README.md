@@ -28,11 +28,9 @@ To build the app, be sure you have these installed:
 
     `postgresql-contrib libpq-dev`
 
-
 * Create a user that will control the database
 
     `sudo -u postgres createuser -s pguser`
-
 
 * Set a password for that user
 
@@ -88,7 +86,6 @@ To build the app, be sure you have these installed:
 * Setup rails database
 
   	`rake db:setup`
-
 
 #### Running the Application Locally
 
