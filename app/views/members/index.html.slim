@@ -14,7 +14,7 @@ main
     tbody
       - @members.each do |member|
         tr
-          - if member.thumbnail.present?
+          - if member.thumbnail.url(:thumb).present?
             td= image_tag member.thumbnail.url(:thumb), alt: member.first_name + ' ' + member.last_name, class: 'member-index-pic'
           - elsif member.linkedin_photo_url.present?
             td= image_tag member.linkedin_photo_url, alt: member.first_name + ' ' + member.last_name, class: 'member-index-pic'

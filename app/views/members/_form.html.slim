@@ -33,7 +33,7 @@
         .field
           label Profile Picture
           = f.file_field :thumbnail, class: 'memberPicInput'
-        = image_tag id: 'memberPic', scr: current_member.thumbnail.nil? ? current_member.thumbnail : '#'
+        = image_tag id: 'memberPic', scr: current_member.thumbnail.nil? ? current_member.thumbnail.url(:preview) : '#'
     - else
       .field
         label First Name*
