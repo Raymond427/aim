@@ -12,4 +12,9 @@ FactoryGirl.define do
       chapter.news << FactoryGirl.create(:news_one, news_id: news)
     end
   end
+  trait :chapter_with_president do
+    after(:create) do |chapter|
+      chapter.members.create(FactoryGirl.attributes_for(:member, :is_president))
+    end
+  end
 end

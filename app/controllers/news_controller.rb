@@ -7,7 +7,7 @@ class NewsController < ApplicationController
   # GET /news
   # GET /news.json
   def index
-    @news = News.all.sort_by{|news| news.date.to_date}.reverse
+    @news = session_chapter.news.all.sort_by{|news| news.date.to_date}.reverse
   end
 
   # GET /news/1

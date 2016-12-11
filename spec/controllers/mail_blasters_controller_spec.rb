@@ -24,21 +24,25 @@ RSpec.describe MailBlastersController, type: :controller do
   # MailBlaster. As you add validations to MailBlaster, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    FactoryGirl.attributes_for(:mail_blaster)
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { to: nil, subject: nil, from: nil, body: nil }
   }
+
+  let(:chapter) {FactoryGirl.create(:chapter)}
+
+  let(:member) { FactoryGirl.create(:member, :is_webmaster) }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # MailBlastersController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:valid_session) { {member_id: member.id, chapter_id: chapter.id} }
 
   describe "GET #index" do
     it "assigns all mail_blasters as @mail_blasters" do
-      mail_blaster = MailBlaster.create! valid_attributes
+      mail_blaster = chapter.mail_blasters.create! valid_attributes
       get :index, params: {}, session: valid_session
       expect(assigns(:mail_blasters)).to eq([mail_blaster])
     end
@@ -46,7 +50,7 @@ RSpec.describe MailBlastersController, type: :controller do
 
   describe "GET #show" do
     it "assigns the requested mail_blaster as @mail_blaster" do
-      mail_blaster = MailBlaster.create! valid_attributes
+      mail_blaster = chapter.mail_blasters.create! valid_attributes
       get :show, params: {id: mail_blaster.to_param}, session: valid_session
       expect(assigns(:mail_blaster)).to eq(mail_blaster)
     end
@@ -61,7 +65,7 @@ RSpec.describe MailBlastersController, type: :controller do
 
   describe "GET #edit" do
     it "assigns the requested mail_blaster as @mail_blaster" do
-      mail_blaster = MailBlaster.create! valid_attributes
+      mail_blaster = chapter.mail_blasters.create! valid_attributes
       get :edit, params: {id: mail_blaster.to_param}, session: valid_session
       expect(assigns(:mail_blaster)).to eq(mail_blaster)
     end
@@ -81,9 +85,9 @@ RSpec.describe MailBlastersController, type: :controller do
         expect(assigns(:mail_blaster)).to be_persisted
       end
 
-      it "redirects to the created mail_blaster" do
+      it "redirects to the mail_blaster index" do
         post :create, params: {mail_blaster: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(MailBlaster.last)
+        expect(response).to redirect_to(mail_blasters_path)
       end
     end
 
@@ -100,57 +104,16 @@ RSpec.describe MailBlastersController, type: :controller do
     end
   end
 
-  describe "PUT #update" do
-    context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
-
-      it "updates the requested mail_blaster" do
-        mail_blaster = MailBlaster.create! valid_attributes
-        put :update, params: {id: mail_blaster.to_param, mail_blaster: new_attributes}, session: valid_session
-        mail_blaster.reload
-        skip("Add assertions for updated state")
-      end
-
-      it "assigns the requested mail_blaster as @mail_blaster" do
-        mail_blaster = MailBlaster.create! valid_attributes
-        put :update, params: {id: mail_blaster.to_param, mail_blaster: valid_attributes}, session: valid_session
-        expect(assigns(:mail_blaster)).to eq(mail_blaster)
-      end
-
-      it "redirects to the mail_blaster" do
-        mail_blaster = MailBlaster.create! valid_attributes
-        put :update, params: {id: mail_blaster.to_param, mail_blaster: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(mail_blaster)
-      end
-    end
-
-    context "with invalid params" do
-      it "assigns the mail_blaster as @mail_blaster" do
-        mail_blaster = MailBlaster.create! valid_attributes
-        put :update, params: {id: mail_blaster.to_param, mail_blaster: invalid_attributes}, session: valid_session
-        expect(assigns(:mail_blaster)).to eq(mail_blaster)
-      end
-
-      it "re-renders the 'edit' template" do
-        mail_blaster = MailBlaster.create! valid_attributes
-        put :update, params: {id: mail_blaster.to_param, mail_blaster: invalid_attributes}, session: valid_session
-        expect(response).to render_template("edit")
-      end
-    end
-  end
-
   describe "DELETE #destroy" do
     it "destroys the requested mail_blaster" do
-      mail_blaster = MailBlaster.create! valid_attributes
+      mail_blaster = chapter.mail_blasters.create! valid_attributes
       expect {
         delete :destroy, params: {id: mail_blaster.to_param}, session: valid_session
       }.to change(MailBlaster, :count).by(-1)
     end
 
     it "redirects to the mail_blasters list" do
-      mail_blaster = MailBlaster.create! valid_attributes
+      mail_blaster = chapter.mail_blasters.create! valid_attributes
       delete :destroy, params: {id: mail_blaster.to_param}, session: valid_session
       expect(response).to redirect_to(mail_blasters_url)
     end

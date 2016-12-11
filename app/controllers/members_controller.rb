@@ -7,7 +7,7 @@ class MembersController < ApplicationController
   # GET /members
   # GET /members.json
   def index
-    @members = Member.all
+    @members = session_chapter.members.all
   end
 
   # GET /members/1

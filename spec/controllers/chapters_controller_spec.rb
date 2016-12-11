@@ -23,12 +23,14 @@ RSpec.describe ChaptersController, type: :controller do
   # This should return the minimal set of attributes required to create a valid
   # Chapter. As you add validations to Chapter, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) { { school: 'uncc', email: 'unc@edu', donation_snippet: 'www.paypal.com'} }
+  let(:valid_attributes) { FactoryGirl.attributes_for(:chapter) }
   let(:invalid_attributes) { { school: nil, email: nil, logo: nil, donation_snippet: nil } }
+  let(:session_chapter) { FactoryGirl.create(:chapter) }
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # ChaptersController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:webmaster_member) {FactoryGirl.create(:member, :is_webmaster)}
+  let(:valid_session) { { member_id: webmaster_member.id } }
 
   #TODO Write test for index
 
@@ -60,7 +62,8 @@ RSpec.describe ChaptersController, type: :controller do
       it "creates a new Chapter" do
         expect {
           post :create, params: {chapter: valid_attributes}, session: valid_session
-        }.to change(Chapter, :count).by(1)
+        }.to change(Chapter, :count).by(2)
+        # a member must be created for the test to have permission to create a chapter and a chapter must be made before a member can be made, therefore two chapters must be made
       end
 
       it "assigns a newly created chapter as @chapter" do
@@ -131,9 +134,9 @@ RSpec.describe ChaptersController, type: :controller do
 
   describe "DELETE #destroy" do
     it "destroys the requested chapter" do
-      chapter = Chapter.create! valid_attributes
+      webmaster_member.chapter_id = session_chapter.id
       expect {
-        delete :destroy, params: {id: chapter.to_param}, session: valid_session
+        delete :destroy, params: {id: session_chapter.to_param}, session: valid_session
       }.to change(Chapter, :count).by(-1)
     end
 

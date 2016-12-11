@@ -122,10 +122,10 @@ RSpec.describe MembersController, type: :controller do
         expect(assigns(:member)).to eq(member)
       end
 
-      it "redirects to the member" do
+      it "redirects to the chapter homepage" do
         member = chapter.members.create! valid_attributes
         put :update, params: {id: member.to_param, member: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(member)
+        expect(response).to redirect_to(chapter)
       end
     end
 

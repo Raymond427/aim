@@ -36,11 +36,6 @@ RSpec.describe Member, type: :model do
     expect(member.valid?).to be_falsey
   end
 
-  it "validates the presence of a graduation date" do
-    member.graduation_date = nil
-    expect(member.valid?).to be_falsey
-  end
-
   it "validates whether the member is an executive" do
     member.executive_position = nil
     expect(member.valid?).to be_truthy

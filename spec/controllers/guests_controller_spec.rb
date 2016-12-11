@@ -24,22 +24,27 @@ RSpec.describe GuestsController, type: :controller do
   # Guest. As you add validations to Guest, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    FactoryGirl.attributes_for(:guest)
   }
 
+  let(:chapter) {FactoryGirl.create(:chapter, :chapter_with_president)}
+
+  let(:webmaster) {FactoryGirl.create(:member, :is_webmaster)}
+
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    { first_name: nil, last_name: nil, email: nil, phone_number: nil, date: nil, message: nil }
   }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # GuestsController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:valid_session) { {chapter_id: chapter.id} }
+  let(:webmaster_session) { {chapter_id: chapter.id, member_id: webmaster.id} }
 
   describe "GET #index" do
     it "assigns all guests as @guests" do
       guest = Guest.create! valid_attributes
-      get :index, params: {}, session: valid_session
+      get :index, params: {}, session: webmaster_session
       expect(assigns(:guests)).to eq([guest])
     end
   end
@@ -81,9 +86,9 @@ RSpec.describe GuestsController, type: :controller do
         expect(assigns(:guest)).to be_persisted
       end
 
-      it "redirects to the created guest" do
+      it "redirects to the chapter homepage" do
         post :create, params: {guest: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(Guest.last)
+        expect(response).to redirect_to(chapter)
       end
     end
 
@@ -100,59 +105,18 @@ RSpec.describe GuestsController, type: :controller do
     end
   end
 
-  describe "PUT #update" do
-    context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
-
-      it "updates the requested guest" do
-        guest = Guest.create! valid_attributes
-        put :update, params: {id: guest.to_param, guest: new_attributes}, session: valid_session
-        guest.reload
-        skip("Add assertions for updated state")
-      end
-
-      it "assigns the requested guest as @guest" do
-        guest = Guest.create! valid_attributes
-        put :update, params: {id: guest.to_param, guest: valid_attributes}, session: valid_session
-        expect(assigns(:guest)).to eq(guest)
-      end
-
-      it "redirects to the guest" do
-        guest = Guest.create! valid_attributes
-        put :update, params: {id: guest.to_param, guest: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(guest)
-      end
-    end
-
-    context "with invalid params" do
-      it "assigns the guest as @guest" do
-        guest = Guest.create! valid_attributes
-        put :update, params: {id: guest.to_param, guest: invalid_attributes}, session: valid_session
-        expect(assigns(:guest)).to eq(guest)
-      end
-
-      it "re-renders the 'edit' template" do
-        guest = Guest.create! valid_attributes
-        put :update, params: {id: guest.to_param, guest: invalid_attributes}, session: valid_session
-        expect(response).to render_template("edit")
-      end
-    end
-  end
-
   describe "DELETE #destroy" do
     it "destroys the requested guest" do
       guest = Guest.create! valid_attributes
       expect {
-        delete :destroy, params: {id: guest.to_param}, session: valid_session
+        delete :destroy, params: {id: guest.to_param}, session: webmaster_session
       }.to change(Guest, :count).by(-1)
     end
 
     it "redirects to the guests list" do
       guest = Guest.create! valid_attributes
-      delete :destroy, params: {id: guest.to_param}, session: valid_session
-      expect(response).to redirect_to(guests_url)
+      delete :destroy, params: {id: guest.to_param}, session: webmaster_session
+      expect(response).to redirect_to(guests_path)
     end
   end
 

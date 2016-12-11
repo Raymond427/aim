@@ -9,7 +9,11 @@ class ChaptersController < ApplicationController
   # GET /chapters
   # GET /chapters.json
   def index
-    @chapters = Chapter.all
+    if Chapter.count == 1
+      redirect_to Chapter.first
+    else
+      @chapters = Chapter.all
+    end
   end
 
   # GET /chapters/1

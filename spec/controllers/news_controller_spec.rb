@@ -12,7 +12,8 @@ RSpec.describe NewsController, type: :controller do
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # NewsController. Be sure to keep this updated too.
-  let(:valid_session) { { chapter_id: chapter.id } }
+  let(:member) { FactoryGirl.create(:member, :is_webmaster) }
+  let(:valid_session) { { chapter_id: chapter.id, member_id: member.id } }
 
   describe "GET #index" do
     it "assigns all news as @news" do
@@ -97,10 +98,10 @@ RSpec.describe NewsController, type: :controller do
         expect(assigns(:news)).to eq(news)
       end
 
-      it "redirects to the news" do
+      it "redirects to the news index" do
         news = chapter.news.create! valid_attributes
         put :update, params: {id: news.to_param, news: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(news)
+        expect(response).to redirect_to(news_index_path)
       end
     end
 

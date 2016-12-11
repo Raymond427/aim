@@ -25,11 +25,12 @@ RSpec.describe ChaptersController, type: :controller do
   # adjust the attributes here as well.
   let(:valid_attributes) { {school: 'UNCC', email: 'aim@uncc.edu', donation_snippet: 'www.paypal.com'} }
   let(:invalid_attributes) { {school: nil, logo: nil, email: nil, donation_snippet: nil} }
+  let(:member) { FactoryGirl.create(:member, :is_webmaster) }
 
   # This should return the minimal set of values that should be in the session
   # in order to pass any filters (e.g. authentication) defined in
   # ChaptersController. Be sure to keep this updated too.
-  let(:valid_session) { {} }
+  let(:valid_session) { {member_id: member.id} }
 
   #TODO Write test for index
 

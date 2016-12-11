@@ -12,4 +12,18 @@ FactoryGirl.define do
     executive_position 'Executive Position'
     chapter
   end
+
+  trait :is_webmaster do
+    role 'webmaster'
+  end
+
+  trait :is_admin do
+    role 'admin'
+  end
+
+  trait :is_president do
+    is_executive true
+    executive_position 'President'
+    role 'admin'
+  end
 end
