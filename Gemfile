@@ -66,8 +66,6 @@ group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'capybara-email'
-  gem 'rubocop'
-  gem 'rubocop-rspec'
   gem 'database_cleaner'
   gem 'simplecov'
   gem 'selenium-webdriver'
