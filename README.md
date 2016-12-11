@@ -96,7 +96,9 @@ To build the app, be sure you have these installed:
 
 ### Running the Test Suite
 
-TODO
+    To run all specs and integration tests run:
+
+    `rspec`
 
 #### Using Mailcatcher
 
