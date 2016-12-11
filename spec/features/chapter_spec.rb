@@ -2,7 +2,7 @@ require 'rails_helper'
 
 feature "Homepage", js: true do
   # scenario 'Viewing the index page' do
-  #   visit chapters_url
+  #   visit chapters_path
   #   expect(page).to have_content(/Turning Creative Thinkers,/i)
   #   expect(page).to have_content(/Into Business Leaders/i)
   # end
@@ -13,6 +13,5 @@ feature "Homepage", js: true do
   #   select a chapter within that
   #   assert the app redirects to the url of that chapter
   #   assert that the sessions has that chapter stored
-  #
   # end
 end

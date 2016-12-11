@@ -66,7 +66,6 @@ group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'capybara-email'
-  gem 'poltergeist'
   gem 'rubocop'
   gem 'rubocop-rspec'
   gem 'database_cleaner'
@@ -80,7 +79,6 @@ group :development, :test do
   gem 'byebug', platform: :mri
   gem 'rspec-rails'
   gem 'factory_girl_rails'
-  gem 'jasmine-rails'
   gem 'cucumber-rails', :require => false
 end
 
