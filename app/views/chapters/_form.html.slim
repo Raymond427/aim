@@ -1,4 +1,7 @@
-.forms  
+.forms
+  small
+        |
+          * = requried
   = form_for @chapter do |f|
     - if @chapter.errors.any?
       #error_explanation
@@ -8,31 +11,31 @@
             li = message
 
     .field
-      = f.label :school
+      = f.label 'School*'
       = f.text_field :school
     .field
-      = f.label :logo
+      = f.label 'Logo*'
       = f.file_field :logo
     .field
-      = f.label :email
+      = f.label 'Email*'
       = f.text_field :email
     .field
-      = f.label :donation_snippet
+      = f.label 'Donation Snippet'
       = f.text_area :donation_snippet
     .field
-      = f.label :facebook_url
+      = f.label 'Facebook Address'
       = f.text_field :facebook_url
     .field
-      = f.label :twitter_url
+      = f.label 'Twitter Address'
       = f.text_field :twitter_url
     .field
-      = f.label :linkedin_url
+      = f.label 'Linkedin Address'
       = f.text_field :linkedin_url
     .field
-      = f.label :instagram_url
+      = f.label 'Instagram Address'
       = f.text_field :instagram_url
     .field
-      = f.label :youtube_url
+      = f.label 'Youtube Address'
       = f.text_field :youtube_url
     .actions 
       = f.submit 'Submit'

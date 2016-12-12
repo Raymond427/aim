@@ -2,18 +2,18 @@ footer
   ul.socs
     - if session_chapter.facebook_url.present?
       li
-        a href=session_chapter.facebook_url title="Like AIM on Facebook!"
+        = content_tag :a, href: session_chapter.facebook_url, title: 'Like AIM on Facebook!'
           i.fa.fa-facebook.fa-3x
     - if session_chapter.instagram_url.present?
       li
-        a href=session_chapter.instagram_url title="Follow AIM on Instagram!"
+        = content_tag :a, href: session_chapter.instagram_url, title: 'Follow AIM on Instagram!'
           i.fa.fa-instagram.fa-3x
 
     - if session_chapter.twitter_url.present?
       li
-        a href=session_chapter.twitter_url title="Follow AIM on Twitter!"
+        = content_tag :a, href: session_chapter.twitter_url, title: 'Follow AIM on Twitter!'
           i.fa.fa-twitter.fa-3x
     - if session_chapter.youtube_url.present?
       li
-        a href=session_chapter.youtube_url title="Subscribe to AIM's YouTube channel!"
+        = content_tag :a, href: session_chapter.youtube_url, title: "Subscribe to AIM's YouTube channel!"
           i.fa.fa-youtube-play.fa-3x

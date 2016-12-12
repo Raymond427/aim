@@ -44,7 +44,7 @@ class Member < ApplicationRecord
     'President', 'Vice President', 'Treasurer',
     'Secretary', 'Strategic Advisor', 'Director of Strategic Partnerships',
     'Director of Programs', 'Director of Public Relations', 'Director of Publications',
-    'Director of Community Service', 'Director of Fundraising', 'Historian', 'Digital Administrator'
+    'Director of Community Service', 'Director of Fundraising', 'Historian', 'Digital Administrator', 'Ambassador'
   ].freeze
   GRAD_MONTHS = ['May', 'December'].freeze
 

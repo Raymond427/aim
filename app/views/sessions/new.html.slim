@@ -9,3 +9,4 @@ main
         = f.label :password
         = f.password_field :password, class: 'form-control'
         = f.submit "Log In", class: "btn btn-primary"
+        = content_tag :a, 'New Member? Sign Up Here', href: new_member_path

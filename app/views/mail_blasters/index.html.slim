@@ -1,6 +1,6 @@
 main
   header
-    h1 Listing Mass Emails
+    h1 Mass Emails
 
   table
     thead
@@ -8,9 +8,7 @@ main
         th Subject
         th From
         th Body
-        th
-        th
-        th
+        th colspan="3" Data Options
 
     tbody
       - @mail_blasters.each do |mail_blaster|
@@ -21,7 +19,3 @@ main
           td = link_to 'Show', mail_blaster
           td = link_to 'Edit', edit_mail_blaster_path(mail_blaster)
           td = link_to 'Destroy', mail_blaster, data: { confirm: 'Are you sure?' }, method: :delete
-
-  br
-
-  = link_to 'New Mail blaster', new_mail_blaster_path
