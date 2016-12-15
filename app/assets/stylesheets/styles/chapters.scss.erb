@@ -5,7 +5,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/ */
 @font-face {
-	font-family: Source Sans Pro;
+	font-family: Source Sans Pro Light;
 	src: url(/fonts/SourceSansPro-Light.ttf);
 }
 @font-face {
@@ -32,10 +32,6 @@ header {
 }
 header h1 {
 	color: #65A933;
-}
-nav input[type="submit"] {
-	font-size: 16px;
-	font-weight: bold;
 }
 h1 {
 	font-size: 32px;
@@ -69,66 +65,6 @@ main {
 main article, .eboard, .news_feed, .members {
 	visibility: hidden;
 	animation: fadeIn 1s ease-out forwards 0.75s;
-}
-nav {
-  background-color: #FFFFFF !important;
-  color: #7F7F7F !important;
-}
-.navbar-nav li a {
-	font-size: 16px;
-	font-weight: bold;
-  margin-top: 10px;
-  padding-left: 7px !important;
-  padding-right: 7px !important;
-}
-.navbar-nav li a:hover {
-  color: #65A933 !important;
-}
-.nav_img {
-  padding: 0 !important;
-  margin-top: 5px;
-	display: inline;
-}
-.nav_img .aim_logo {
-  height: 48px;
-	width: 142px;
-}
-.school_logo {
-	width: 130px;
-}
-.mobile_logo {
-	width: 142px;
-	display: inline !important;
-	margin: 0;
-}
-.navbar, .navbar-default, .navbar-static-top{
-  margin-bottom: 0 !important;
-}
-.navbar-toggle, .navbar-toggle:hover{
-  border: none !important;
-}
-.container {
-	padding-bottom: 10px;
-}
-.icon-bar {
-	color: #FFFFFF !important;
-}
-.navbar-fixed-top {
-	border-width: 0 0 0 !important;
-}
-#notice {
-  background-color: #65A933;
-	font-size: 16px;
-  color: #FFFFFF !important;
-  width: 100%;
-  text-align: center;
-}
-#alert {
-  background-color: #C52F24;
-  color: #FFFFFF !important;
-  width: 100%;
-	font-size: 16px;
-  text-align: center;
 }
 .loading {
 	display: block;
@@ -493,76 +429,8 @@ article p, ol {
   background-color: #66AA33;
   text-align: center;
 }
-footer
-{
-    clear:both;
-    color: #919191;
-    display: inline-block;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin-right: auto;
-    margin-left: auto;
-    width: 100%;
-    text-align: center;
-    background-color: #343434;
-    bottom: 0 !important;
-		font-weight: bold;
-}
-footer a:hover, footer ul li a:hover, footer ul li a i:hover {
-	text-decoration: none;
-}
-footer ul li {
-  display: inline;
-  padding: 0 15px 0 15px;
-}
-footer ul {
-    padding: 10px 0 10px 0;
-}
-.socs {
-	margin-top: 10px;
-}
-.socs ul li a:hover {
-	text-decoration: none;
-}
-footer i {
-	color: #7F7F7F;
-	font-size: 36px;
-}
+
 /* <--------------------- KEYFRAMES -------------------> */
-@keyframes fadeNdrop{
-	from {
-		opacity: 0;
-		visibility: hidden;
-		transform: translateY(-10px);
-	}
-	to {
-		opacity: 1;
-		visibility: visible;
-		transform: translateY(10px);
-	}
-}
-@keyframes fadeNrise{
-	from {
-		opacity: 0;
-		visibility: hidden;
-		transform: translateY(10px);
-	}
-	to {
-		opacity: 1;
-		visibility: visible;
-		transform: translateY(-10px);
-	}
-}
-@keyframes fadeIn{
-	from{
-		opacity: 0;
-		visibility: hidden;
-	}
-	to{
-		opacity: 1;
-		visibility: visible;
-	}
-}
 /* <--------------------- MEDIA QUERIES -------------------> */
 /* <---------------------    768px      -------------------> */
 @media screen and (max-width: 768px) {

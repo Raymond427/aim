@@ -1,0 +1,64 @@
+nav {
+  background-color: #FFFFFF !important;
+  color: #7F7F7F !important;
+}
+.navbar-nav li a {
+	font-size: 16px;
+	font-weight: bold;
+  margin-top: 10px;
+  padding-left: 7px !important;
+  padding-right: 7px !important;
+}
+.navbar-nav li a:hover {
+  color: #65A933 !important;
+}
+.nav_img {
+  padding: 0 !important;
+  margin-top: 5px;
+	display: inline;
+}
+.nav_img .aim_logo {
+  height: 48px;
+	width: 142px;
+}
+.school_logo {
+	width: 130px;
+}
+.mobile_logo {
+	width: 142px;
+	display: inline !important;
+	margin: 0;
+}
+.navbar, .navbar-default, .navbar-static-top{
+  margin-bottom: 0 !important;
+}
+.navbar-toggle, .navbar-toggle:hover{
+  border: none !important;
+}
+.container {
+	padding-bottom: 10px;
+}
+.icon-bar {
+	color: #FFFFFF !important;
+}
+.navbar-fixed-top {
+	border-width: 0 0 0 !important;
+}
+#notice {
+  background-color: #65A933;
+	font-size: 16px;
+  color: #FFFFFF !important;
+  width: 100%;
+  text-align: center;
+}
+#alert {
+  background-color: #C52F24;
+  color: #FFFFFF !important;
+  width: 100%;
+	font-size: 16px;
+  text-align: center;
+}
+nav input[type="submit"] {
+	font-size: 16px;
+	font-weight: bold;
+}
