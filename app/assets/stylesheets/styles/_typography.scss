@@ -1,0 +1,39 @@
+@import "variables";
+
+@font-face {
+	font-family: Source Sans Pro Light;
+	src: url(/fonts/SourceSansPro-Light.ttf);
+}
+@font-face {
+	font-family: Source Sans Pro;
+	font-weight: bold;
+	src: url(/fonts/SourceSansPro-Regular.ttf);
+}
+a:hover {
+	text-decoration: none;
+	background-color: transparent;
+}
+h1, h2, h3, h4, h5, h6, li, a, figcaption, p, div, form label, form input, textarea, select {
+    font-family: Source Sans Pro;
+		line-height: 1.5;
+}
+i {
+	color: $white;
+	margin: 0 5px 0 5px;
+}
+h1 {
+	font-size: 32px;
+}
+h2 {
+	font-size: 24px;
+}
+h3 {
+	font-size: 20px;
+}
+p, span {
+	font-size: 18px;
+}
+small {
+	color: $grey;
+	font-size: 12px;
+}

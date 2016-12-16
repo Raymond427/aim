@@ -1,0 +1,88 @@
+@import "variables";
+
+@mixin home-banner {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 0;
+  z-index: 0;
+  height: 500px;
+
+  .home-overlay {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    padding: 100px;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    color: $white;
+
+    h1:first-child {
+      visibility: hidden;
+      animation: fadeNdrop 1s ease-out forwards;
+    }
+    h1:nth-child(3) {
+      visibility: hidden;
+      animation: fadeNrise 1s ease-out forwards 0.75s;
+    }
+    input[type="submit"] {
+      visibility: hidden;
+      font-size: 20px;
+      min-width: 120px;
+      animation: fadeIn 1s ease-out forwards 1.75s;
+    }
+  }
+}
+
+@mixin content-wrapper($max-width) {
+  margin: 20px auto;
+  max-width: $max-width;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+@mixin main-header {
+  visibility: hidden;
+  animation: fadeNdrop 1s ease-out forwards 0.2s;
+  margin-bottom: 15px;
+
+  h1 {
+    color: $green;
+  }
+  h2 {
+    color: $grey;
+  }
+}
+
+@mixin exec-and-news-elements($height, $width, $pic-width, $pic-height, $info-width, $info-height) {
+  div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: $width;
+    background-color: $green;
+
+    div {
+      width: $pic-width;
+
+      img {
+        width: $pic-width;
+        height: $pic-height;
+      }
+    }
+
+    div:nth-child(2) {
+      width: $info-width;
+      height: $info-height;
+      display: flex;
+      flex-direction: column;
+      color: $white;
+    }
+
+    .controls {
+      width: auto;
+    }
+  }
+}

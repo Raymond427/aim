@@ -1,3 +1,5 @@
+@import "../styles/variables";
+
 nav {
   background-color: #FFFFFF !important;
   color: #7F7F7F !important;
@@ -61,4 +63,18 @@ nav {
 nav input[type="submit"] {
 	font-size: 16px;
 	font-weight: bold;
+}
+#mobile_img {
+  padding-left: 10px !important;
+  margin-top: 5px;
+  height: 48px;
+  display: inline !important;
+  position: absolute;
+}
+#dropdownMenu2 {
+	border: none;
+	background-color: #65A933;
+	font-size: 16px;
+  margin-top: 18px !important;
+  color: #FFFFFF;
 }

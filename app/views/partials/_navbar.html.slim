@@ -15,7 +15,6 @@ nav.navbar.navbar-default.navbar-fixed-top
           = image_tag 'logo.png', alt: 'logo', class: 'aim_logo'
       li= link_to 'HOME', session_chapter
       li= link_to 'EXECUTIVE BOARD', executives_path
-      /li= link_to 'MEMBERS', members_index_path
       li= link_to 'NEWS', news_index_path
       li= link_to 'CALENDAR', calendar_path
       li= link_to 'SPONSORSHIP', sponsorship_path
@@ -34,7 +33,6 @@ nav.navbar.navbar-default.navbar-fixed-top
               li= link_to "Log In", login_path
             li= link_to 'One On One Advice', new_appointment_path
             li= link_to 'Come Speak to Our Members', new_guest_path
-            /li= link_to 'Apply to Start a Chapter'
             - if member_can_create?
               li= link_to 'Mail Blaster', new_mail_blaster_path
               li= link_to 'View Mass Emails', mail_blasters_path

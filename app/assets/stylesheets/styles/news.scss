@@ -1,27 +1,11 @@
-// Place all the styles related to the News controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-.news figure img, iframe {
-  float: left;
-  width: 50%;
-  height: 300px;
-  width: 375px;
+@import "mixins";
+
+.news__wrapper {
+  @include content-wrapper(2010px);
 }
 
-.news figcaption {
-  float: right;
-  text-align: left;
-  color: #FFFFFF;
-  padding-top: 0px !important;
-  width: 250px !important;
-}
-
-.news /*All News blocks*/
-{
-    display: inline-block;
-    border-radius: 3px;
-    margin: 8px;
-    max-width: 650px !important;
-    height: 300px;
-    background-color: #66AA33;
+.news {
+  @include exec-and-news-elements(300px, 650px, 375px, 300px, 250px, 300px);
+  margin: 10px 10px;
+  border-radius: 3px;
 }

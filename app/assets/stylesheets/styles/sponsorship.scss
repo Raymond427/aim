@@ -1,0 +1,30 @@
+@import "variables";
+
+.sponsorship {
+  margin: 3% auto;
+  width: 80%;
+	max-width: 800px;
+  color: $white;
+  padding: 20px;
+  background-color: $green;
+
+  p, ol {
+    text-align: left;
+  	font-size: 20px;
+  	line-height: 1.5;
+  }
+
+  #corporate_button {
+    width: 200px;
+    margin: auto;
+    border: solid 5px $white;
+    background-color: $green;
+  }
+
+  .paypal, .paypal input{
+  	text-align: center;
+  	border: none;
+  	margin: 0 auto 0 auto;
+  	width: 200px;
+  }
+}

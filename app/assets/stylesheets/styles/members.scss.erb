@@ -1,0 +1,30 @@
+@import "mixins";
+
+.board-member__wrapper {
+  @include content-wrapper(1200px);
+}
+
+.board-member {
+  @include exec-and-news-elements(200px, 500px, 200px, 200px, 300px, 200px);
+  margin: 10px 10px;
+  border-radius: 3px;
+}
+
+.linkedin-button[type="submit"] {
+	background-image: url(<%= asset_path('Sign-In-Large---Default.png') %>);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: transparent;
+	width: 215px;
+	height: 40px;
+
+  &:hover {
+    background-color: transparent;
+    background-image: url(<%= asset_path('Sign-In-Large---Hover.png') %>);
+  	transition: none;
+    background-color: transparent;
+  }
+  &:active {
+    background-image: url(<%= asset_path('Sign-In-Large---Active.png') %>);
+  }
+}
