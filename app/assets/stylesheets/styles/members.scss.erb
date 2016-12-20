@@ -7,6 +7,24 @@
 .board-member {
   @include exec-and-news-elements(200px, 500px, 200px, 200px, 300px, 200px);
   margin: 10px 10px;
+
+  div {
+    @media (max-width: 540px) {
+      flex-direction: column;
+      width: 300px;
+
+      .board-member__pic, .board-member__info {
+        width: 300px;
+      }
+      .board-member__pic {
+        height: 300px;
+        img {
+          height: 300px;
+          width: 300px;
+        }
+      }
+    }
+  }
 }
 
 .linkedin-button[type="submit"] {

@@ -50,6 +50,11 @@
 	  color: $white;
 		transition: none;
 	}
+	button, .btn-submit, input[type="submit"] {
+		width: auto;
+		border: none;
+		margin-right: 20px;
+	}
 	input:focus, textarea:focus, select:focus{
 		border-color: $green;
 		outline: 0;

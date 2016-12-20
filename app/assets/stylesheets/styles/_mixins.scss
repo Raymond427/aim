@@ -66,6 +66,7 @@
   div {
     display: flex;
     flex-direction: row;
+    justify-content: center;
     width: $width;
     background-color: $green;
     border-radius: 3px;
@@ -79,7 +80,7 @@
       }
     }
 
-    div:nth-child(2) {
+    .news__info, .board-member__info {
       width: $info-width;
       height: $info-height;
       display: flex;
