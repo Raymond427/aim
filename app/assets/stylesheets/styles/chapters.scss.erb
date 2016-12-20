@@ -3,6 +3,10 @@
 
 .home-wrapper {
 	margin-top: 70px;
+
+	@media (max-width: 767px) {
+    margin-top: 58px;
+  }
 }
 .home-banner {
 	background-image: url(<%= asset_path('home.jpg') %>);
@@ -22,8 +26,8 @@
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
+		justify-content: center;
 		align-items: center;
-		text-align: center;
 
 		.aim-fact {
 			height: 440px;
@@ -35,7 +39,11 @@
 				width: 315px;
 				height: 215px;
 			}
+			h3 {
+				color: $green;
+			}
 			p {
+				color: $grey;
 				text-align: justify;
 			}
 		}
@@ -43,18 +51,19 @@
 }
 
 .former-speakers__wrapper {
-	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 
 	.speakers {
 		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		align-items: center;
+		flex-flow: wrap;
+		justify-content: center;
 		max-width: 1366px;
-		margin: 0 auto;
 
 		.speaker {
 			width: 300px;
+			text-align: center;
 
 			img {
 				width: 200px;
@@ -63,6 +72,13 @@
 			.speaker__info {
 				margin: 0 50px;
 				max-width: 200px;
+
+				h3 {
+					color: $green;
+				}
+				p{
+					color: $grey;
+				}
 			}
 		}
 	}
@@ -74,17 +90,25 @@
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	text-align: center;
+	justify-content: center;
+	align-items: center;
 
 	.sponsor {
-		margin: 0 10px;
+		margin: 0 30px;
+		width: 150px;
+		cursor: pointer;
 
 		img {
-			height: 150px;
+			width: 150px;
 		}
-		.sponsor__info, .sponsor__info:hover {
-			text-decoration: none;
-			color: inherit;
+		h3 {
+			color: $green;
 		}
+		p {
+			color: $grey;
+		}
+	}
+	a:hover {
+		text-decoration: none;
 	}
 }

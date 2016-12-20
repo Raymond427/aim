@@ -1,18 +1,18 @@
-nav.navbar.navbar-default.navbar-fixed-top
+nav.navbar.navbar-fixed-top
   .container
     .navbar-header
       .hidden-sm.visible-xs
-        a href="/" title="Home" 
-          = image_tag 'logo.png', :id => 'mobile_img', :alt => 'logo'
-      button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button" 
-        span.sr-only Toggle Navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
+        a.aim-mobile-logo href="/" title="Home" 
+          = image_tag 'logo.png', :alt => 'logo'
+        button.navbar-toggle data-target=".navbar-collapse" data-toggle="collapse" type="button" 
+          span.sr-only Toggle Navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
     ul.nav.navbar-nav.navbar-left.collapse.navbar-collapse
       li
-        a.nav_img.hidden-xs href="/" title="Home" 
-          = image_tag 'logo.png', alt: 'logo', class: 'aim_logo'
+        a.hidden-xs.aim-desktop-logo href="/" title="Home" 
+          = image_tag 'logo.png', alt: 'logo'
       li= link_to 'HOME', session_chapter
       li= link_to 'EXECUTIVE BOARD', executives_path
       li= link_to 'NEWS', news_index_path
@@ -27,7 +27,7 @@ nav.navbar.navbar-default.navbar-fixed-top
           ul.dropdown-menu aria-labelledby="dropdownMenu2"
             - if logged_in?
               li= link_to 'Edit Profile', edit_member_path(current_member)
-              li= link_to 'Log Out', logout_path, method: 'delete'
+              li= link_to 'Log Out', logout_path, method: 'delete', data: { confirm: 'Are you sure you want to Logout?'}
             - else
               li= link_to 'Join Now', new_member_path
               li= link_to "Log In", login_path
@@ -41,11 +41,8 @@ nav.navbar.navbar-default.navbar-fixed-top
               li= link_to 'Create a Chapter', new_chapter_path
               li= link_to 'View Members', members_path
       li
-        a.nav_img.hidden-sm.hidden-xs href="https://www.uncc.edu" title="Visit UNCC"
-          - if session[:chapter_id] == 1
-            = image_tag 'uncc.gif'
-          - else
-            = image_tag session_chapter.logo.url(:medium), :alt => 'school', class: 'school_logo'
+        a.school-link.hidden-sm.hidden-xs href="https://www.uncc.edu" title="Visit UNCC"
+          = image_tag 'uncc.gif', :class => 'school-logo'
   - if flash[:notice]
     #notice
       = notice

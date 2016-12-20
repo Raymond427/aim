@@ -5,8 +5,9 @@ main.home-wrapper
       h1 Into Business Leaders
       = button_to "Join Now", new_member_path, method: :get
   .home-mid-section
-    h1 Make a Living Doing What You Love, Creating What You Want
-    h2 Whether you have an idea for the next big startup or are just curious about entrepreneurship and self employment, AIM is the right place to start!
+    .main__header
+      h1 Make a Living Doing What You Love, Creating What You Want
+      h2 Whether you have an idea for the next big startup or are just curious about entrepreneurship and self employment, AIM is the right place to start!
     .aim-fact__wrapper
       .aim-fact
         = image_tag 'parade.png', alt: 'Parade'
@@ -28,7 +29,8 @@ main.home-wrapper
       h1 Connect with the Best Entrepreneurs in Charlotte
       h2 AIM regularly hosts successful small business owners that give their secrets to success
   .former-speakers__wrapper
-    h1 Former Speakers
+    .main__header
+      h1 Former Speakers
     .speakers
       .speaker
         = image_tag 'jb.png', :alt => 'Jeff Brokaw'
@@ -76,17 +78,18 @@ main.home-wrapper
           h3 Devin Collins
           p Assistant Director at Ventureprise
   .home-sponsors
-    h1 Sponsored By
+    .main__header
+      h1 Sponsored By
     .sponsors
-      .sponsor
-        = link_to('https://www.studypool.com/') do
-          = image_tag 'studypool.png', :alt=> 'studypool'
-          .sponsor__info
-            h3 Studypool
-            p A Leader in Online Homework Help
       .sponsor
         = link_to('https://www.carbonfive.com/') do
           = image_tag 'C5.png', :alt=> 'carbonfive'
           .sponsor__info
             h3 Carbon Five
             p Fresh Code, Delivered Daily
+      .sponsor
+        = link_to('https://www.studypool.com/') do
+          = image_tag 'studypool.png', :alt=> 'studypool'
+          .sponsor__info
+            h3 Studypool
+            p A Leader in Online Homework Help

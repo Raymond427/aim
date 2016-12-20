@@ -13,7 +13,7 @@
     height: 100%;
     text-align: center;
     padding: 100px;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: $black-bg;
     z-index: 1;
     color: $white;
 
@@ -60,14 +60,14 @@
   div {
     display: flex;
     flex-direction: row;
-    align-items: center;
     width: $width;
     background-color: $green;
+    border-radius: 3px;
 
     div {
       width: $pic-width;
 
-      img {
+      img, iframe {
         width: $pic-width;
         height: $pic-height;
       }
@@ -85,4 +85,12 @@
       width: auto;
     }
   }
+}
+
+@mixin notices-and-alerts($bg-color) {
+  background-color: $bg-color;
+  font-size: 16px;
+  color: $white;
+  width: 100%;
+  text-align: center;
 }

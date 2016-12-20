@@ -1,80 +1,109 @@
 @import "../styles/variables";
+@import "../styles/mixins";
 
 nav {
-  background-color: #FFFFFF !important;
-  color: #7F7F7F !important;
+  height: 70px;
+  background-color: $white;
+
+  @media (max-width: 767px) {
+    height: 58px;
+  }
+  .container {
+    background-color: $white;
+  }
+  .navbar-header {
+    margin-top: 0px;
+    height: 70px;
+
+    @media (max-width: 767px) {
+      height: 58px;
+    }
+    .navbar-toggle {
+      background-color: transparent;
+
+      &:hover, &:focus {
+        background-color: $light-grey;
+      }
+    }
+    .icon-bar {
+      background-color: $hamburger-grey;
+    }
+  }
+  img {
+    height: 48px;
+  }
+  .navbar-left {
+    li {
+      .aim-desktop-logo {
+        height: 48px;
+        padding: 0 7px;
+      }
+      a {
+        color: $grey;
+        font-size: 16px;
+        margin-top: 10px;
+        padding: 15px 7px;
+
+        &:hover {
+          text-decoration: none;
+          color: $green;
+          background-color: $white;
+          cursor: pointer;
+        }
+        .school_logo {
+          margin-left: 10px;
+        }
+        @media (max-width: 767px) {
+          padding: 10px 7px;
+        }
+      }
+    }
+  }
+  .dropdown-menu {
+    font-size: 16px;
+
+    li a {
+      color: $grey;
+
+      &:hover {
+        color: $green;
+      }
+    }
+  }
 }
-.navbar-nav li a {
-	font-size: 16px;
-	font-weight: bold;
-  margin-top: 10px;
-  padding-left: 7px !important;
-  padding-right: 7px !important;
+
+.navbar-right {
+  li .dropdown .btn {
+    background-color: $green;
+    color: $white;
+    margin-top: 18px;
+    font-size: 16px;
+    border: none;
+
+    &:hover, &:focus {
+      background-color: $dark-green;
+      color: $white;
+    }
+  }
+  .school-link {
+    margin-top: 10px;
+    padding: 0 7px;
+
+    &:hover {
+      background-color: $white;
+    }
+  }
 }
-.navbar-nav li a:hover {
-  color: #65A933 !important;
-}
-.nav_img {
-  padding: 0 !important;
-  margin-top: 5px;
-	display: inline;
-}
-.nav_img .aim_logo {
+
+.aim-mobile-logo {
+  position: absolute;
   height: 48px;
-	width: 142px;
+  margin: 5px;
 }
-.school_logo {
-	width: 130px;
-}
-.mobile_logo {
-	width: 142px;
-	display: inline !important;
-	margin: 0;
-}
-.navbar, .navbar-default, .navbar-static-top{
-  margin-bottom: 0 !important;
-}
-.navbar-toggle, .navbar-toggle:hover{
-  border: none !important;
-}
-.container {
-	padding-bottom: 10px;
-}
-.icon-bar {
-	color: #FFFFFF !important;
-}
-.navbar-fixed-top {
-	border-width: 0 0 0 !important;
-}
+
 #notice {
-  background-color: #65A933;
-	font-size: 16px;
-  color: #FFFFFF !important;
-  width: 100%;
-  text-align: center;
+  @include notices-and-alerts($green);
 }
 #alert {
-  background-color: #C52F24;
-  color: #FFFFFF !important;
-  width: 100%;
-	font-size: 16px;
-  text-align: center;
-}
-nav input[type="submit"] {
-	font-size: 16px;
-	font-weight: bold;
-}
-#mobile_img {
-  padding-left: 10px !important;
-  margin-top: 5px;
-  height: 48px;
-  display: inline !important;
-  position: absolute;
-}
-#dropdownMenu2 {
-	border: none;
-	background-color: #65A933;
-	font-size: 16px;
-  margin-top: 18px !important;
-  color: #FFFFFF;
+  @include notices-and-alerts($red);
 }
