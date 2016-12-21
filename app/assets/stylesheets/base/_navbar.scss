@@ -44,7 +44,7 @@ nav {
         margin-top: 10px;
         padding: 15px 7px;
 
-        &:hover {
+        &:hover, &:focus {
           text-decoration: none;
           color: $green;
           background-color: $white;
@@ -101,9 +101,10 @@ nav {
   margin: 5px;
 }
 
-.notice {
+#notice {
   @include notices-and-alerts($green);
 }
-.alert {
+#alert {
   @include notices-and-alerts($red);
+  padding: 0;
 }

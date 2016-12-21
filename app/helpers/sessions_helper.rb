@@ -13,7 +13,7 @@ module SessionsHelper
   end
 
   def redirect_if_not_logged_in
-    redirect_to login_path, alert: 'Please log in our sign up' unless logged_in?
+    redirect_to login_path, alert: 'Please log in or sign up' unless logged_in?
   end
 
   def log_out

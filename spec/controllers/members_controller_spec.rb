@@ -86,7 +86,7 @@ RSpec.describe MembersController, type: :controller do
 
       it "redirects to the member's chapter" do
         post :create, params: {member: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(Chapter.find(session[:chapter_id]))
+        expect(response).to redirect_to(after_signup_path)
       end
     end
 

@@ -11,6 +11,8 @@ class ChaptersController < ApplicationController
   def index
     if Chapter.count == 1
       redirect_to Chapter.first
+    elsif chapter_in_sessions?
+      redirect_to Chapter.find(session_chapter.id)
     else
       @chapters = Chapter.all
     end

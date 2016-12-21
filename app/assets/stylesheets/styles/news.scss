@@ -5,7 +5,7 @@
 }
 
 .news {
-  @include exec-and-news-elements(300px, 650px, 375px, 300px, 250px, 300px);
+  @include exec-and-news-elements(300px, 620px, 375px, 300px, 250px, 300px);
   margin: 10px 10px;
 
   div {

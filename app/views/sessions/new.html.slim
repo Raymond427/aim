@@ -1,13 +1,12 @@
 main.main__wrapper
-  .row
-    header.main__header
-      h1 Log In
-    .login-form.forms
-      = form_for(:session, url: login_path) do |f|
-        = f.label :email
-        = f.email_field :email, class: 'form-control'
-        = f.label :password
-        = f.password_field :password, class: 'form-control'
-        br
-        = f.submit "Log In", class: "btn btn-primary"
-        = content_tag :a, 'New Member? Sign Up Here', href: new_member_path
+  header.main__header
+    h1 Log In
+  .login-form.forms
+    = form_for(:session, url: login_path) do |f|
+      = f.label :email
+      = f.email_field :email, class: 'form-control'
+      = f.label :password
+      = f.password_field :password, class: 'form-control'
+      br
+      = f.submit "Log In", class: "btn btn-primary"
+      = content_tag :a, 'New Member? Sign Up Here', href: new_member_path

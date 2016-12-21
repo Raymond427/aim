@@ -39,7 +39,7 @@ class MembersController < ApplicationController
     @member = member_chapter(@chapter).members.new(member_params)
     respond_to do |format|
       if @member.save
-        format.html { redirect_to member_chapter(@member.chapter_id), notice: 'Thanks for Joining! Welcome to Advancing Innovative Minds!' }
+        format.html { redirect_to after_signup_path, notice: 'Thanks for Joining! Welcome to Advancing Innovative Minds!' }
         format.json { render :show, status: :created, location: @member }
         log_in @member
         MemberMailer.welcome_email(@member).deliver_later
