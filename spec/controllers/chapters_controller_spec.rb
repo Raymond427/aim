@@ -32,8 +32,6 @@ RSpec.describe ChaptersController, type: :controller do
   let(:webmaster_member) {FactoryGirl.create(:member, :is_webmaster)}
   let(:valid_session) { { member_id: webmaster_member.id } }
 
-  #TODO Write test for index
-
   describe "GET #show" do
     it "assigns the requested chapter as @chapter" do
       chapter = Chapter.create! valid_attributes

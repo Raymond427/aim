@@ -77,7 +77,7 @@
         label General
         = f.radio_button :role, 'general'
     .field
-      label Major
+      label Major*
       = f.select :major, Member::MAJORS, selected: @member.major, prompt: 'Please select a Major'
     .field
       = f.label :chapter

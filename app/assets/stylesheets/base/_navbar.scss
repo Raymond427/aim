@@ -101,9 +101,9 @@ nav {
   margin: 5px;
 }
 
-#notice {
+.notice {
   @include notices-and-alerts($green);
 }
-#alert {
+.alert {
   @include notices-and-alerts($red);
 }

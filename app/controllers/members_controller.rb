@@ -35,12 +35,11 @@ class MembersController < ApplicationController
   # POST /members
   # POST /members.json
   def create
-    #TODO: Test the line below
     @chapter = session_chapter || member_params[:chapter_id]
     @member = member_chapter(@chapter).members.new(member_params)
     respond_to do |format|
       if @member.save
-        format.html { redirect_to member_chapter(@member.chapter_id), notice: 'Member was successfully created.' }
+        format.html { redirect_to member_chapter(@member.chapter_id), notice: 'Thanks for Joining! Welcome to Advancing Innovative Minds!' }
         format.json { render :show, status: :created, location: @member }
         log_in @member
         MemberMailer.welcome_email(@member).deliver_later
@@ -56,7 +55,7 @@ class MembersController < ApplicationController
   def update
     respond_to do |format|
       if @member.update(member_params)
-        format.html { redirect_to member_chapter(@member.chapter_id), notice: "We've Updated your info" }
+        format.html { redirect_to member_chapter(@member.chapter_id), notice: "We've Updated your Info" }
         format.json { render :show, status: :ok, location: @member }
       else
         format.html { render :edit }

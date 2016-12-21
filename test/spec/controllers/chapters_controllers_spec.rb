@@ -32,8 +32,6 @@ RSpec.describe ChaptersController, type: :controller do
   # ChaptersController. Be sure to keep this updated too.
   let(:valid_session) { {member_id: member.id} }
 
-  #TODO Write test for index
-
   describe "GET #show" do
     it "assigns the requested chapter as @chapter" do
       chapter = Chapter.create! valid_attributes
