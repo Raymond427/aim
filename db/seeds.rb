@@ -1070,15 +1070,8 @@ news = News.create([
     chapter: chapters.first
   },
   {
-    title: 'Business Model Canvas Workshop',
-    date: '2016-02-24',
-    mediatype: 'Image',
-    description: 'AIM was chosen out of 51 new student organizations as the Outstanding New Student Organization of 2016!',
-    chapter: chapters.first
-  },
-  {
     title: 'New Student Org of the Year!!',
-    date: '2016-04-20',
+    date: '2016-02-24',
     mediatype: 'Image',
     description: 'Members learned how a business model canvas can make creating a business plan easier!',
     chapter: chapters.first

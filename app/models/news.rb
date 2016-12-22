@@ -20,6 +20,5 @@ class News < ApplicationRecord
     size: { in: 0..10.megabytes },
     content_type: { content_type: /^image\/(jpeg|png|gif|tiff)$/ }
 
-  # Validate the attached image is image/jpg, image/png, etc
   validates_attachment_content_type :thumbnail, :content_type => /\Aimage\/.*\Z/
 end

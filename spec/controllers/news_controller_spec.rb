@@ -60,9 +60,9 @@ RSpec.describe NewsController, type: :controller do
         expect(assigns(:news)).to be_persisted
       end
 
-      it "redirects to the created news" do
+      it "redirects to the news index" do
         post :create, params: {news: valid_attributes}, session: valid_session
-        expect(response).to redirect_to(News.last)
+        expect(response).to redirect_to(news_index_path)
       end
     end
 
@@ -131,7 +131,7 @@ RSpec.describe NewsController, type: :controller do
     it "redirects to the news list" do
       news = chapter.news.create! valid_attributes
       delete :destroy, params: {id: news.to_param}, session: valid_session
-      expect(response).to redirect_to(news_url)
+      expect(response).to redirect_to(news_index_path)
     end
   end
 end

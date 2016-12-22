@@ -4,18 +4,13 @@ class MembersController < ApplicationController
   before_action :chapter_schools, only: [:index]
   before_action :redirect_if_no_chapter_in_session, only: [:executives]
 
-  # GET /members
-  # GET /members.json
   def index
     @members = session_chapter.members.all
   end
 
-  # GET /members/1
-  # GET /members/1.json
   def show
   end
 
-  # GET /members/new
   def new
     @member = Member.new
   end
@@ -23,7 +18,6 @@ class MembersController < ApplicationController
   def after_signup
   end
 
-  # GET /members/1/edit
   def edit
     redirect_to session_chapter, alert: 'You cannot edit other members!' unless current_member.present? && (@member.id == current_member.id || (member_can_edit? || member_can_create?))
   end
@@ -32,8 +26,6 @@ class MembersController < ApplicationController
     @executives = session_chapter.members.where(is_executive: true).sort_by {|member| Member::POSITIONS.index(member.executive_position)}
   end
 
-  # POST /members
-  # POST /members.json
   def create
     @chapter = session_chapter || member_params[:chapter_id]
     @member = member_chapter(@chapter).members.new(member_params)
@@ -50,8 +42,6 @@ class MembersController < ApplicationController
     end
   end
 
-  # PATCH/PUT /members/1
-  # PATCH/PUT /members/1.json
   def update
     respond_to do |format|
       if @member.update(member_params)
@@ -64,8 +54,6 @@ class MembersController < ApplicationController
     end
   end
 
-  # DELETE /members/1
-  # DELETE /members/1.json
   def destroy
     @member.destroy
     respond_to do |format|
@@ -75,13 +63,11 @@ class MembersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def find_member
       @member = Member.find(params[:id])
       redirect_to session_chapter, alert: 'No member found' if @member.nil?
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
       params.require(:member).permit(:first_name, :last_name, :email, :password, :password_confirmation, :role, :linkedinurl, :major, :graduation_date, :is_executive, :executive_position, :linkedin_photo_url, :chapter_id, :subscribed, :phone_number, :thumbnail )
     end

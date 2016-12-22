@@ -2,24 +2,17 @@ class AppointmentsController < ApplicationController
   before_action :redirect_if_not_logged_in
   before_action :find_appointment, only: [:show, :destroy]
 
-  # GET /appointments
-  # GET /appointments.json
   def index
     @appointments = Appointment.all
   end
 
-  # GET /appointments/1
-  # GET /appointments/1.json
   def show
   end
 
-  # GET /appointments/new
   def new
     @appointment = Appointment.new
   end
 
-  # POST /appointments
-  # POST /appointments.json
   def create
     @appointment = Appointment.new(appointment_params)
     respond_to do |format|
@@ -35,8 +28,6 @@ class AppointmentsController < ApplicationController
     end
   end
 
-  # DELETE /appointments/1
-  # DELETE /appointments/1.json
   def destroy
     @appointment.destroy
     respond_to do |format|
@@ -46,12 +37,10 @@ class AppointmentsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def find_appointment
       @appointment = Appointment.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def appointment_params
       params.require(:appointment).permit(:first_name, :last_name, :email, :phone_number, :message)
     end

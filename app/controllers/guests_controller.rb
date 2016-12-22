@@ -2,24 +2,17 @@ class GuestsController < ApplicationController
   before_action :set_guest, only: [:show, :edit, :update, :destroy]
   before_action :redirect_if_not_webmaster_or_admin, only: [:index, :show, :destroy]
 
-  # GET /guests
-  # GET /guests.json
   def index
     @guests = Guest.all
   end
 
-  # GET /guests/1
-  # GET /guests/1.json
   def show
   end
 
-  # GET /guests/new
   def new
     @guest = Guest.new
   end
 
-  # POST /guests
-  # POST /guests.json
   def create
     @guest = Guest.new(guest_params)
 
@@ -36,8 +29,6 @@ class GuestsController < ApplicationController
     end
   end
 
-  # DELETE /guests/1
-  # DELETE /guests/1.json
   def destroy
     @guest.destroy
     respond_to do |format|
@@ -47,12 +38,10 @@ class GuestsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_guest
       @guest = Guest.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def guest_params
       params.require(:guest).permit(:first_name, :last_name, :email, :phone_number, :date, :message)
     end
