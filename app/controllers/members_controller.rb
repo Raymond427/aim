@@ -55,9 +55,15 @@ class MembersController < ApplicationController
   end
 
   def destroy
+    member_deleting_themselves = @member.id == current_member.id
     @member.destroy
     respond_to do |format|
-      format.html { redirect_to members_url, notice: 'Member was successfully destroyed.' }
+      if member_deleting_themselves
+        log_out
+        format.html { redirect_to session_chapter, notice: "We're Sorry to See You Go! Thanks for being apart of AIM" }
+      else
+        format.html { redirect_to members_url, notice: 'Member was successfully destroyed.' }
+      end
       format.json { head :no_content }
     end
   end

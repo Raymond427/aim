@@ -1,37 +1,39 @@
 main.main__wrapper
   p#notice = notice
+  .member-data
+    p
+      strong First name:
+      = @member.first_name
+    p
+      strong Last name:
+      = @member.last_name
+    p
+      strong Email:
+      = @member.email
+    p
+      strong Role:
+      = @member.role
+    p
+      strong Linkedinurl:
+      = @member.linkedinurl
+    p
+      strong Subscribed:
+      = @member.subscribed
+    p
+      strong Major:
+      = @member.major
+    p
+      strong Graduation date:
+      = @member.graduation_date
+    p
+      strong Is executive:
+      = @member.is_executive
+    p
+      strong Executive position:
+      = @member.executive_position
 
-  p
-    strong First name:
-    = @member.first_name
-  p
-    strong Last name:
-    = @member.last_name
-  p
-    strong Email:
-    = @member.email
-  p
-    strong Password digest:
-    = @member.password_digest
-  p
-    strong Role:
-    = @member.role
-  p
-    strong Linkedinurl:
-    = @member.linkedinurl
-  p
-    strong Major:
-    = @member.major
-  p
-    strong Graduation date:
-    = @member.graduation_date
-  p
-    strong Is executive:
-    = @member.is_executive
-  p
-    strong Executive position:
-    = @member.executive_position
-
-  = link_to 'Edit', edit_member_path(@member)
-  '|
-  = link_to 'Back', members_path
+    = link_to 'Edit', edit_member_path(@member)
+    '|
+    = link_to 'Back', members_path
+    '|
+    td= link_to 'Delete Account', @member, method: :delete, data: {confirm: 'Are you sure?' }
