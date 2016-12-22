@@ -4,8 +4,11 @@
 .main__wrapper {
   margin: $main-wrapper-margin;
   visibility: hidden;
-  animation: fadeIn 1s ease-out forwards 0.75s;
   text-align: center;
+
+  div {
+    animation: fadeIn 1s ease-out forwards 0.75s;
+  }
 }
 
 .main__header {

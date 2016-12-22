@@ -43,9 +43,9 @@ nav.navbar.navbar-fixed-top
       li
         a.school-link.hidden-sm.hidden-xs href="https://www.uncc.edu" title="Visit UNCC"
           = image_tag 'uncc.gif', :class => 'school-logo'
-  - if flash[:notice]
-    #notice
-      = notice
-  - elsif flash[:alert]
+  - if flash[:alert]
     #alert
       = alert
+  - elsif flash[:notice]
+    #notice
+      = notice
