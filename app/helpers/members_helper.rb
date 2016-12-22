@@ -35,9 +35,7 @@ module MembersHelper
 
   def member_can_edit?
     if logged_in?
-      if !(member_is_webmaster?)
-        (member_is_admin? || member_is_editor?) && member_in_chapter?
-      end
+      member_is_webmaster? || ((member_is_admin? || member_is_editor?) && member_in_chapter?)
     end
   end
 
