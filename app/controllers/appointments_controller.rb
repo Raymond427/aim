@@ -1,6 +1,7 @@
 class AppointmentsController < ApplicationController
   before_action :redirect_if_not_logged_in
   before_action :find_appointment, only: [:show, :destroy]
+  before_action :redirect_if_not_webmaster_admin_or_editor, except: [:new, :create]
 
   def index
     @appointments = Appointment.all

@@ -2,6 +2,7 @@ class MembersController < ApplicationController
   before_action :find_member, only: [:show, :edit, :update, :destroy]
   before_action :chapter_schools, only: [:index]
   before_action :redirect_if_no_chapter_in_session, only: [:executives]
+  before_action :redirect_if_not_webmaster_admin_or_editor, only: [:index]
 
   def index
     @members = session_chapter.members.all

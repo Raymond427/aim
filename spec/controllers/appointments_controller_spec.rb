@@ -35,7 +35,7 @@ RSpec.describe AppointmentsController, type: :controller do
   # in order to pass any filters (e.g. authentication) defined in
   # AppointmentsController. Be sure to keep this updated too.
   let(:chapter) { FactoryGirl.create(:chapter) }
-  let(:logged_in_member) { FactoryGirl.create(:member) }
+  let(:logged_in_member) { FactoryGirl.create(:member, :is_webmaster) }
   let(:logged_in_session) {{ chapter_id: chapter.id, member_id: logged_in_member.id }} # logs in a member
   let(:logged_out_session) {{}}
 

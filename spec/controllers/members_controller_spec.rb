@@ -37,11 +37,13 @@ RSpec.describe MembersController, type: :controller do
   # in order to pass any filters (e.g. authentication) defined in
   # MembersController. Be sure to keep this updated too.
   let(:valid_session) { { chapter_id: chapter.id } }
+  let(:logged_in_webmaster) { FactoryGirl.create(:member, :is_webmaster) }
+  let(:webmaster_session) {{ chapter_id: chapter.id, member_id: logged_in_webmaster.id }}
 
   describe "GET #index" do
     it "assigns all members as @members" do
       member = chapter.members.create! valid_attributes
-      get :index, params: {}, session: valid_session
+      get :index, params: {}, session: webmaster_session
       expect(assigns(:members)).to eq([member])
     end
   end
