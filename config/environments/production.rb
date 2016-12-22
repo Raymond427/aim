@@ -64,7 +64,7 @@ Rails.application.configure do
   config.action_mailer.delivery_method = :smtp
 
   #Enable inline images in emails
-  config.action_mailer.asset_host = 'http://localhost:3000/'
+  config.action_mailer.asset_host = 'http://www.aimuncc.org/'
 
   # SMTP settings for gmail
 
