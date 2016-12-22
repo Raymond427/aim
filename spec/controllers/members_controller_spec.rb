@@ -150,7 +150,6 @@ RSpec.describe MembersController, type: :controller do
       @member = member
       expect {
         delete :destroy, params: {id: member.to_param}, session: valid_session
-        byebug
       }.to change(Member, :count).by(-1)
     end
 
