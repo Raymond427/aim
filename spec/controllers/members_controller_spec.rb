@@ -147,15 +147,17 @@ RSpec.describe MembersController, type: :controller do
   describe "DELETE #destroy" do
     it "destroys the requested member" do
       member = chapter.members.create! valid_attributes
+      @member = member
       expect {
         delete :destroy, params: {id: member.to_param}, session: valid_session
+        byebug
       }.to change(Member, :count).by(-1)
     end
 
-    it "redirects to the members list" do
+    it "redirects to the chapter page" do
       member = chapter.members.create! valid_attributes
       delete :destroy, params: {id: member.to_param}, session: valid_session
-      expect(response).to redirect_to(members_url)
+      expect(response).to redirect_to(chapter)
     end
   end
 

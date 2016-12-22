@@ -55,7 +55,7 @@ class MembersController < ApplicationController
   end
 
   def destroy
-    member_deleting_themselves = @member.id == current_member.id
+    member_deleting_themselves = @member.present? || (@member.id == current_member.id)
     @member.destroy
     respond_to do |format|
       if member_deleting_themselves

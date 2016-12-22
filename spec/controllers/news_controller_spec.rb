@@ -23,14 +23,6 @@ RSpec.describe NewsController, type: :controller do
     end
   end
 
-  describe "GET #show" do
-    it "assigns the requested news as @news" do
-      news = chapter.news.create! valid_attributes
-      get :show, params: {id: news.to_param}, session: valid_session
-      expect(assigns(:news)).to eq(news)
-    end
-  end
-
   describe "GET #new" do
     it "assigns a new news as @news" do
       get :new, params: {}, session: valid_session
