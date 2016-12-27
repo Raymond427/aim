@@ -33,42 +33,42 @@ main.home-wrapper
       h1 Former Speakers
     .speakers
       .speaker
-        = image_tag 'jb.png', :alt => 'Jeff Brokaw'
+        = image_tag 'jb.png', alt: 'Jeff Brokaw'
         .speaker__info
           h3 Jeff Brokaw
           p Charlotte Director of Google's Startup Grind
       .speaker
-        = image_tag 'zb.jpg', :alt => 'Zerrick Bynum'
+        = image_tag 'zb.jpg', alt: 'Zerrick Bynum'
         .speaker__info
           h3 Zerrick Bynum
           p Founder of ShopOff
       .speaker
-        = image_tag 'pw.jpg', :alt => 'Paul Wettenhall'
+        = image_tag 'pw.jpg', alt: 'Paul Wettenhall'
         .speaker__info
           h3 Paul Wettenhall
           p President of Ventureprise
       .speaker
-        = image_tag 'ce.jpg', :alt => 'Chris Elmore'
+        = image_tag 'ce.jpg', alt: 'Chris Elmore'
         .speaker__info
           h3 Chris Elmore
           p Director of Product Strategy at AvidXchange
       .speaker
-        = image_tag 'ie.jpg', :alt => 'Isaiah K. Edwards'
+        = image_tag 'ie.jpg', alt: 'Isaiah K. Edwards'
         .speaker__info
           h3 Isaiah K. Edwards
           p Executive Director of Edwards Global Investments
       .speaker
-        = image_tag 'vn.png', :alt => 'Velvet Nelson'
+        = image_tag 'vn.png', alt: 'Velvet Nelson'
         .speaker__info
           h3 Velvet Nelson
           p Co-Founder of Proctor Free
       .speaker
-        = image_tag 'cs.png', :alt => 'Cyrus Summerlin'
+        = image_tag 'cs.png', alt: 'Cyrus Summerlin'
         .speaker__info
           h3 Cyrus Summerlin
           p Co-Founder of Push for Pizza
       .speaker
-        = image_tag 'dc.jpg', :alt => 'Devin Collins'
+        = image_tag 'dc.jpg', alt: 'Devin Collins'
         .speaker__info
           h3 Devin Collins
           p Assistant Director at Ventureprise
@@ -78,13 +78,25 @@ main.home-wrapper
     .sponsors
       .sponsor
         = link_to('https://www.carbonfive.com/') do
-          = image_tag 'C5.png', :alt=> 'carbonfive'
+          = image_tag 'C5.png', alt: 'carbonfive'
           .sponsor__info
             h3 Carbon Five
             p Fresh Code, Delivered Daily
       .sponsor
         = link_to('https://www.studypool.com/') do
-          = image_tag 'studypool.png', :alt=> 'studypool'
+          = image_tag 'studypool.png', alt: 'studypool'
           .sponsor__info
             h3 Studypool
             p A Leader in Online Homework Help
+      .sponsor
+        = link_to('http://ventureprise.org/') do
+          = image_tag 'ventureprise.jpg', alt: 'ventureprise'
+          .sponsor__info
+            h3 Ventureprise
+            p Innovate, Interact, Ignite
+      .sponsor
+        = link_to('http://ventureprise.org/incubator-and-accelerator/student-incubator/') do
+          = image_tag '49erfoundry.png', alt: '49erfoundry'
+          .sponsor__info
+            h3 49er Foundry
+            p On campus student entrepreneurial incubator
