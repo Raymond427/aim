@@ -14,8 +14,7 @@
     <meta name="description" content="Advancing Innovative Minds (AIM) is UNC Charlotte's most active and dedicated entrepreneurial club. We plan on using the booming development of the Charlotte area as a catalyst to create truly effective ideas that will culminate into thriving businesses." />
     <meta name="viewport" content="width=device-width">
     <link rel="icon" src="favicon.ico"/>
-    <% if request.path == '/' || request.path == '/chapters' %>
-    <% else %>
+    <% if !(request.path == '/' || request.path == '/chapters') %>
       <%= render 'partials/navbar' %>
     <% end %>
   </head>
