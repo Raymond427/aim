@@ -53,9 +53,11 @@
 }
 
 @mixin main-header {
-  visibility: hidden;
-  animation: fadeNdrop 1s ease-out forwards 0.2s;
-  margin-bottom: 35px;
+  h1, h2, form {
+    visibility: hidden;
+    animation: fadeNdrop 1s ease-out forwards 0.2s;
+    margin-bottom: 35px;
+  }
 
   h1 {
     color: $green;
