@@ -14,7 +14,7 @@ class Member < ApplicationRecord
 
   validates_attachment :thumbnail,
     size: { in: 0..10.megabytes },
-    content_type: { content_type: %r{/^image\/(jpeg|png|gif|tiff)$/} }
+    content_type: { content_type: ['image/jpeg', 'image/png', 'image/gif', 'image/jpg'] }
 
   MAJORS = [
     'Accounting', 'Africana Studies', 'Anthropology',
