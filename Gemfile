@@ -38,7 +38,7 @@ gem 'rails_12factor'
 
 gem 'bootstrap-sass'
 
-gem 'paperclip'
+gem "paperclip", ">= 5.2.0"
 
 gem 'aws-sdk'
 
@@ -94,4 +94,4 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'therubyracer', platforms: :ruby
+gem 'mini_racer', platforms: :ruby
