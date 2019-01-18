@@ -48,7 +48,7 @@ To build the app, be sure you have these installed:
 
 * Configure the database connection
 
-    Open the file config/database.yml in your app
+    Open the file `config/database.yml` in your app
 
 * Look for the content indented under the default database scheme and enter the username and password you created under the pool or port value, it will look something like this:
 
@@ -90,13 +90,13 @@ To build the app, be sure you have these installed:
 #### Running the Application Locally
 
     `rails server`
-
-    Open your favorite browser and put in the address: http://localhost:3000
+    
+* Open your favorite browser and put in the address: http://localhost:3000
 
 
 ### Running the Test Suite
 
-    To run all specs and integration tests run:
+* To run all specs and integration tests run:
 
     `rspec`
 
@@ -117,11 +117,12 @@ Learn more at [mailcatcher.me](http://mailcatcher.me/). And please don't add mai
 
 ### Hosting
 
-The app is hosted on Heroku under the account rferrel427@gmail.com
+* The app is hosted on Heroku under the account rferrel427@gmail.com
 
-The database is hosted on AWS S3 under the account rferrel9@uncc.edu
+* The database is hosted on AWS S3 under the account rferrel427@gmail.com
 
 ### Deployment Instructions
 
 * Stage and commit all of your changes and run:
+
     `git push heroku master`
